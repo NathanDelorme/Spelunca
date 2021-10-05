@@ -33,7 +33,7 @@ Nous sommes 5 étudiants à travailler en groupe sur ce projet :
  - [GADIO Abdourahmane](https://github.com/MineYoursAll)
  - [MEYNE Léo](https://github.com/LeoMeyne)
  - [PELLEGRINI Arthur](https://github.com/arthurpellegrini)
- - [PUGET Balthazar](404)
+ - [PUGET Balthazar](https://github.com/balth-0)
 
 ### Dates clés du projet
 <p>Début : 13 Septembre 2021<br/>
