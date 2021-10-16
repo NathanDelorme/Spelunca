@@ -30,7 +30,7 @@ Il est conçu par des étudiants en filière informatique de la classe INFO2-B2.
 ### Qui développe ce projet ?
 Nous sommes 5 étudiants à travailler en groupe sur ce projet :
  - [DELORME Nathan](https://github.com/NathanDelorme)
- - [GADIO Abdourahmane](https://github.com/MineYoursAll)
+ - [GADIO Abdourahmane](https://github.com/AbdourahmaneGadio)
  - [MEYNE Léo](https://github.com/LeoMeyne)
  - [PELLEGRINI Arthur](https://github.com/arthurpellegrini)
  - [PUGET Balthazar](https://github.com/balth-0)
