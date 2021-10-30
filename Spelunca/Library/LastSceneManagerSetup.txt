@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Scenes/Worlds/0_Template/Template.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
