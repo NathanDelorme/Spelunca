@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Worlds/Showcase/Showcase_0.unity
+- path: Assets/Scenes/Showcases/Showcase_0.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
