@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         _horizontalDirection = GetDirection().x;
+        Debug.Log(_horizontalDirection);
     }
 
     private void FixedUpdate()
