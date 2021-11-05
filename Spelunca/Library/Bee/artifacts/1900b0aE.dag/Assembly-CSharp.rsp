@@ -350,6 +350,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/Scripts/Player/InputProvider.cs"
 "Assets/Scripts/Player/PlayerController.cs"
+"Assets/Scripts/Player/PlayerDeathWin.cs"
 "Assets/Scripts/Player/ScriptableObject/MovementState.cs"
 "Assets/Scripts/Player/ScriptableObject/PlayerStats.cs"
 -langversion:8.0
