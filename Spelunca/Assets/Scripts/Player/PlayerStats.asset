@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5afcd40a6faba644a59ee8cd2085af5, type: 3}
+  m_Name: PlayerStats
+  m_EditorClassIdentifier: 
+  maxAcceleration: 40
+  maxSpeed: 10
+  groundLinearDrag: 10
+  jumpForce: 15
+  airLinearDrag: 2.5
+  fallMultiplier: 8
+  lowFallMultiplier: 5
+  downMultiplier: 12
+  jumpTime: 0.1
