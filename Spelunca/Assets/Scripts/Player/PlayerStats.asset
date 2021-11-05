@@ -15,9 +15,9 @@ MonoBehaviour:
   maxAcceleration: 40
   maxSpeed: 10
   groundLinearDrag: 10
-  jumpForce: 15
+  jumpForce: 50
   airLinearDrag: 2.5
   fallMultiplier: 8
   lowFallMultiplier: 5
   downMultiplier: 12
-  jumpTime: 0.1
+  jumpTime: 0.125

@@ -3,11 +3,15 @@ using UnityEngine;
 public class PlayerDeathWin : MonoBehaviour
 {
     public LayerMask deadZone;
-    private BoxCollider2D playerCollider;
+    public GameObject spawnPoint;
+    private Rigidbody2D _rb;
+    private BoxCollider2D _playerCollider;
 
     void Start()
     {
-        playerCollider = GetComponentInParent<BoxCollider2D>();
+        _rb = GetComponentInParent<Rigidbody2D>();
+        _playerCollider = GetComponentInParent<BoxCollider2D>();
+        SpawnPlayer();
     }
 
     private void FixedUpdate()
@@ -15,11 +19,14 @@ public class PlayerDeathWin : MonoBehaviour
         CheckIsInDeadZone();
     }
 
+    private void SpawnPlayer()
+    {
+        _rb.transform.position = spawnPoint.transform.position;
+    }
+
     private void CheckIsInDeadZone()
     {
-        if(playerCollider.IsTouchingLayers(deadZone.value))
-        {
-            Debug.Log("Mort");
-        }
+        if(_playerCollider.IsTouchingLayers(deadZone.value))
+            SpawnPlayer();
     }
 }
