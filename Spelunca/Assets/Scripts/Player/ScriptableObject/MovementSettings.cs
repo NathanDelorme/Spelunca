@@ -1,25 +1,31 @@
 using UnityEngine;
 
 [CreateAssetMenu]
-public class PlayerStats : ScriptableObject
+public class MovementSettings : ScriptableObject
 {
-    [Header("Run variables")]
+    [Header("Movement variables")]
     public float maxAcceleration = 50f;
     public float maxSpeed = 10f;
-    public float groundLinearDrag = 12f;
-
+    
     [Header("Jump variables")]
     public float jumpForce = 12f;
+    public float maxJumpTime = 0.125f;
+    public float maxCoyoteTime = 0.1f;
+
+    [Header("Drag variables")]
+    public float groundLinearDrag = 10f;
     public float airLinearDrag = 2.5f;
-    public float fallMultiplier = 8f;
 
     public void Initialize()
     {
         maxAcceleration = 50f;
         maxSpeed = 10f;
-        groundLinearDrag = 12f;
 
         jumpForce = 12f;
+        maxJumpTime = 0.125f;
+        maxCoyoteTime = 0.1f;
+
+        groundLinearDrag = 10f;
         airLinearDrag = 2.5f;
     }
 }

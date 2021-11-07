@@ -9,15 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5afcd40a6faba644a59ee8cd2085af5, type: 3}
-  m_Name: PlayerStats
+  m_Script: {fileID: 11500000, guid: 090f79c402f215a48aea5b5d39b2b992, type: 3}
+  m_Name: PlayerState
   m_EditorClassIdentifier: 
-  maxAcceleration: 40
-  maxSpeed: 10
-  groundLinearDrag: 10
-  jumpForce: 50
-  airLinearDrag: 2.5
-  fallMultiplier: 8
-  lowFallMultiplier: 5
-  downMultiplier: 12
-  jumpTime: 0.125
+  linearDragType: 1
+  facing: 1
+  horDir: 0
+  verDir: 0
+  canMove: 1
+  wantToMove: 0
+  isMoving: 0
+  canJump: 0
+  wantToJump: 0
+  isJumping: 0
+  canDash: 1
+  wantToDash: 0
+  isDashing: 0

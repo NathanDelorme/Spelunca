@@ -181,9 +181,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8379941676702588347}
-  - component: {fileID: 1404064791499079065}
-  - component: {fileID: 740999034367946437}
-  - component: {fileID: 4204139231734180115}
+  - component: {fileID: 6954076485735095762}
+  - component: {fileID: 4521731866934096216}
+  - component: {fileID: 1146902451649840771}
+  - component: {fileID: 4195968179786761638}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -205,7 +206,7 @@ Transform:
   m_Father: {fileID: 2555768472622934768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1404064791499079065
+--- !u!114 &6954076485735095762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,11 +215,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4204139231734180335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2976f5af65e68a9408b1803a92f0d90a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f82df96ece55714290f53d6b6c2cdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementState: {fileID: 11400000, guid: 74792fd2e150b414a83e78ae529a0db7, type: 2}
---- !u!114 &740999034367946437
+  playerState: {fileID: 11400000, guid: 2ab7fb3d5119376459e4af41b64be07b, type: 2}
+--- !u!114 &4521731866934096216
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,16 +228,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4204139231734180335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05a9839812655a54dbc4a8a30cc24d16, type: 3}
+  m_Script: {fileID: 11500000, guid: 71e3a8aa48c36ae4ba0ae5f3957c7d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementState: {fileID: 11400000, guid: 74792fd2e150b414a83e78ae529a0db7, type: 2}
-  playerStats: {fileID: 11400000, guid: 4bae3659ec230444d916b560662d4003, type: 2}
-  _groundLayer:
+  playerState: {fileID: 11400000, guid: 2ab7fb3d5119376459e4af41b64be07b, type: 2}
+  movementSettings: {fileID: 11400000, guid: 446d0424404815c4abc1a5edb933469b, type: 2}
+  groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  _groundCheckerCollider: {fileID: 2527220259495752236}
---- !u!114 &4204139231734180115
+  groundCheckCollider: {fileID: 2527220259495752236}
+--- !u!114 &1146902451649840771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,10 +246,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4204139231734180335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736b9dcf257e67a4c8447a83ca125517, type: 3}
+  m_Script: {fileID: 11500000, guid: 220bd47f47eeab743a40d19fd42ee0e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadZone:
+  playerState: {fileID: 11400000, guid: 2ab7fb3d5119376459e4af41b64be07b, type: 2}
+  movementSettings: {fileID: 11400000, guid: 446d0424404815c4abc1a5edb933469b, type: 2}
+--- !u!114 &4195968179786761638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4204139231734180335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb85d85d571ad3946b1a288b1dcb159b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killZone:
     serializedVersion: 2
     m_Bits: 128
   spawnPoint: {fileID: 4266812692058493789}
@@ -520,7 +535,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: -0.45}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
