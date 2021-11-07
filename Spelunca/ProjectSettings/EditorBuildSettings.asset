@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Showcases/Showcase_0.unity
     guid: b15e72cf1ce124da7b4a7da34452ff23
+  - enabled: 0
+    path: Assets/Scenes/Tests/Arthur/test_variable_jump.unity
+    guid: 4806d76cbadbe554295917768c8809ba
+  - enabled: 0
+    path: Assets/Scenes/Tests/Arthur/test_deadzones.unity
+    guid: 7956c3c2fd040cd46b5359f533d6b4cb
   m_configObjects: {}
