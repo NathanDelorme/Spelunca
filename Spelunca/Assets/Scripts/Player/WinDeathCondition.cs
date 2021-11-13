@@ -23,6 +23,7 @@ public class WinDeathCondition : MonoBehaviour
 
     private void SpawnPlayer()
     {
+        _rigidBody.velocity = new Vector2(0f, 0f);
         _rigidBody.transform.position = spawnPoint.transform.position;
     }
 

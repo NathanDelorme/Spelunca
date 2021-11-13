@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090f79c402f215a48aea5b5d39b2b992, type: 3}
   m_Name: PlayerState
   m_EditorClassIdentifier: 
-  linearDragType: 1
+  linearDragType: 0
   facing: 1
   horDir: 0
   verDir: 0
   canMove: 1
   wantToMove: 0
   isMoving: 0
-  canJump: 0
+  canJump: 1
   wantToJump: 0
   isJumping: 0
   canDash: 1
