@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidBody;
 
     private float jumpTimeCounter;
+    private float dashTimeCounter;
 
     private void Start()
     {
@@ -18,11 +19,52 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (playerState.wantToDash && true)
+            Dash();
         if ((playerState.wantToJump && playerState.canJump) || playerState.isJumping)
             Jump();
         if (playerState.wantToMove && playerState.canMove)
             Move();
+        
         ApplyLayerEffect();
+    }
+
+    private void Dash()
+    {
+        if (!playerState.isDashing)
+        {
+            _rigidBody.velocity = Vector2.zero;
+            _rigidBody.drag = 0f;
+
+            Vector2 dir;
+            if (_rigidBody.velocity.x != 0f || _rigidBody.velocity.y != 0f) 
+                dir = new Vector2(_rigidBody.velocity.x, _rigidBody.velocity.y);
+            else
+            {
+                /*if (playerState.facing) */dir = new Vector2(1f, 0f);
+                /*else dir = new Vector2(-1f, 0f);*/
+            }
+            
+            while (Time.time < movementSettings.dashTime + movementSettings.dashLength)
+            {
+                _rigidBody.velocity = dir.normalized * movementSettings.dashSpeed;
+            }
+                    
+                    
+            //_rigidBody.AddForce(Vector2.up * movementSettings.dashSpeed, ForceMode2D.Impulse);
+        }
+
+        else
+        {
+            //dashTimeCounter > 0f && 
+            if (playerState.wantToDash)
+            {
+                _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0f);
+                _rigidBody.AddForce(Vector2.up * movementSettings.dashSpeed, ForceMode2D.Impulse);
+            }
+        }
+        playerState.canDash = false;
+        playerState.isDashing = true;
     }
 
     private void Jump()

@@ -13,6 +13,7 @@ public class InputController : MonoBehaviour
     {
         CheckMoveInput();
         CheckJumpInput();
+        CheckDashInput();
     }
 
     private void CheckMoveInput()
@@ -28,5 +29,13 @@ public class InputController : MonoBehaviour
             playerState.wantToJump = true;
         else
             playerState.wantToJump = false;
+    }
+
+    private void CheckDashInput()
+    {
+        if (Input.GetButtonDown("Dash"))
+            playerState.wantToDash = true;
+        else
+            playerState.wantToDash = false;
     }
 }
