@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public PlayerState playerState;
     public MovementSettings movementSettings;
     private Rigidbody2D _rigidBody;
+    private SpriteRenderer _sprite;
 
     private float jumpTimeCounter;
     private float dashCurrentTimer;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _rigidBody = GetComponentInParent<Rigidbody2D>();
+        _sprite = GetComponentInParent<SpriteRenderer>();
         movementSettings.Initialize();
     }
 
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
             dashCurrentTimer = movementSettings.dashTime;
             playerState.canDash = false;
             playerState.isDashing = true;
-
+            _sprite.color = Color.red;
             dashDirection = new Vector2(playerState.facing, 0f).normalized;
             if (playerState.horDir != 0 || playerState.verDir != 0)
                 dashDirection = new Vector2(playerState.horDir, playerState.verDir).normalized;
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
         if (dashCurrentTimer <= 0)
         {
             playerState.isDashing = false;
+            _sprite.color = Color.white;
             _rigidBody.gravityScale = 7f;
             _rigidBody.velocity = _rigidBody.velocity / 4;
         }
