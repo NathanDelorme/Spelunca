@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidBody;
 
     private float jumpTimeCounter;
-    private float dashTimeCounter;
+    private float dashCurrentTimer;
+    private Vector2 dashDirection;
 
     private void Start()
     {
@@ -19,71 +20,53 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerState.wantToDash && true)
+        if (!playerState.isDashing)
+        {
+            if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && jumpTimeCounter > 0f && playerState.wantToJump))
+                Jump();
+            if (playerState.wantToMove && playerState.canMove)
+                Move();
+        }
+
+        if (playerState.wantToDash && playerState.canDash && !playerState.isDashing)
+        {
+            dashCurrentTimer = movementSettings.dashTime;
+            playerState.canDash = false;
+            playerState.isDashing = true;
+
+            dashDirection = new Vector2(playerState.facing, 0f).normalized;
+            if (playerState.horDir != 0 || playerState.verDir != 0)
+                dashDirection = new Vector2(playerState.horDir, playerState.verDir).normalized;
+        }
+        if (playerState.isDashing)
             Dash();
-        if ((playerState.wantToJump && playerState.canJump) || playerState.isJumping)
-            Jump();
-        if (playerState.wantToMove && playerState.canMove)
-            Move();
-        
         ApplyLayerEffect();
     }
 
     private void Dash()
     {
-        if (!playerState.isDashing)
-        {
-            _rigidBody.velocity = Vector2.zero;
-            _rigidBody.drag = 0f;
+        _rigidBody.gravityScale = 0f;
+        _rigidBody.AddForce(dashDirection * movementSettings.dashForce, ForceMode2D.Impulse);
 
-            Vector2 dir;
-            if (_rigidBody.velocity.x != 0f || _rigidBody.velocity.y != 0f) 
-                dir = new Vector2(_rigidBody.velocity.x, _rigidBody.velocity.y);
-            else
-            {
-                /*if (playerState.facing) */dir = new Vector2(1f, 0f);
-                /*else dir = new Vector2(-1f, 0f);*/
-            }
-            
-            while (Time.time < movementSettings.dashTime + movementSettings.dashLength)
-            {
-                _rigidBody.velocity = dir.normalized * movementSettings.dashSpeed;
-            }
-                    
-                    
-            //_rigidBody.AddForce(Vector2.up * movementSettings.dashSpeed, ForceMode2D.Impulse);
-        }
-
-        else
+        dashCurrentTimer -= Time.deltaTime;
+        if (dashCurrentTimer <= 0)
         {
-            //dashTimeCounter > 0f && 
-            if (playerState.wantToDash)
-            {
-                _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0f);
-                _rigidBody.AddForce(Vector2.up * movementSettings.dashSpeed, ForceMode2D.Impulse);
-            }
+            playerState.isDashing = false;
+            _rigidBody.gravityScale = 7f;
+            _rigidBody.velocity = _rigidBody.velocity / 4;
         }
-        playerState.canDash = false;
-        playerState.isDashing = true;
     }
 
     private void Jump()
     {
+        _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0f);
+        _rigidBody.AddForce(Vector2.up * movementSettings.jumpForce, ForceMode2D.Impulse);
+
         if (!playerState.isJumping)
-        {
             jumpTimeCounter = movementSettings.maxJumpTime;
-            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0f);
-            _rigidBody.AddForce(Vector2.up * movementSettings.jumpForce, ForceMode2D.Impulse);
-        }
         else
-        {
-            if (jumpTimeCounter > 0f && playerState.wantToJump)
-            {
-                _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0f);
-                _rigidBody.AddForce(Vector2.up * movementSettings.jumpForce, ForceMode2D.Impulse);
-            }
             jumpTimeCounter -= Time.deltaTime;
-        }
+
         playerState.canJump = false;
         playerState.isJumping = true;
     }

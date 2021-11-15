@@ -3,6 +3,7 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     public PlayerState playerState;
+    public MovementSettings movementSettings;
 
     private void Start()
     {
@@ -21,21 +22,23 @@ public class InputController : MonoBehaviour
         playerState.wantToMove = Input.GetAxisRaw("Horizontal") != 0f;
         playerState.horDir = Input.GetAxisRaw("Horizontal");
         playerState.verDir = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetAxisRaw("Horizontal") > 0f)
+            playerState.facing = 1f;
+        if (Input.GetAxisRaw("Horizontal") < -0f)
+            playerState.facing = -1f;
     }
 
     private void CheckJumpInput()
     {
-        if (Input.GetButtonDown("Jump") || Input.GetButton("Jump"))
-            playerState.wantToJump = true;
-        else
-            playerState.wantToJump = false;
+        playerState.wantToJump = Input.GetButtonDown("Jump") || Input.GetButton("Jump");
     }
 
     private void CheckDashInput()
     {
-        if (Input.GetButtonDown("Dash"))
+        if (Input.GetButton("Dash"))
             playerState.wantToDash = true;
-        else
+        else if (Input.GetButtonUp("Dash"))
             playerState.wantToDash = false;
     }
 }

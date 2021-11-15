@@ -18,9 +18,8 @@ public class MovementSettings : ScriptableObject
     public float airLinearDrag = 2f;
 
     [Header("Dash variables")]
-    public float dashSpeed = 150f;
-    public float dashLength = .3f;
-    public float dashTime = 12f;
+    public float dashForce = 25f;
+    public float dashTime = 0.07f;
 
     public void Initialize()
     {
@@ -35,8 +34,7 @@ public class MovementSettings : ScriptableObject
         groundLinearDrag = 10f;
         airLinearDrag = 2f;
 
-        dashSpeed = 15f;
-        dashLength = .3f;
-        dashTime = 0.125f;
+        dashForce = 25f;
+        dashTime = 0.07f;
     }
 }

@@ -36,13 +36,16 @@ public class Jump_Pad : MonoBehaviour
         Tile tile = null;
         for(int x = (int)_rigidBody.position.x - 1; x <= (int)_rigidBody.position.x + 1; x++)
         {
-            Vector3Int tilePos = new Vector3Int(x, (int)(_rigidBody.position.y - 1), 0);
-            tile = (Tile)tilemap.GetTile(tilePos);
-
-            if (tile != null)
+            for (int y = (int)_rigidBody.position.y - 1; y <= (int)_rigidBody.position.y + 1; y++)
             {
-                string tileName = tile.name;
-                return Int32.Parse(tileName.Substring(tileName.Length - 1));
+                Vector3Int tilePos = new Vector3Int(x, y, 0);
+                tile = (Tile)tilemap.GetTile(tilePos);
+
+                if (tile != null)
+                {
+                    string tileName = tile.name;
+                    return Int32.Parse(tileName.Substring(tileName.Length - 1));
+                }
             }
         }
         return -1;
@@ -50,8 +53,6 @@ public class Jump_Pad : MonoBehaviour
 
     private void JumpPad(int padDirection)
     {
-        Debug.Log(padDirection);
-
         switch(padDirection)
         {
             case 0:

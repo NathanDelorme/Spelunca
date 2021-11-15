@@ -31,6 +31,7 @@ public class PlayerState : ScriptableObject
     public bool canDash = true;
     public bool wantToDash = false;
     public bool isDashing = false;
+    public float currentDashTime = 0f;
 
     public void Initialize()
     {
@@ -50,5 +51,6 @@ public class PlayerState : ScriptableObject
         canDash = true;
         wantToDash = false;
         isDashing = false;
+        currentDashTime = 0f;
     }
 }

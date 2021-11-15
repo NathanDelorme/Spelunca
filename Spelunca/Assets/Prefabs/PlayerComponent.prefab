@@ -135,7 +135,7 @@ MonoBehaviour:
   m_RefResolutionX: 320
   m_RefResolutionY: 180
   m_UpscaleRT: 0
-  m_PixelSnapping: 1
+  m_PixelSnapping: 0
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
@@ -182,9 +182,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8379941676702588347}
   - component: {fileID: 6954076485735095762}
-  - component: {fileID: 4521731866934096216}
+  - component: {fileID: 2773232696593535096}
   - component: {fileID: 1146902451649840771}
   - component: {fileID: 4195968179786761638}
+  - component: {fileID: 1092840848105464429}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -219,7 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerState: {fileID: 11400000, guid: 2ab7fb3d5119376459e4af41b64be07b, type: 2}
---- !u!114 &4521731866934096216
+  movementSettings: {fileID: 11400000, guid: 446d0424404815c4abc1a5edb933469b, type: 2}
+--- !u!114 &2773232696593535096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,9 +235,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerState: {fileID: 11400000, guid: 2ab7fb3d5119376459e4af41b64be07b, type: 2}
   movementSettings: {fileID: 11400000, guid: 446d0424404815c4abc1a5edb933469b, type: 2}
-  groundLayer:
-    serializedVersion: 2
+  groundLayers:
+  - serializedVersion: 2
     m_Bits: 64
+  - serializedVersion: 2
+    m_Bits: 256
   groundCheckCollider: {fileID: 2527220259495752236}
 --- !u!114 &1146902451649840771
 MonoBehaviour:
@@ -267,6 +271,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   spawnPoint: {fileID: 4266812692058493789}
+--- !u!114 &1092840848105464429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4204139231734180335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b9459172654324892dd6d9ccc05b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpPadZone:
+    serializedVersion: 2
+    m_Bits: 256
+  tilemap: {fileID: 0}
 --- !u!1 &4266812692058493789
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +505,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 7
   m_Material: {fileID: 6200000, guid: 63e6b5160bab366419a655cb7aa0c73d, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -611,7 +631,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
