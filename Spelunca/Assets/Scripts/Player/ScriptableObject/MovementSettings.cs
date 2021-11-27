@@ -16,6 +16,7 @@ public class MovementSettings : ScriptableObject
     [Header("Drag variables")]
     public float groundLinearDrag = 10f;
     public float airLinearDrag = 2f;
+    public float wallLinearDrag = 20f;
 
     [Header("Dash variables")]
     public float dashForce = 25f;
@@ -33,6 +34,7 @@ public class MovementSettings : ScriptableObject
 
         groundLinearDrag = 10f;
         airLinearDrag = 2f;
+        wallLinearDrag = 20f;
 
         dashForce = 25f;
         dashTime = 0.07f;

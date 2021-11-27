@@ -61,12 +61,20 @@ public class PlayerController : MonoBehaviour
     {
         if (!playerState.isDashing)
         {
+            if (playerState.canWallSlide && true)
+            {
+                if (playerState.wallSlideSide == 1 && playerState.horDir <= -0.1f)
+                    playerState.linearDragType = PlayerState.DragType.WALL;
+                else if (playerState.wallSlideSide == 2 && playerState.horDir >= 0.1f)
+                    playerState.linearDragType = PlayerState.DragType.WALL;
+                else if (playerState.horDir >= 0.1f || playerState.horDir <= -0.1f)
+                    playerState.linearDragType = PlayerState.DragType.WALL;
+            }
             if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && _jumpTimeCounter > 0f && playerState.wantToJump))
                 Jump();
             if (playerState.wantToMove && playerState.canMove)
                 Move();
         }
-
         if (playerState.wantToDash && playerState.canDash && !playerState.isDashing)
         {
             playerState.canDash = false;
@@ -153,7 +161,7 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case PlayerState.DragType.WALL:
-                Debug.Log("Not implemented yet.");
+                _rigidBody.drag = movementSettings.wallLinearDrag;
                 break;
         }
     }

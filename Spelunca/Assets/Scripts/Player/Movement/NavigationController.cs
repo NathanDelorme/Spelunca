@@ -16,6 +16,10 @@ public class NavigationController : MonoBehaviour
     ///  movementSettings store all variables that imply the parameters of the movements (example : the jump force or the dash duration).
     ///  </value>
     public MovementSettings movementSettings;
+    ///  <value>
+    ///  The <c>_rigidBody</c> property is a RigidBody2D which allow us to get and give physics to a <c>GameObject</c>.
+    ///  </value>
+    private Rigidbody2D _rigidBody;
     /// <value>
     /// The <c>groundLayers</c> property is a list that contains all layers that need to be interpreted as the ground.
     /// </value>
@@ -24,6 +28,14 @@ public class NavigationController : MonoBehaviour
     /// The <c>groundCheckCollider</c> property is a collider2D. It's an hitbox which is usefull to detect when the player is on the ground.
     /// </value>
     public Collider2D groundCheckCollider;
+    /// <value>
+    /// The <c>wallLeftCheckCollider</c> property is a collider2D. It's an hitbox which is usefull to detect when the player is close to the wall on the left.
+    /// </value>
+    public Collider2D wallLeftCheckCollider;
+    /// <value>
+    /// The <c>wallRightCheckCollider</c> property is a collider2D. It's an hitbox which is usefull to detect when the player is close to the wall on the left.
+    /// </value>
+    public Collider2D wallRightCheckCollider;
 
 
     /// <value>
@@ -39,6 +51,15 @@ public class NavigationController : MonoBehaviour
     /// </value>
     private float _dashTimeBufferCounter;
 
+    // <summary>
+    /// Function executed at the start of the program.
+    /// Used to get component (<c>_rigidBody</c>) from the parent of the current <c>GameObject</c>.
+    /// </summary>
+    private void Start()
+    {
+        _rigidBody = GetComponentInParent<Rigidbody2D>();
+    }
+
     /// <summary>
     /// Function executed a fixed times per second.
     /// Each fixed frame we check if the player want to move, jump or dash.
@@ -47,6 +68,7 @@ public class NavigationController : MonoBehaviour
     {
         CheckCanJump();
         CheckCanDash();
+        CheckCanWallSlide();
     }
 
     /// <summary>
@@ -87,6 +109,25 @@ public class NavigationController : MonoBehaviour
     }
 
     /// <summary>
+    /// Function that detect if the player can wall slide.
+    /// </summary>
+    private void CheckCanWallSlide()
+    {
+        playerState.canWallSlide = !CheckTouchingGround() && CheckTouchingWall() && _rigidBody.velocity.y < -0.1f;
+        if (!playerState.canWallSlide)
+            playerState.wallSlideSide = -1;
+        else
+        {
+            if (wallLeftCheckCollider.IsTouchingLayers(groundLayers[0]) && wallRightCheckCollider.IsTouchingLayers(groundLayers[0]))
+                playerState.wallSlideSide = 3;
+            else if (wallLeftCheckCollider.IsTouchingLayers(groundLayers[0]))
+                playerState.wallSlideSide = 1;
+            else
+                playerState.wallSlideSide = 2;
+        }
+    }
+
+    /// <summary>
     /// Function that detect if the player is on the ground.
     /// </summary>
     /// <returns>
@@ -99,6 +140,19 @@ public class NavigationController : MonoBehaviour
             if (groundCheckCollider.IsTouchingLayers(l))
                 return true;
         }
+        return false;
+    }
+
+    /// <summary>
+    /// Function that detect if the player is close to the wall to slide.
+    /// </summary>
+    /// <returns>
+    /// True if is close to the ground, else false.
+    /// </returns>
+    private bool CheckTouchingWall()
+    {
+        if (wallLeftCheckCollider.IsTouchingLayers(groundLayers[0]) || wallRightCheckCollider.IsTouchingLayers(groundLayers[0]))
+            return true;
         return false;
     }
 }

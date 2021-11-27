@@ -33,6 +33,11 @@ public class PlayerState : ScriptableObject
     public bool isDashing = false;
     public float currentDashTime = 0f;
 
+    [Header("Wall variables")]
+    public bool canWallSlide = true;
+    public int wallSlideSide = 0;
+    public bool isWallSliding = false;
+
     public void Initialize()
     {
         linearDragType = DragType.NONE;
@@ -52,5 +57,9 @@ public class PlayerState : ScriptableObject
         wantToDash = false;
         isDashing = false;
         currentDashTime = 0f;
+
+        canWallSlide = true;
+        wallSlideSide = 0;
+        isWallSliding = false;
     }
 }
