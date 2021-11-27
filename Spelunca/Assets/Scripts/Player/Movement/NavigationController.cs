@@ -113,7 +113,7 @@ public class NavigationController : MonoBehaviour
     /// </summary>
     private void CheckCanWallSlide()
     {
-        playerState.canWallSlide = !CheckTouchingGround() && CheckTouchingWall() && _rigidBody.velocity.y < -0.1f;
+        playerState.canWallSlide = !CheckTouchingGround() && CheckTouchingWall() && _rigidBody.velocity.y < -0.2f;
         if (!playerState.canWallSlide)
             playerState.wallSlideSide = -1;
         else

@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     ///  </value>
     private Vector2 _dashDirection;
 
+    private bool jumpStoped = false;
+
     /// <summary>
     /// Function executed at the start of the program.
     /// Used to get components (<c>_rigidBody</c>, <c>_sprite</c>) from the parent of the current <c>GameObject</c>.
@@ -61,17 +63,19 @@ public class PlayerController : MonoBehaviour
     {
         if (!playerState.isDashing)
         {
-            if (playerState.canWallSlide && true)
+            if (playerState.canWallSlide)
             {
-                if (playerState.wallSlideSide == 1 && playerState.horDir <= -0.1f)
+                if (playerState.wallSlideSide == 1 && playerState.horDir <= -0.5f)
                     playerState.linearDragType = PlayerState.DragType.WALL;
-                else if (playerState.wallSlideSide == 2 && playerState.horDir >= 0.1f)
+                else if (playerState.wallSlideSide == 2 && playerState.horDir >= 0.5f)
                     playerState.linearDragType = PlayerState.DragType.WALL;
-                else if (playerState.horDir >= 0.1f || playerState.horDir <= -0.1f)
+                else if (playerState.horDir >= 0.1f || playerState.horDir <= -0.5f)
                     playerState.linearDragType = PlayerState.DragType.WALL;
             }
-            if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && _jumpTimeCounter > 0f && playerState.wantToJump))
+            if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && _jumpTimeCounter > 0f && !jumpStoped && playerState.wantToJump))
                 Jump();
+            else
+                jumpStoped = true;
             if (playerState.wantToMove && playerState.canMove)
                 Move();
         }
@@ -150,6 +154,7 @@ public class PlayerController : MonoBehaviour
         switch (playerState.linearDragType)
         {
             case PlayerState.DragType.GROUND:
+                jumpStoped = false;
                 if (Mathf.Abs(playerState.horDir) < 0.4f || isChangingDir)
                     _rigidBody.drag = movementSettings.groundLinearDrag;
                 else

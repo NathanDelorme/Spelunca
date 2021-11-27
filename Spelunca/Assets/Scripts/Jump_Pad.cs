@@ -71,13 +71,12 @@ public class Jump_Pad : MonoBehaviour
     /// </return>
     private int GetTileDirection()
     {
-        Tile tile = null;
-        for(int x = (int)_rigidBody.position.x - 1; x <= (int)_rigidBody.position.x + 1; x++)
+        for (int x = (int)_rigidBody.position.x - 1; x <= (int)_rigidBody.position.x + 1; x++)
         {
             for (int y = (int)_rigidBody.position.y - 1; y <= (int)_rigidBody.position.y + 1; y++)
             {
-                Vector3Int tilePos = new Vector3Int(x, y, 0);
-                tile = (Tile)tilemap.GetTile(tilePos);
+                Vector3Int tilePos = tilemap.WorldToCell(new Vector3(x, y, 0f));
+                Tile tile = (Tile)tilemap.GetTile(tilePos);
 
                 if (tile != null)
                 {
