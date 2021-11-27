@@ -102,8 +102,6 @@ public class NavigationController : MonoBehaviour
         if(CheckTouchingGround())
             playerState.canDash = playerState.currentDashTime <= 0f && _dashTimeBufferCounter <= 0f;
 
-        
-
         if (playerState.currentDashTime <= 0f)
             _dashTimeBufferCounter -= Time.deltaTime;
     }

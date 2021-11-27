@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
         {
             playerState.canDash = false;
             playerState.isDashing = true;
+            _rigidBody.velocity = new Vector2(0, 0);
             _dashCurrentTimer = movementSettings.dashTime;
             _sprite.color = Color.red;
             _dashDirection = new Vector2(playerState.facing, 0f).normalized;
