@@ -12,6 +12,7 @@ public class Parallax : MonoBehaviour
 
     void Start()
     {
+        Screen.SetResolution(1920, 1080, true);
         _startPos = transform.position.x;
         _length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
