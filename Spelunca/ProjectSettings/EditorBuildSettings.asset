@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Tests/Nathan/Test_0.unity
     guid: 906698afbba49a94a8ec0d015588bf6e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UI/Main.unity
     guid: c46dc6859a1d9514f8096ee99fc5002d
   - enabled: 1
