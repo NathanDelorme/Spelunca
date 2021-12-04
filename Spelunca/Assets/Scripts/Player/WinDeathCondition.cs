@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 ///  This class get and interpret when the player should die or win.
@@ -32,11 +33,11 @@ public class WinDeathCondition : MonoBehaviour
     /// </summary>
     void Start()
     {
+        SaveSceneName();
         _rigidBody = GetComponentInParent<Rigidbody2D>();
         _playerCollider = GetComponentInParent<BoxCollider2D>();
         SpawnPlayer();
     }
-
     /// <summary>
     /// Function executed a fixed times per second.
     /// Each fixed frame we check if the player is touching the kill zone or not.
@@ -66,5 +67,10 @@ public class WinDeathCondition : MonoBehaviour
     private bool CheckIsInDeadZone()
     {
         return _playerCollider.IsTouchingLayers(killZone.value);
+    }
+
+    private void SaveSceneName()
+    {
+        PlayerPrefs.SetString("player_lastScene", SceneManager.GetActiveScene().name);
     }
 }

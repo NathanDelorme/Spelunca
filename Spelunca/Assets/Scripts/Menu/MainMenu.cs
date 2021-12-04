@@ -7,7 +7,9 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("Scenes/Tests/Nathan/Test_1");
+        if (!PlayerPrefs.HasKey("player_lastScene"))
+            PlayerPrefs.SetString("player_lastScene", "Scenes/Tests/Nathan/Test_1");
+        SceneManager.LoadScene(PlayerPrefs.GetString("player_lastScene"));
     }
 
     public void Quit()

@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Showcases/Showcase_0.unity
     guid: b15e72cf1ce124da7b4a7da34452ff23
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Tests/Nathan/Test_0.unity
     guid: 906698afbba49a94a8ec0d015588bf6e
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/UI/Main.unity
     guid: c46dc6859a1d9514f8096ee99fc5002d
   - enabled: 1
