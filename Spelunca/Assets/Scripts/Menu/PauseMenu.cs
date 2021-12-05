@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     private bool paused = false;
-    private float tempo = 0f;
-    public GameObject menus;
+    public GameObject menuPause;
+    public GameObject settingsPause;
     public EventSystem eventSystem;
 
     public void Start()
@@ -20,16 +20,16 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause"))
         {
-            if (paused)
+            if (paused && menuPause.activeSelf)
                 Resume();
-            else
+            else if (!settingsPause.activeSelf && !menuPause.activeSelf)
                 PauseGame();
         }
     }
 
     private void PauseGame()
     {
-        menus.SetActive(true);
+        menuPause.SetActive(true);
         eventSystem.SetSelectedGameObject(eventSystem.firstSelectedGameObject);
         Time.timeScale = 0f;
         paused = true;
@@ -37,7 +37,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        menus.SetActive(false);
+        menuPause.SetActive(false);
         Time.timeScale = 1f;
         paused = false;
     }

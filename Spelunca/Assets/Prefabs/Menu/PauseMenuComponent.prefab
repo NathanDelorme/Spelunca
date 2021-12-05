@@ -2599,7 +2599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd823ccfa6602244b664f23f85edefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menus: {fileID: 2694168690508190374}
+  menuPause: {fileID: 2694168690508190374}
+  settingsPause: {fileID: 2694168691255231334}
   eventSystem: {fileID: 2694168691104065716}
 --- !u!114 &2694168690362359830
 MonoBehaviour:
