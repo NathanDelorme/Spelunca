@@ -10,6 +10,7 @@ public class MovementSettings : ScriptableObject
 
     [Header("Jump variables")]
     public float jumpForce = 12f;
+    public float wallJumpForce = 8f;
     public float maxJumpTime = 0.125f;
     public float maxCoyoteTime = 0.1f;
 
@@ -29,6 +30,7 @@ public class MovementSettings : ScriptableObject
         maxSpeed = 30f;
 
         jumpForce = 12f;
+        wallJumpForce = 8f;
         maxJumpTime = 0.125f;
         maxCoyoteTime = 0.1f;
 

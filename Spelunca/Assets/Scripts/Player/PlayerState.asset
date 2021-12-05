@@ -25,3 +25,10 @@ MonoBehaviour:
   canDash: 1
   wantToDash: 0
   isDashing: 0
+  currentDashTime: 0
+  canWallSlide: 0
+  wallSlideSide: -1
+  isWallSliding: 0
+  canWallJump: 0
+  wallJumpSide: -1
+  isWallJumping: 0

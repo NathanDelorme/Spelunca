@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     ///  The <c>_jumpTimeCounter</c> property is a float that is used as a time counter for the player's jump.
     ///  </value>
     private float _jumpTimeCounter;
+    private float _wallJumpTimeCounter;
     ///  <value>
     ///  The <c>_dashCurrentTimer</c> property is a float that is used as a time counter for the player's dash.
     ///  </value>
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _dashDirection;
 
     private bool jumpStoped = false;
+    private bool wallJumpStoped = false;
 
     /// <summary>
     /// Function executed at the start of the program.
@@ -65,17 +67,22 @@ public class PlayerController : MonoBehaviour
         {
             if (playerState.canWallSlide)
             {
-                if (playerState.wallSlideSide == 1 && playerState.horDir <= -0.5f)
-                    playerState.linearDragType = PlayerState.DragType.WALL;
-                else if (playerState.wallSlideSide == 2 && playerState.horDir >= 0.5f)
-                    playerState.linearDragType = PlayerState.DragType.WALL;
-                else if (playerState.horDir >= 0.1f || playerState.horDir <= -0.5f)
+                if (playerState.wallSlideSide == 1 && playerState.horDir <= -0.5f ||
+                    playerState.wallSlideSide == 2 && playerState.horDir >= 0.5f ||
+                    playerState.horDir >= 0.1f || playerState.horDir <= -0.5f)
                     playerState.linearDragType = PlayerState.DragType.WALL;
             }
-            if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && _jumpTimeCounter > 0f && !jumpStoped && playerState.wantToJump))
+            
+            if ((playerState.canWallJump && playerState.wantToJump) || (playerState.isWallJumping && _wallJumpTimeCounter > 0f && !wallJumpStoped && playerState.wantToJump) && !playerState.isJumping)
+                WallJump();
+            else
+                wallJumpStoped = true;
+
+            if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && _jumpTimeCounter > 0f && !jumpStoped && playerState.wantToJump) && !playerState.isWallJumping)
                 Jump();
             else
                 jumpStoped = true;
+
             if (playerState.wantToMove && playerState.canMove)
                 Move();
         }
@@ -111,6 +118,29 @@ public class PlayerController : MonoBehaviour
             _rigidBody.gravityScale = 7f;
             _rigidBody.velocity = _rigidBody.velocity / 4;
         }
+    }
+
+    /// <summary>
+    /// Function that put a force to the upper direction on the player's (<c>_rigidBody</c>).
+    /// </summary>
+    private void WallJump()
+    {
+        _rigidBody.velocity = new Vector2(-_rigidBody.velocity.x, 0f);
+        _rigidBody.AddForce(Vector2.up * movementSettings.jumpForce * 1.5f, ForceMode2D.Impulse);
+
+        Vector2 vect = Vector2.left;
+        if (playerState.wallSlideSide == 1)
+            vect = Vector2.right;
+
+        _rigidBody.AddForce(vect * movementSettings.wallJumpForce * 1.6f, ForceMode2D.Impulse);
+
+        if (!playerState.isWallJumping)
+            _wallJumpTimeCounter = movementSettings.maxJumpTime;
+        else
+            _wallJumpTimeCounter -= Time.deltaTime;
+
+        playerState.canWallJump = false;
+        playerState.isWallJumping = true;
     }
 
     /// <summary>
@@ -156,6 +186,7 @@ public class PlayerController : MonoBehaviour
         {
             case PlayerState.DragType.GROUND:
                 jumpStoped = false;
+                wallJumpStoped = false;
                 if (Mathf.Abs(playerState.horDir) < 0.4f || isChangingDir)
                     _rigidBody.drag = movementSettings.groundLinearDrag;
                 else

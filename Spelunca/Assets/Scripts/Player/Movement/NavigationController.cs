@@ -69,6 +69,7 @@ public class NavigationController : MonoBehaviour
         CheckCanJump();
         CheckCanDash();
         CheckCanWallSlide();
+        CheckCanWallJump();
     }
 
     /// <summary>
@@ -82,6 +83,7 @@ public class NavigationController : MonoBehaviour
             playerState.linearDragType = PlayerState.DragType.GROUND;
             playerState.canJump = true;
             playerState.isJumping = false;
+            playerState.isWallJumping = false;
         }
         else
         {
@@ -122,6 +124,25 @@ public class NavigationController : MonoBehaviour
                 playerState.wallSlideSide = 1;
             else
                 playerState.wallSlideSide = 2;
+        }
+    }
+
+    /// <summary>
+    /// Function that detect if the player can wall jump.
+    /// </summary>
+    private void CheckCanWallJump()
+    {
+        playerState.canWallJump = !CheckTouchingGround() && CheckTouchingWall() && _rigidBody.velocity.y < -0.2f;
+        if (!playerState.canWallJump)
+            playerState.wallJumpSide = -1;
+        else
+        {
+            if (wallLeftCheckCollider.IsTouchingLayers(groundLayers[0]) && wallRightCheckCollider.IsTouchingLayers(groundLayers[0]))
+                playerState.wallJumpSide = 3;
+            else if (wallLeftCheckCollider.IsTouchingLayers(groundLayers[0]))
+                playerState.wallJumpSide = 1;
+            else
+                playerState.wallJumpSide = 2;
         }
     }
 
