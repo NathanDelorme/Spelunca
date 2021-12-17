@@ -1,17 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+/// <summary>
+///  This class is used to allow the user to change his settings in the settings menu present in the main menu and the pause menu.
+/// </summary>
 public class UIScript : MonoBehaviour
 {
+    /// <value>
+    /// The <c>mixer</c> property is a AudioMixer.
+    /// It contain the music of the game. and allorw us to modify the properties of the music.
+    /// </value>
     public AudioMixer mixer;
+    /// <value>
+    /// The <c>volumeSlider</c> property is a Slider which is a graphical element of the user interface.
+    /// This slider have a value the indicates the power of the sound volume.
+    /// </value>
     public Slider volumeSlider;
+    /// <value>
+    /// The <c>resolutionDropdown</c> property is a TMP_Dropdown which is a graphical element of the user interface.
+    /// From this dropdown element, we will get the resolution choice made by the user.
+    /// </value>
     public TMP_Dropdown resolutionDropdown;
+    /// <value>
+    /// The <c>fullscreenToggle</c> property is a Toggle which is a graphical element of the user interface.
+    /// This Toggle element allow us to know if the user want his game in a windowed mode or in a fullscreen mode.
+    /// </value>
     public Toggle fullscreenToggle;
 
+    /// <summary>
+    /// Function executed at the start of the program.
+    /// First, we initialize the PlayerPrefs if they were not initialized before.
+    /// For example, the first time where you open the project
+    /// Then the UI will set the value in function of what has been save
+    /// And finaly, apply the current settings.
+    /// </summary>
     void Start()
     {
         InitializePlayerPref();
@@ -20,6 +44,9 @@ public class UIScript : MonoBehaviour
         ApplyFullScreen();
     }
 
+    /// <summary>
+    /// Function that initialize all PlayerPrefs for the settings.
+    /// </summary>
     public void InitializePlayerPref()
     {
         if (!PlayerPrefs.HasKey("settings_soundvolume"))
@@ -32,6 +59,9 @@ public class UIScript : MonoBehaviour
             PlayerPrefs.SetInt("settings_fullscreen", 1);
     }
 
+    /// <summary>
+    /// Function that apply the current settings to the user interface
+    /// </summary>
     public void SetUI()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("settings_soundvolume");
@@ -39,12 +69,19 @@ public class UIScript : MonoBehaviour
         fullscreenToggle.isOn = PlayerPrefs.GetInt("settings_fullscreen") == 1 ? true : false;
     }
 
+    /// <summary>
+    /// Function that apply the current settings volume.
+    /// We used a logarithmic calculation because we talk about decibel and note pourcent.
+    /// </summary>
     public void ApplyVolume()
     {
         PlayerPrefs.SetFloat("settings_soundvolume", volumeSlider.value);
         mixer.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("settings_soundvolume")) * 20);
     }
 
+    /// <summary>
+    /// Function that apply the current settings resolution.
+    /// </summary>
     public void ApplyResolution()
     {
         PlayerPrefs.SetInt("settings_resolution", resolutionDropdown.value);
@@ -72,6 +109,9 @@ public class UIScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function that apply the current settings if the fullscreen mode is enable or not.
+    /// </summary>
     public void ApplyFullScreen()
     {
         PlayerPrefs.SetInt("settings_fullscreen", (fullscreenToggle.isOn ? 1 : 0));

@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-
     /// <value>
     /// The <c>playerState</c> property is a ScriptableObject (structure implemented by Unity) which is an object with values shared between all scripts and scene that use it.
     /// playerState store all variables usefull to know what the player want to do, what he can do and what he is doing.
@@ -31,6 +30,9 @@ public class PlayerController : MonoBehaviour
     ///  The <c>_jumpTimeCounter</c> property is a float that is used as a time counter for the player's jump.
     ///  </value>
     private float _jumpTimeCounter;
+    ///  <value>
+    ///  The <c>_wallJumpTimeCounter</c> property is a float that is used as a time counter for the player's wall jump.
+    ///  </value>
     private float _wallJumpTimeCounter;
     ///  <value>
     ///  The <c>_dashCurrentTimer</c> property is a float that is used as a time counter for the player's dash.
@@ -40,8 +42,15 @@ public class PlayerController : MonoBehaviour
     ///  The <c>_dashDirection</c> property is a Vector2 (Vector which have a x and y position) that is used to determine were the dash should go.
     ///  </value>
     private Vector2 _dashDirection;
-
-    private bool _jumpStoped = false;
+    ///  <value>
+    ///  The <c>jumpStoped</c> property is a boolean used to avoid multiple little jump during a long jump.
+    ///  If the player jump and unpress the jump key, jumpStoped will be set on true and the player can't jump anymore before touching the ground.
+    ///  </value>
+    private bool jumpStoped = false;
+    ///  <value>
+    ///  The <c>wallJumpStoped</c> property is a boolean used to avoid multiple little jump during a long jump.
+    ///  If the player jump and unpress the jump key, wallJumpStoped will be set on true and the player can't jump anymore before touching the ground.
+    ///  </value>
     private bool wallJumpStoped = false;
 
     /// <summary>
@@ -72,16 +81,16 @@ public class PlayerController : MonoBehaviour
                     playerState.horDir >= 0.1f || playerState.horDir <= -0.5f)
                     playerState.linearDragType = PlayerState.DragType.WALL;
             }
-            
+
             if ((playerState.canWallJump && playerState.wantToJump) || (playerState.isWallJumping && _wallJumpTimeCounter > 0f && !wallJumpStoped && playerState.wantToJump) && !playerState.isJumping)
                 WallJump();
             else
                 wallJumpStoped = true;
 
-            if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && _jumpTimeCounter > 0f && !_jumpStoped && playerState.wantToJump) && !playerState.isWallJumping)
+            if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && _jumpTimeCounter > 0f && !jumpStoped && playerState.wantToJump) && !playerState.isWallJumping)
                 Jump();
             else
-                _jumpStoped = true;
+                jumpStoped = true;
 
             if (playerState.wantToMove && playerState.canMove)
                 Move();
@@ -185,7 +194,7 @@ public class PlayerController : MonoBehaviour
         switch (playerState.linearDragType)
         {
             case PlayerState.DragType.GROUND:
-                _jumpStoped = false;
+                jumpStoped = false;
                 wallJumpStoped = false;
                 if (Mathf.Abs(playerState.horDir) < 0.4f || isChangingDir)
                     _rigidBody.drag = movementSettings.groundLinearDrag;
