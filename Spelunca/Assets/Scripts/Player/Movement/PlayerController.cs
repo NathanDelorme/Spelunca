@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     ///  </value>
     private Vector2 _dashDirection;
 
-    private bool jumpStoped = false;
+    private bool _jumpStoped = false;
     private bool wallJumpStoped = false;
 
     /// <summary>
@@ -78,10 +78,10 @@ public class PlayerController : MonoBehaviour
             else
                 wallJumpStoped = true;
 
-            if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && _jumpTimeCounter > 0f && !jumpStoped && playerState.wantToJump) && !playerState.isWallJumping)
+            if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && _jumpTimeCounter > 0f && !_jumpStoped && playerState.wantToJump) && !playerState.isWallJumping)
                 Jump();
             else
-                jumpStoped = true;
+                _jumpStoped = true;
 
             if (playerState.wantToMove && playerState.canMove)
                 Move();
@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
         switch (playerState.linearDragType)
         {
             case PlayerState.DragType.GROUND:
-                jumpStoped = false;
+                _jumpStoped = false;
                 wallJumpStoped = false;
                 if (Mathf.Abs(playerState.horDir) < 0.4f || isChangingDir)
                     _rigidBody.drag = movementSettings.groundLinearDrag;

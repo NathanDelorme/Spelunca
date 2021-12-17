@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Jump_Pad">
+    <Position X="13.75" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAIAAiAAAAAAAAAABCAAgQABAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\Jump_Pad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenu">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Scripts\Menu\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PauseMenu">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAgAACAAAAAAAAAAAACAAAAAAIAQABAAAAgAIAA=</HashCode>
+      <FileName>Assets\Scripts\Menu\PauseMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DashOrb">
+    <Position X="9.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAmAgAAAACgAAAAEAAAAAAACAEAEAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Orb\DashOrb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrbsDashManager">
+    <Position X="11" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAGAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Orb\OrbsDashManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Parallax">
+    <Position X="16.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAiAAAAAAAAAAAAAAAAAAAABABAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Parallax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputController">
+    <Position X="0.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAACAAAAAACAAECAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Movement\InputController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NavigationController">
+    <Position X="2.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAQAAEgAEiAAEAgBAAEAAABCAQAABAAAEEAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Movement\NavigationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController">
+    <Position X="4.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAEACAAAqAAAAAAAAIAAAACAAAAgCAgEAUAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Movement\PlayerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovementSettings" Collapsed="true">
+    <Position X="1.5" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAABAAEAEAAABQSAAAAAAAACAAAAAEAAAAAAAAAgIDA=</HashCode>
+      <FileName>Assets\Scripts\Player\ScriptableObject\MovementSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerState" Collapsed="true">
+    <Position X="4" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAhAAAAAoAQCIBAAgAAAIAgAAAAAAAAMFEBAABAA=</HashCode>
+      <FileName>Assets\Scripts\Player\ScriptableObject\PlayerState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WinDeathCondition">
+    <Position X="7" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAIAAiAAAAAAAAAgAAAQAAAAAACAAAAAAAAIAQA=</HashCode>
+      <FileName>Assets\Scripts\Player\WinDeathCondition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIScript">
+    <Position X="16.75" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAgAACAAAAAAAACABAAAAIAJAIAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Scripts\PlayerPrefs\UIScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="11" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

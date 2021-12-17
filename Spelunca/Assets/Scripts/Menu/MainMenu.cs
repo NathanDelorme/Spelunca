@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         if (!PlayerPrefs.HasKey("player_lastScene"))
-            PlayerPrefs.SetString("player_lastScene", "Scenes/Tests/Nathan/Test_1");
+            PlayerPrefs.SetString("player_lastScene", "Scenes/Tests/Balthazar/Test_0");
         SceneManager.LoadScene(PlayerPrefs.GetString("player_lastScene"));
     }
 
