@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/MainMenu.unity
     guid: 49dba3339048f4780ae7ee58f0fb6537
   - enabled: 1
-    path: Assets/Scenes/Tests/Nathan/Level_NewGen.unity
-    guid: 211341317bc9e46fe9e9fc3ddeba40b7
-  - enabled: 1
-    path: Assets/Scenes/Tests/Nathan/Old/NewScene.unity
-    guid: f04f93bd6ceae451d9d9fd2e6b01d98f
+    path: Assets/Scenes/Templates/Level.unity
+    guid: 8dfb0ca53a22a460fb9e6f6a864948e1
   m_configObjects: {}

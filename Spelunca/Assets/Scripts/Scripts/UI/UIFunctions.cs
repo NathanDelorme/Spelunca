@@ -24,7 +24,7 @@ namespace UI
 
         public void Play()
         {
-            SceneManager.LoadScene("Scenes/Tests/Nathan/Level_NewGen");
+            SceneManager.LoadScene("Scenes/Templates/Level");
         }
 
         public void Quit()
