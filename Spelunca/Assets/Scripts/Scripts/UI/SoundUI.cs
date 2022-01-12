@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SoundUI : MonoBehaviour
 {
-    public SettingsSO settingsSO;
+    public SettingsData settingsData;
     public List<Slider> sliders;
 
     public void OnEnable()
@@ -15,13 +15,13 @@ public class SoundUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        sliders[0].value = settingsSO.data.musicVolume;
-        sliders[1].value = settingsSO.data.sfxVolume;
+        sliders[0].value = settingsData.musicVolume;
+        sliders[1].value = settingsData.sfxVolume;
     }
 
     public void ChangeVolume()
     {
-        settingsSO.data.musicVolume = sliders[0].value;
-        settingsSO.data.sfxVolume = sliders[1].value;
+        settingsData.musicVolume = sliders[0].value;
+        settingsData.sfxVolume = sliders[1].value;
     }
 }

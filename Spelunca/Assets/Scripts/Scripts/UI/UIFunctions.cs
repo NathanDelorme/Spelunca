@@ -9,7 +9,7 @@ namespace UI
 {
     public class UIFunctions : MonoBehaviour
     {
-        public SettingsSO settingsSO;
+        public SettingsData settingsData;
         public AudioMixer musicMixer;
         //private AudioMixer sfxMixer;
 
@@ -17,18 +17,14 @@ namespace UI
 
         public void Start()
         {
-            languageManager.ApplyLanguage(settingsSO.data.language);
-            ApplyVolume();
-        }
-
-        public void Awake()
-        {
             languageManager = FindObjectOfType<LanguageManager>();
+            languageManager.ApplyLanguage(settingsData.language);
+            ApplyVolume();
         }
 
         public void Play()
         {
-            SceneManager.LoadScene("Scenes/Tests/Nathan/Old/NewScene");
+            SceneManager.LoadScene("Scenes/Tests/Nathan/Level_NewGen");
         }
 
         public void Quit()
@@ -38,21 +34,21 @@ namespace UI
 
         public void ChangeLanguage(string language)
         {
-            settingsSO.data.language = language;
+            settingsData.language = language;
             languageManager.ApplyLanguage(language);
         }
 
         public void ApplyVolume()
         {
-            musicMixer.SetFloat("MusicVol", Mathf.Log10(settingsSO.data.musicVolume) * 20);
+            musicMixer.SetFloat("MusicVol", Mathf.Log10(settingsData.musicVolume) * 20);
             //sfxMixer.SetFloat("SFXVol", Mathf.Log10(settingsSO.data.sfxVolume) * 20);
         }
 
         public void ApplyFullscreen()
         {
-            Screen.fullScreen = settingsSO.data.isFullscreen;
+            Screen.fullScreen = settingsData.isFullscreen;
 
-            if (settingsSO.data.isFullscreen)
+            if (settingsData.isFullscreen)
             {
                 Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
             }

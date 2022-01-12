@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class SettingsData
+public class SettingsData : MonoBehaviour
 {
     public string language = "EN";
 

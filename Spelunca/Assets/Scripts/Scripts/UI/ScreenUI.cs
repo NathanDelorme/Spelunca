@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class ScreenUI : MonoBehaviour
 {
-    public SettingsSO settingsSO;
+    public SettingsData settingsData;
     public Toggle fullscreenToggle;
 
     public void OnEnable()
     {
-        fullscreenToggle.isOn = settingsSO.data.isFullscreen;
+        fullscreenToggle.isOn = settingsData.isFullscreen;
     }
 
     public void UpdateUI()
     {
-        settingsSO.data.isFullscreen = !settingsSO.data.isFullscreen;
+        settingsData.isFullscreen = !settingsData.isFullscreen;
     }
 }

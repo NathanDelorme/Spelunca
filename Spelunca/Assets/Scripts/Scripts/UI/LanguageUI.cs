@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LanguageUI : MonoBehaviour
 {
-    public SettingsSO settingsSO;
+    public SettingsData settingsData;
     public List<Toggle> toggles;
     public List<Sprite> sprites;
     public List<Sprite> spritesSelected;
@@ -18,7 +18,7 @@ public class LanguageUI : MonoBehaviour
     public void Start()
     {
         languageManager = FindObjectOfType<LanguageManager>();
-        languageManager.ApplyLanguage(settingsSO.data.language);
+        languageManager.ApplyLanguage(settingsData.language);
     }
 
     public void OnEnable()
@@ -30,7 +30,7 @@ public class LanguageUI : MonoBehaviour
     {
         for (int i = 0; i < toggles.Count; i++)
         {
-            if (languages[i] == settingsSO.data.language)
+            if (languages[i] == settingsData.language)
             {
                 toggles[i].SetIsOnWithoutNotify(true);
                 toggles[i].gameObject.GetComponent<Image>().sprite = spritesSelected[i];
