@@ -91,16 +91,16 @@ Abel Graux
         <text id="ui_versionText">Version 0.6</text>
         <text id="ui_playButton">Jugar</text>
         <text id="ui_mainMenuButton">Menu principal</text>
-        <text id="ui_resumeButton">Retrato</text>
+        <text id="ui_resumeButton">Seguir</text>
         <text id="ui_settingsButton">Opciones</text>
         <text id="ui_creditsButton">Creditos</text>
         <text id="ui_quitButton">Salir</text>
-        <text id="ui_backButton">Regreso</text>
+        <text id="ui_backButton">Atras</text>
 
-        <text id="ui_languageText">Lenguas</text>
-        <text id="ui_soundText">Sonidos</text>
+        <text id="ui_languageText">Idiomas</text>
+        <text id="ui_soundText">Audio</text>
         <text id="ui_musicText">Musica</text>
-        <text id="ui_effectsText">Efectos</text>
+        <text id="ui_effectsText">Sonidos</text>
         <text id="ui_screenText">Monitor</text>
         <text id="ui_fullscreenText">Pantalla completa</text>
         <text id="ui_resolutionText">Resolucion</text>
