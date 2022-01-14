@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2404684827937315710}
-  - component: {fileID: 6485701555569623011}
+  - component: {fileID: 6571663727327828455}
+  - component: {fileID: 1019107427494632032}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6485701555569623011
+--- !u!114 &6571663727327828455
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,6 +41,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5924955701183827502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aff36851e5f1647628d206c63208c608, type: 3}
+  m_Script: {fileID: 11500000, guid: 5765cd80265e34a25aaeee914fa6dda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1019107427494632032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924955701183827502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e780c6ef4835f46e890d62a6f985a339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  language: EN
+  musicVolume: 0.5
+  sfxVolume: 0.5
+  isFullscreen: 1

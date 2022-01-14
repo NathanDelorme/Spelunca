@@ -10,11 +10,16 @@ public class ScreenUI : MonoBehaviour
 
     public void OnEnable()
     {
-        fullscreenToggle.isOn = settingsData.isFullscreen;
+        UpdateUI();
+    }
+
+    public void ChangeFullscreen()
+    {
+        settingsData.isFullscreen = !settingsData.isFullscreen;
     }
 
     public void UpdateUI()
     {
-        settingsData.isFullscreen = !settingsData.isFullscreen;
+        fullscreenToggle.SetIsOnWithoutNotify(settingsData.isFullscreen);
     }
 }

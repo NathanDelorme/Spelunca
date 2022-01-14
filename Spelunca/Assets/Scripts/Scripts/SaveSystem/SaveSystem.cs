@@ -7,10 +7,8 @@ using UnityEngine;
 public class SaveSystem : MonoBehaviour
 {
     private SettingsData data;
-    /*private static string directory = "/SaveData/";
-    private static string fileName = "SettingsData.txt";*/
 
-    public void Start()
+    public void Awake()
     {
         data = GetComponent<SettingsData>();
         LoadSettings();
@@ -23,13 +21,6 @@ public class SaveSystem : MonoBehaviour
 
     public void SaveSettings()
     {
-        /*string dir = Application.persistentDataPath + directory;
-
-        if (!Directory.Exists(dir))
-            Directory.CreateDirectory(dir);
-        string json = JsonUtility.ToJson(data);
-        File.WriteAllText(dir + fileName, json);*/
-
         PlayerPrefs.SetString("settings_language", data.language);
         PlayerPrefs.SetFloat("settings_musicVolume", data.musicVolume);
         PlayerPrefs.SetFloat("settings_sfxVolume", data.sfxVolume);
@@ -38,19 +29,6 @@ public class SaveSystem : MonoBehaviour
 
     public void LoadSettings()
     {
-        /*string path = Application.persistentDataPath + directory + fileName;
-        SettingsData savedSettings = new SettingsData();
-
-        if(File.Exists(path))
-        {
-            string json = File.ReadAllText(path);
-            savedSettings = JsonUtility.FromJson<SettingsData>(json);
-        }
-
-        data.language = savedSettings.language;
-        data.musicVolume = savedSettings.musicVolume;
-        data.sfxVolume = savedSettings.sfxVolume;
-        data.isFullscreen = savedSettings.isFullscreen;*/
         if(!PlayerPrefs.HasKey("settings_language"))
             PlayerPrefs.SetString("settings_language", "EN");
         if (!PlayerPrefs.HasKey("settings_musicVolume"))

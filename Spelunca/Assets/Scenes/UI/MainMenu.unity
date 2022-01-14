@@ -461,7 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ef39be6908847dc86b4ce9bfe0e45e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsData: {fileID: 1351155530}
+  settingsData: {fileID: 5244278898065248605}
   toggles:
   - {fileID: 1237078813}
   - {fileID: 732357189}
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f83cd1cea464e53bbc7f22573d6029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsData: {fileID: 1351155530}
+  settingsData: {fileID: 5244278898065248605}
   sliders:
   - {fileID: 1406103892}
   - {fileID: 1311925060}
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca102071baad4a9997e2592863a43f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsData: {fileID: 1351155530}
+  settingsData: {fileID: 5244278898065248605}
   fullscreenToggle: {fileID: 1069600260}
 --- !u!1 &107504353
 GameObject:
@@ -2223,7 +2223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f79eaeccf84644b999c2571d0e62740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsData: {fileID: 1351155530}
+  settingsData: {fileID: 5244278898065248605}
   musicMixer: {fileID: 24100000, guid: 305a1a6a4f092e745be20f2f9d9c71ba, type: 2}
 --- !u!1 &732357187
 GameObject:
@@ -2334,7 +2334,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1351155529}
+      - m_Target: {fileID: 5244278898065248606}
         m_TargetAssemblyTypeName: SaveSystem, Assembly-CSharp
         m_MethodName: SaveSettings
         m_Mode: 1
@@ -3339,6 +3339,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 81565856}
         m_TargetAssemblyTypeName: ScreenUI, Assembly-CSharp
+        m_MethodName: ChangeFullscreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 81565856}
+        m_TargetAssemblyTypeName: ScreenUI, Assembly-CSharp
         m_MethodName: UpdateUI
         m_Mode: 1
         m_Arguments:
@@ -3361,7 +3373,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1351155529}
+      - m_Target: {fileID: 5244278898065248606}
         m_TargetAssemblyTypeName: SaveSystem, Assembly-CSharp
         m_MethodName: SaveSettings
         m_Mode: 1
@@ -4187,7 +4199,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1351155529}
+      - m_Target: {fileID: 5244278898065248606}
         m_TargetAssemblyTypeName: SaveSystem, Assembly-CSharp
         m_MethodName: SaveSettings
         m_Mode: 1
@@ -4601,7 +4613,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1351155529}
+      - m_Target: {fileID: 5244278898065248606}
         m_TargetAssemblyTypeName: SaveSystem, Assembly-CSharp
         m_MethodName: SaveSettings
         m_Mode: 1
@@ -4613,39 +4625,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1351155528 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5924955701183827502, guid: e62e297da43554adfaf019542d1c3925, type: 3}
-  m_PrefabInstance: {fileID: 5244278898065248604}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1351155529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351155528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5765cd80265e34a25aaeee914fa6dda1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1351155530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351155528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e780c6ef4835f46e890d62a6f985a339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  language: EN
-  musicVolume: 0.5
-  sfxVolume: 0.5
-  isFullscreen: 1
 --- !u!1 &1387504347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4874,7 +4853,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1351155529}
+      - m_Target: {fileID: 5244278898065248606}
         m_TargetAssemblyTypeName: SaveSystem, Assembly-CSharp
         m_MethodName: SaveSettings
         m_Mode: 1
@@ -6243,7 +6222,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1351155529}
+      - m_Target: {fileID: 5244278898065248606}
         m_TargetAssemblyTypeName: SaveSystem, Assembly-CSharp
         m_MethodName: SaveSettings
         m_Mode: 1
@@ -7076,8 +7055,30 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6485701555569623011, guid: e62e297da43554adfaf019542d1c3925, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e62e297da43554adfaf019542d1c3925, type: 3}
+--- !u!114 &5244278898065248605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1019107427494632032, guid: e62e297da43554adfaf019542d1c3925, type: 3}
+  m_PrefabInstance: {fileID: 5244278898065248604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e780c6ef4835f46e890d62a6f985a339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5244278898065248606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6571663727327828455, guid: e62e297da43554adfaf019542d1c3925, type: 3}
+  m_PrefabInstance: {fileID: 5244278898065248604}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5765cd80265e34a25aaeee914fa6dda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8342871826186971512
 GameObject:
   m_ObjectHideFlags: 0

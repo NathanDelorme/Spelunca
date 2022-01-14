@@ -49,9 +49,7 @@ namespace UI
             Screen.fullScreen = settingsData.isFullscreen;
 
             if (settingsData.isFullscreen)
-            {
                 Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
-            }
         }
     }
 }
