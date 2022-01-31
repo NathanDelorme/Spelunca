@@ -50,6 +50,13 @@ public class DashOrb : MonoBehaviour
         playerCollider = collider;
     }
 
+    public void resetOrb()
+    {
+        _isEnable = true;
+        _objectTime = 0f;
+        _sprite.color = Color.white;
+    }
+
     /// <summary>
     /// Check if the player collide with the dash orb
     /// </summary>
@@ -83,9 +90,7 @@ public class DashOrb : MonoBehaviour
 
         if(!_isEnable && _objectTime <= 0)
         {
-            _isEnable = true;
-            _sprite.color = Color.white;
-            _objectTime = 0f;
+            resetOrb();
         }
     }
 }

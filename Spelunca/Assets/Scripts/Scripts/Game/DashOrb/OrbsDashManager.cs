@@ -15,7 +15,7 @@ public class OrbsDashManager : MonoBehaviour
     /// </value>
     public GameObject dashOrbPrefab;
 
-    private DashOrb[] dashOrbPositionsList;
+    private DashOrb[] dashOrbPositionsList = { };
 
     /// <summary>
     /// Function executed at the start of the program.
@@ -28,6 +28,14 @@ public class OrbsDashManager : MonoBehaviour
         foreach (DashOrb dashOrb in dashOrbPositionsList)
         {
             dashOrb.SetPlayerCollider(playerCollider);
+        }
+    }
+
+    public void resetOrbs()
+    {
+        foreach (DashOrb dashOrb in dashOrbPositionsList)
+        {
+            dashOrb.resetOrb();
         }
     }
 }
