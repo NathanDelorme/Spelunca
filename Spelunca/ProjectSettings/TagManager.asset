@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platofrm
+  - ResetOrb
+  - SpikeOrb
+  - KillZone
+  - SpikeZone
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -15,7 +20,7 @@ TagManager:
   - Ground
   - KillZone
   - JumpPad
-  - 
+  - SpikeZone
   - 
   - 
   - 

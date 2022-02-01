@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        UpdateAbility();
+
         if (!playerState.isDashing)
         {
             if (playerState.canWallSlide)
@@ -109,6 +111,11 @@ public class PlayerController : MonoBehaviour
         if (playerState.isDashing)
             Dash();
         ApplyLayerEffect();
+    }
+
+    private void UpdateAbility()
+    {
+        
     }
 
     /// <summary>

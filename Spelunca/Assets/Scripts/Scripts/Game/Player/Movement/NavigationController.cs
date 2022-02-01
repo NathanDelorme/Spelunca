@@ -23,7 +23,7 @@ public class NavigationController : MonoBehaviour
     /// <value>
     /// The <c>groundLayers</c> property is a list that contains all layers that need to be interpreted as the ground.
     /// </value>
-    public List<LayerMask> groundLayers;
+    public LayerMask groundLayers;
     /// <value>
     /// The <c>groundCheckCollider</c> property is a collider2D. It's an hitbox which is usefull to detect when the player is on the ground.
     /// </value>
@@ -118,9 +118,9 @@ public class NavigationController : MonoBehaviour
             playerState.wallSlideSide = -1;
         else
         {
-            if (wallLeftCheckCollider.IsTouchingLayers(groundLayers[0]) && wallRightCheckCollider.IsTouchingLayers(groundLayers[0]))
+            if (wallLeftCheckCollider.IsTouchingLayers(groundLayers) && wallRightCheckCollider.IsTouchingLayers(groundLayers))
                 playerState.wallSlideSide = 3;
-            else if (wallLeftCheckCollider.IsTouchingLayers(groundLayers[0]))
+            else if (wallLeftCheckCollider.IsTouchingLayers(groundLayers))
                 playerState.wallSlideSide = 1;
             else
                 playerState.wallSlideSide = 2;
@@ -137,9 +137,9 @@ public class NavigationController : MonoBehaviour
             playerState.wallJumpSide = -1;
         else
         {
-            if (wallLeftCheckCollider.IsTouchingLayers(groundLayers[0]) && wallRightCheckCollider.IsTouchingLayers(groundLayers[0]))
+            if (wallLeftCheckCollider.IsTouchingLayers(groundLayers) && wallRightCheckCollider.IsTouchingLayers(groundLayers))
                 playerState.wallJumpSide = 3;
-            else if (wallLeftCheckCollider.IsTouchingLayers(groundLayers[0]))
+            else if (wallLeftCheckCollider.IsTouchingLayers(groundLayers))
                 playerState.wallJumpSide = 1;
             else
                 playerState.wallJumpSide = 2;
@@ -154,11 +154,8 @@ public class NavigationController : MonoBehaviour
     /// </returns>
     private bool CheckTouchingGround()
     {
-        foreach (LayerMask l in groundLayers)
-        {
-            if (groundCheckCollider.IsTouchingLayers(l))
-                return true;
-        }
+        if (groundCheckCollider.IsTouchingLayers(groundLayers))
+            return true;
         return false;
     }
 
@@ -170,7 +167,7 @@ public class NavigationController : MonoBehaviour
     /// </returns>
     private bool CheckTouchingWall()
     {
-        if (wallLeftCheckCollider.IsTouchingLayers(groundLayers[0]) || wallRightCheckCollider.IsTouchingLayers(groundLayers[0]))
+        if (wallLeftCheckCollider.IsTouchingLayers(groundLayers) || wallRightCheckCollider.IsTouchingLayers(groundLayers))
             return true;
         return false;
     }
