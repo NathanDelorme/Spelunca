@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class SpikeState : State
 {
@@ -8,12 +9,18 @@ public class SpikeState : State
 
     public override void Update()
     {
-
+        
     }
 
     public override void FixedUpdate()
     {
+        if (system.tilemaps[0].color != system.killGroundColor)
+        {
+            Color color = Color.Lerp(system.tilemaps[0].color, system.killGroundColor, 0.2f);
 
+            foreach (Tilemap t in system.tilemaps)
+                t.color = color;
+        }
     }
 
     public override void EnterState()

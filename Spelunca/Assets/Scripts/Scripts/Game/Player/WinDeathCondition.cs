@@ -24,7 +24,7 @@ public class WinDeathCondition : MonoBehaviour
     /// <value>
     /// The <c>_playerCollider</c> property is a BoxCollider2D. It's an hitbox which is usefull to detect when the player is hit by something.
     /// </value>
-    private BoxCollider2D _playerCollider;
+    public BoxCollider2D _playerCollider;
     public bool reverseSpikeZone = false;
 
     /// <summary>
@@ -37,7 +37,7 @@ public class WinDeathCondition : MonoBehaviour
         SaveSceneName();
         abilitySystem = FindObjectOfType<AbilitySystem>();
         _rigidBody = GetComponentInParent<Rigidbody2D>();
-        _playerCollider = GetComponentInParent<BoxCollider2D>();
+        //_playerCollider = GetComponentInParent<BoxCollider2D>();
         SpawnPlayer();
     }
 
@@ -50,21 +50,23 @@ public class WinDeathCondition : MonoBehaviour
         _rigidBody.transform.position = spawnPoint.transform.position;
         _rigidBody.velocity = new Vector2(0f, 0f);
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(reverseSpikeZone)
+        if (reverseSpikeZone)
         {
-            if (collision.CompareTag("KillZone"))
-                SpawnPlayer();
-            else if (collision.CompareTag("Ground"))
+            if (collision.collider.CompareTag("Ground"))
                 SpawnPlayer();
         }
-        else
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("KillZone"))
+            SpawnPlayer();
+
+        if (!reverseSpikeZone)
         {
-            if (collision.CompareTag("KillZone"))
-                SpawnPlayer();
-            else if (collision.CompareTag("SpikeZone"))
+            if (collision.CompareTag("SpikeZone"))
                 SpawnPlayer();
         }
     }
