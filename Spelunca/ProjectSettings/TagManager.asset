@@ -10,6 +10,7 @@ TagManager:
   - KillZone
   - SpikeZone
   - Ground
+  - CristalOrb
   layers:
   - Default
   - TransparentFX
