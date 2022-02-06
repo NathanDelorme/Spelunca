@@ -17,7 +17,6 @@ public class WinDeathCondition : MonoBehaviour
     /// The <c>spawnPoint</c> property is a GameObject that is placed at the desired spawn point.
     /// </value>
     public GameObject spawnPoint;
-    public BoxCollider2D finishPoint;
     ///  <value>
     ///  The <c>_rigidBody</c> property is a RigidBody2D which allow us to give physics to a <c>GameObject</c>.
     ///  </value>

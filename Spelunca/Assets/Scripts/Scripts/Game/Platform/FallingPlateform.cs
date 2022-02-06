@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FallingPlateform : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    private Rigidbody2D rb => GetComponent<Rigidbody2D>();
     public float timeToFall = 1f;
     public float timeToRespawn = 4f;
     private Vector2 _startPos;
@@ -13,7 +13,6 @@ public class FallingPlateform : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         _startPos = transform.position;
         _plateformIsTouch = false;
     }
