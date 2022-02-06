@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,15 +9,15 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class WinDeathCondition : MonoBehaviour
 {
+    private AbilitySystem abilitySystem;
     /// <value>
     /// The <c>killZone</c> property is a Layer which represent dead zone in the level.
     /// </value>
-    public LayerMask killZone;
     /// <value>
     /// The <c>spawnPoint</c> property is a GameObject that is placed at the desired spawn point.
     /// </value>
     public GameObject spawnPoint;
-
+    public BoxCollider2D finishPoint;
     ///  <value>
     ///  The <c>_rigidBody</c> property is a RigidBody2D which allow us to give physics to a <c>GameObject</c>.
     ///  </value>
@@ -24,7 +25,8 @@ public class WinDeathCondition : MonoBehaviour
     /// <value>
     /// The <c>_playerCollider</c> property is a BoxCollider2D. It's an hitbox which is usefull to detect when the player is hit by something.
     /// </value>
-    private BoxCollider2D _playerCollider;
+    public BoxCollider2D _playerCollider;
+    public bool reverseSpikeZone = false;
 
     /// <summary>
     /// Function executed at the start of the program.
@@ -34,19 +36,10 @@ public class WinDeathCondition : MonoBehaviour
     void Start()
     {
         SaveSceneName();
+        abilitySystem = FindObjectOfType<AbilitySystem>();
         _rigidBody = GetComponentInParent<Rigidbody2D>();
-        _playerCollider = GetComponentInParent<BoxCollider2D>();
+        //_playerCollider = GetComponentInParent<BoxCollider2D>();
         SpawnPlayer();
-    }
-    /// <summary>
-    /// Function executed a fixed times per second.
-    /// Each fixed frame we check if the player is touching the kill zone or not.
-    /// If he is touching the kill zone, he will be teleported to the spawnpoint
-    /// </summary>
-    private void FixedUpdate()
-    {
-        if (CheckIsInDeadZone())
-            SpawnPlayer();
     }
 
     /// <summary>
@@ -54,19 +47,48 @@ public class WinDeathCondition : MonoBehaviour
     /// </summary>
     private void SpawnPlayer()
     {
+        abilitySystem.SetState(new NoneState(abilitySystem));
         _rigidBody.transform.position = spawnPoint.transform.position;
         _rigidBody.velocity = new Vector2(0f, 0f);
     }
-
-    /// <summary>
-    /// Function that check if the player touch the dead zone or not.
-    /// </summary>
-    /// <returns>
-    /// True if the player is in the dead zone, else false.
-    /// </returns>
-    private bool CheckIsInDeadZone()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        return _playerCollider.IsTouchingLayers(killZone.value);
+        if (reverseSpikeZone)
+        {
+            if (collision.collider.CompareTag("Ground"))
+                SpawnPlayer();
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Finish"))
+            NextLevel();
+
+        else if (collision.CompareTag("KillZone"))
+            SpawnPlayer();
+
+        else if (!reverseSpikeZone)
+        {
+            if (collision.CompareTag("SpikeZone"))
+                SpawnPlayer();
+        }
+    }
+
+    private void NextLevel()
+    {
+        int id = int.Parse(SceneManager.GetActiveScene().name.Remove(0, 5)) + 1;
+
+        if (id < 20)
+        {
+            PlayerPrefs.SetInt("Level" + id.ToString(), 1);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("Scenes/Levels/Level" + id);
+        }
+        else
+        {
+            SceneManager.LoadScene("Scenes/UI/MainMenu");
+        }
     }
 
     private void SaveSceneName()

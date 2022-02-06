@@ -17,7 +17,15 @@ public class PlayerState : ScriptableObject
         NONE
     }
 
+    public enum Ability
+    {
+        SPIKE,
+        CRYSTAL,
+        NONE
+    }
+
     [Header("General variables")]
+    public Ability AbilityType = Ability.NONE;
     /// <value>
     /// Friction type to apply to the player.
     /// </value>
@@ -139,6 +147,7 @@ public class PlayerState : ScriptableObject
     /// </summary>
     public void Initialize()
     {
+        AbilityType = Ability.NONE;
         linearDragType = DragType.NONE;
         facing = 1f;
         horDir = 1f;

@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        UpdateAbility();
+
         if (!playerState.isDashing)
         {
             if (playerState.canWallSlide)
@@ -85,7 +87,10 @@ public class PlayerController : MonoBehaviour
             if ((playerState.canWallJump && playerState.wantToJump) || (playerState.isWallJumping && _wallJumpTimeCounter > 0f && !wallJumpStoped && playerState.wantToJump) && !playerState.isJumping)
                 WallJump();
             else
+            {
                 wallJumpStoped = true;
+                playerState.isWallJumping = false;
+            }
 
             if ((playerState.wantToJump && playerState.canJump) || (playerState.isJumping && _jumpTimeCounter > 0f && !jumpStoped && playerState.wantToJump) && !playerState.isWallJumping)
                 Jump();
@@ -109,6 +114,11 @@ public class PlayerController : MonoBehaviour
         if (playerState.isDashing)
             Dash();
         ApplyLayerEffect();
+    }
+
+    private void UpdateAbility()
+    {
+        
     }
 
     /// <summary>

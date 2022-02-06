@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090f79c402f215a48aea5b5d39b2b992, type: 3}
   m_Name: PlayerState
   m_EditorClassIdentifier: 
+  AbilityType: 2
   linearDragType: 0
   facing: 1
   horDir: 0
