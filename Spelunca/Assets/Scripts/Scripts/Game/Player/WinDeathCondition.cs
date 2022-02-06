@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +17,7 @@ public class WinDeathCondition : MonoBehaviour
     /// The <c>spawnPoint</c> property is a GameObject that is placed at the desired spawn point.
     /// </value>
     public GameObject spawnPoint;
-
+    public BoxCollider2D finishPoint;
     ///  <value>
     ///  The <c>_rigidBody</c> property is a RigidBody2D which allow us to give physics to a <c>GameObject</c>.
     ///  </value>
@@ -61,13 +62,32 @@ public class WinDeathCondition : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("KillZone"))
+        if (collision.CompareTag("Finish"))
+            NextLevel();
+
+        else if (collision.CompareTag("KillZone"))
             SpawnPlayer();
 
-        if (!reverseSpikeZone)
+        else if (!reverseSpikeZone)
         {
             if (collision.CompareTag("SpikeZone"))
                 SpawnPlayer();
+        }
+    }
+
+    private void NextLevel()
+    {
+        int id = int.Parse(SceneManager.GetActiveScene().name.Remove(0, 5)) + 1;
+
+        if (id < 20)
+        {
+            PlayerPrefs.SetInt("Level" + id.ToString(), 1);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("Scenes/Levels/Level" + id);
+        }
+        else
+        {
+            SceneManager.LoadScene("Scenes/UI/MainMenu");
         }
     }
 

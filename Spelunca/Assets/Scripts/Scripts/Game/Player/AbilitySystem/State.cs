@@ -1,5 +1,3 @@
-
-
 public abstract class State
 {
     protected AbilitySystem system;

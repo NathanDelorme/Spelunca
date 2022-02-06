@@ -14,7 +14,12 @@ public class AbilitySystem : MonoBehaviour
     public LayerMask ground;
     public LayerMask spikes;
     public Tilemap[] tilemaps;
+    public Tilemap cristalTilemap;
+    public CompositeCollider2D cristalTmCollider;
+    public GameObject goGround_Cristal;
     public Color32 killGroundColor = new Color32(255, 0, 0, 255);
+    public Color32 cristalUnable = new Color32(255, 0, 0, 255);
+    public Color32 cristalDisable = new Color32(255, 0, 0, 50);
 
     private void Start()
     {
@@ -30,7 +35,6 @@ public class AbilitySystem : MonoBehaviour
     private void FixedUpdate()
     {
         currentState.FixedUpdate();
-
         if (!(currentState is SpikeState) && tilemaps[0].color != new Color32(255, 255, 255, 255))
         {
             Color color = Color.Lerp(tilemaps[0].color, new Color32(255, 255, 255, 255), 0.2f);
@@ -38,6 +42,11 @@ public class AbilitySystem : MonoBehaviour
             {
                 t.color = color;
             }
+        }
+        else if (!(currentState is CristalState) && cristalTilemap.color != cristalDisable)
+        {
+            Color color = Color.Lerp(cristalTilemap.color, cristalDisable, 0.2f);
+            cristalTilemap.color = color;
         }
     }
 
@@ -64,6 +73,11 @@ public class AbilitySystem : MonoBehaviour
         {
             if (!(currentState is SpikeState))
                 SetState(new SpikeState(this));
+        }
+        else if (collision.CompareTag("CristalOrb"))
+        {
+            if (!(currentState is CristalState))
+                SetState(new CristalState(this));
         }
     }
 }
