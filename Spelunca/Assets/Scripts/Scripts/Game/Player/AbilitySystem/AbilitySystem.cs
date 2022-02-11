@@ -7,6 +7,7 @@ public class AbilitySystem : MonoBehaviour
 {
     public State currentState;
     public State previousState;
+
     public PlayerState playerState;
     public CompositeCollider2D spikesCollider;
     public WinDeathCondition winDeathCondition;
