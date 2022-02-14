@@ -24,5 +24,10 @@ public class Movement : MonoBehaviour
         platform.transform.position = Vector2.MoveTowards(platform.transform.position, pos[_currentPositionIndex].transform.position, Time.deltaTime * speed);
     }
 
+    public void Respawn()
+    {
+        _currentPositionIndex = 0;
+        platform.transform.position = pos[_currentPositionIndex].transform.position;
+    }
 }
 

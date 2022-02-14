@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +28,8 @@ public class WinDeathCondition : MonoBehaviour
     public BoxCollider2D _playerCollider;
     public bool reverseSpikeZone = false;
 
+    public Movement[] movementPlatforms;
+
     /// <summary>
     /// Function executed at the start of the program.
     /// Used to get components (<c>_rigidBody</c>, <c>_playerCollider</c>) from the parent of the current <c>GameObject</c>.
@@ -35,6 +38,7 @@ public class WinDeathCondition : MonoBehaviour
     void Start()
     {
         SaveSceneName();
+        movementPlatforms = FindObjectsOfType<Movement>();
         abilitySystem = FindObjectOfType<AbilitySystem>();
         _rigidBody = GetComponentInParent<Rigidbody2D>();
         //_playerCollider = GetComponentInParent<BoxCollider2D>();
@@ -46,6 +50,8 @@ public class WinDeathCondition : MonoBehaviour
     /// </summary>
     private void SpawnPlayer()
     {
+        foreach (Movement movementScript in movementPlatforms)
+            movementScript.Respawn();
         abilitySystem.SetState(new NoneState(abilitySystem));
         _rigidBody.transform.position = spawnPoint.transform.position;
         _rigidBody.velocity = new Vector2(0f, 0f);

@@ -20,6 +20,48 @@ TextureImporter:
   - first:
       213: 7304532263907885094
     second: BlueMushroom_5
+  - first:
+      213: 886664402841353552
+    second: BlueMushroom_6
+  - first:
+      213: 1912457620027611743
+    second: BlueMushroom_7
+  - first:
+      213: 6898614540667653977
+    second: BlueMushroom_8
+  - first:
+      213: -3444318785394805579
+    second: BlueMushroom_9
+  - first:
+      213: 1751625124028381121
+    second: BlueMushroom_10
+  - first:
+      213: 5970353203155359013
+    second: BlueMushroom_11
+  - first:
+      213: -4440570693391771124
+    second: BlueMushroom_12
+  - first:
+      213: -4694391469255234861
+    second: BlueMushroom_13
+  - first:
+      213: 487351532604148621
+    second: BlueMushroom_14
+  - first:
+      213: -8500287640284827800
+    second: BlueMushroom_15
+  - first:
+      213: 3604554894111047873
+    second: BlueMushroom_16
+  - first:
+      213: -8049096473196127428
+    second: BlueMushroom_17
+  - first:
+      213: 8713506299947051990
+    second: BlueMushroom_18
+  - first:
+      213: 6195810671729246407
+    second: BlueMushroom_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -137,7 +179,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -158,7 +200,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -179,7 +221,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -200,7 +242,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 0
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -220,8 +262,8 @@ TextureImporter:
       name: BlueMushroom_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 0
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -241,8 +283,8 @@ TextureImporter:
       name: BlueMushroom_5
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
+        x: 16
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -254,6 +296,300 @@ TextureImporter:
       bones: []
       spriteID: 6200c989469ee5560800000000000000
       internalID: 7304532263907885094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05db75e93901e4c00800000000000000
+      internalID: 886664402841353552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5a1cb1a21a6a8a10800000000000000
+      internalID: 1912457620027611743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f07d2df5dccbf50800000000000000
+      internalID: 6898614540667653977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b4765f30525330d0800000000000000
+      internalID: -3444318785394805579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c77c5115c50f4810800000000000000
+      internalID: 1751625124028381121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525d0b12b94fad250800000000000000
+      internalID: 5970353203155359013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0a9f544b7cef52c0800000000000000
+      internalID: -4440570693391771124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_13
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3daea66a4db2adeb0800000000000000
+      internalID: -4694391469255234861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8bcc9503ab63c600800000000000000
+      internalID: 487351532604148621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_15
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86fed287d69e80a80800000000000000
+      internalID: -8500287640284827800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c082e41493f50230800000000000000
+      internalID: 3604554894111047873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_17
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b9b40576ddb4090800000000000000
+      internalID: -8049096473196127428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_18
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dbe87c40d79ce870800000000000000
+      internalID: 8713506299947051990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueMushroom_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c00ff7aaf0fbf550800000000000000
+      internalID: 6195810671729246407
       vertices: []
       indices: 
       edges: []
