@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FallingPlateform : MonoBehaviour
 {
-    private Rigidbody2D rb => GetComponent<Rigidbody2D>();
+    public Rigidbody2D rb;
     public float timeToFall = 1f;
     public float timeToRespawn = 4f;
     private Vector2 _startPos;
@@ -29,8 +29,8 @@ public class FallingPlateform : MonoBehaviour
     private IEnumerator Fall(float timeUntilFallDelay)
     {
         yield return new WaitForSeconds(timeUntilFallDelay);
-
-        rb.isKinematic = false;
+        rb.isKinematic = true;
+        rb.velocity = new Vector2(0, -5);
         StartCoroutine(Respawn(timeToRespawn));
     }
     
@@ -38,6 +38,14 @@ public class FallingPlateform : MonoBehaviour
     {
         yield return new WaitForSeconds(respawnDelay);
 
+        rb.isKinematic = true;
+        rb.velocity = new Vector2(0, 0);
+        transform.position = _startPos;
+        _plateformIsTouch = false;
+    }
+
+    private void InstantRespawn()
+    {
         rb.isKinematic = true;
         rb.velocity = new Vector2(0, 0);
         transform.position = _startPos;
