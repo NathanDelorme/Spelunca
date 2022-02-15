@@ -29,6 +29,7 @@ public class WinDeathCondition : MonoBehaviour
     public bool reverseSpikeZone = false;
 
     public Movement[] movementPlatforms;
+    public FallingPlateform[] fallingPlatforms;
 
     /// <summary>
     /// Function executed at the start of the program.
@@ -39,6 +40,7 @@ public class WinDeathCondition : MonoBehaviour
     {
         SaveSceneName();
         movementPlatforms = FindObjectsOfType<Movement>();
+        fallingPlatforms = FindObjectsOfType<FallingPlateform>();
         abilitySystem = FindObjectOfType<AbilitySystem>();
         _rigidBody = GetComponentInParent<Rigidbody2D>();
         //_playerCollider = GetComponentInParent<BoxCollider2D>();
@@ -52,6 +54,8 @@ public class WinDeathCondition : MonoBehaviour
     {
         foreach (Movement movementScript in movementPlatforms)
             movementScript.Respawn();
+        foreach (FallingPlateform fallingPlatformScript in fallingPlatforms)
+            fallingPlatformScript.InstantRespawn();
         abilitySystem.SetState(new NoneState(abilitySystem));
         _rigidBody.transform.position = spawnPoint.transform.position;
         _rigidBody.velocity = new Vector2(0f, 0f);

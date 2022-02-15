@@ -44,8 +44,9 @@ public class FallingPlateform : MonoBehaviour
         _plateformIsTouch = false;
     }
 
-    private void InstantRespawn()
+    public void InstantRespawn()
     {
+        StopAllCoroutines();
         rb.isKinematic = true;
         rb.velocity = new Vector2(0, 0);
         transform.position = _startPos;
