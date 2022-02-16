@@ -13,7 +13,7 @@ public class FallingPlateform : MonoBehaviour
 
     private void Start()
     {
-        _startPos = transform.position;
+        _startPos = gameObject.transform.position;
         _plateformIsTouch = false;
     }
 
@@ -40,7 +40,9 @@ public class FallingPlateform : MonoBehaviour
 
         rb.isKinematic = true;
         rb.velocity = new Vector2(0, 0);
+        Debug.Log(_startPos);
         transform.position = _startPos;
+        Debug.Log(transform.position);
         _plateformIsTouch = false;
     }
 
@@ -49,7 +51,7 @@ public class FallingPlateform : MonoBehaviour
         StopAllCoroutines();
         rb.isKinematic = true;
         rb.velocity = new Vector2(0, 0);
-        transform.position = _startPos;
+        this.transform.position = _startPos;
         _plateformIsTouch = false;
     }
 }

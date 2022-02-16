@@ -30,6 +30,7 @@ public class WinDeathCondition : MonoBehaviour
 
     public Movement[] movementPlatforms;
     public FallingPlateform[] fallingPlatforms;
+    private bool firstLoad = true;
 
     /// <summary>
     /// Function executed at the start of the program.
@@ -43,7 +44,6 @@ public class WinDeathCondition : MonoBehaviour
         fallingPlatforms = FindObjectsOfType<FallingPlateform>();
         abilitySystem = FindObjectOfType<AbilitySystem>();
         _rigidBody = GetComponentInParent<Rigidbody2D>();
-        //_playerCollider = GetComponentInParent<BoxCollider2D>();
         SpawnPlayer();
     }
 
@@ -52,13 +52,18 @@ public class WinDeathCondition : MonoBehaviour
     /// </summary>
     private void SpawnPlayer()
     {
-        foreach (Movement movementScript in movementPlatforms)
-            movementScript.Respawn();
-        foreach (FallingPlateform fallingPlatformScript in fallingPlatforms)
-            fallingPlatformScript.InstantRespawn();
+        if (!firstLoad)
+        {
+            foreach (Movement movementScript in movementPlatforms)
+                movementScript.Respawn();
+            foreach (FallingPlateform fallingPlatformScript in fallingPlatforms)
+                fallingPlatformScript.InstantRespawn();
+        }
+
         abilitySystem.SetState(new NoneState(abilitySystem));
         _rigidBody.transform.position = spawnPoint.transform.position;
         _rigidBody.velocity = new Vector2(0f, 0f);
+        firstLoad = false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -79,7 +84,7 @@ public class WinDeathCondition : MonoBehaviour
 
         else if (!reverseSpikeZone)
         {
-            if (collision.CompareTag("SpikeZone"))
+            if (collision.CompareTag("SpikeZone") && _playerCollider.IsTouchingLayers(7))
                 SpawnPlayer();
         }
     }

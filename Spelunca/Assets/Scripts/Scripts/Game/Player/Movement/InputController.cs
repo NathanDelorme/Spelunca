@@ -69,7 +69,7 @@ public class InputController : MonoBehaviour
     {
         if (Input.GetButton("Dash"))
             playerState.wantToDash = true;
-        else if (Input.GetButtonUp("Dash"))
+        else
             playerState.wantToDash = false;
     }
 }
