@@ -2,7 +2,7 @@
 
 <languages>
     <lang name="FR">
-        <text id="ui_versionText">Version 0.6</text>
+        <text id="ui_versionText">Version 0.9</text>
         <text id="ui_playButton">Jouer</text>
         <text id="ui_resumeButton">Reprendre</text>
         <text id="ui_settingsButton">Options</text>
@@ -10,6 +10,8 @@
         <text id="ui_mainMenuButton">Menu principal</text>
         <text id="ui_quitButton">Quitter</text>
         <text id="ui_backButton">Retour</text>
+
+        <text id="ui_selectionLevelText">Choix du niveau</text>
 
         <text id="ui_languageText">Langues</text>
         <text id="ui_soundText">Sons</text>
@@ -45,7 +47,7 @@ Abel Graux
         </text>
     </lang>
     <lang name="EN">
-        <text id="ui_versionText">Version 0.6</text>
+        <text id="ui_versionText">Version 0.9</text>
         <text id="ui_playButton">Play</text>
         <text id="ui_mainMenuButton">Main menu</text>
         <text id="ui_resumeButton">Resume</text>
@@ -53,6 +55,8 @@ Abel Graux
         <text id="ui_creditsButton">Credits</text>
         <text id="ui_quitButton">Quit</text>
         <text id="ui_backButton">Back</text>
+
+        <text id="ui_selectionLevelText">Level Selection</text>
 
         <text id="ui_languageText">Languages</text>
         <text id="ui_soundText">Sounds</text>
@@ -88,7 +92,7 @@ Abel Graux
         </text>
     </lang>
     <lang name="ES">
-        <text id="ui_versionText">Version 0.6</text>
+        <text id="ui_versionText">Version 0.9</text>
         <text id="ui_playButton">Jugar</text>
         <text id="ui_mainMenuButton">Menu principal</text>
         <text id="ui_resumeButton">Seguir</text>
@@ -96,6 +100,8 @@ Abel Graux
         <text id="ui_creditsButton">Creditos</text>
         <text id="ui_quitButton">Salir</text>
         <text id="ui_backButton">Atras</text>
+
+        <text id="ui_selectionLevelText">Seleccion del nivel</text>
 
         <text id="ui_languageText">Idiomas</text>
         <text id="ui_soundText">Audio</text>
