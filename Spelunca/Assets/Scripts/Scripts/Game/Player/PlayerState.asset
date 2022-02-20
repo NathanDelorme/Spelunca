@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityType: 2
   linearDragType: 0
-  facing: 1
+  facing: -1
   horDir: 0
   verDir: 0
   canMove: 1
-  wantToMove: 0
+  wantToMove: 1
   isMoving: 0
   canJump: 1
   wantToJump: 0

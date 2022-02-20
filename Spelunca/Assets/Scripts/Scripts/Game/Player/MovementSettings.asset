@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b572d1fa13d3fd47817aee01f339bce, type: 3}
   m_Name: MovementSettings
   m_EditorClassIdentifier: 
-  maxAcceleration: 40
-  maxSpeed: 10
+  maxAcceleration: 50
+  maxMoveSpeed: 10
+  maxSpeed: 30
   jumpForce: 12
-  jumpTime: 0.125
+  wallJumpForce: 8
+  maxJumpTime: 0.125
+  maxCoyoteTime: 0.1
   groundLinearDrag: 10
-  airLinearDrag: 2.5
+  airLinearDrag: 2
+  wallLinearDrag: 20
+  dashForce: 25
+  dashTime: 0.07
