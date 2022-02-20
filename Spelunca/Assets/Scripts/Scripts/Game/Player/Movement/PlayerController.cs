@@ -190,13 +190,6 @@ public class PlayerController : MonoBehaviour
 
         else if(Mathf.Abs(_rigidBody.velocity.x) < (movementSettings.maxSpeed / 3) && playerState.linearDragType == PlayerState.DragType.AIR)
             _rigidBody.AddForce(new Vector2(playerState.horDir, 0f) * movementSettings.maxAcceleration);
-        /*
-        if (Mathf.Abs(_rigidBody.velocity.x) > movementSettings.maxMoveSpeed && playerState.linearDragType == PlayerState.DragType.GROUND)
-            _rigidBody.velocity = new Vector2(Mathf.Sign(_rigidBody.velocity.x) * movementSettings.maxMoveSpeed, _rigidBody.velocity.y);
-
-        if (Mathf.Abs(_rigidBody.velocity.x) > (movementSettings.maxSpeed / 3) && playerState.linearDragType == PlayerState.DragType.AIR)
-            _rigidBody.velocity = new Vector2(Mathf.Sign(_rigidBody.velocity.x) * (movementSettings.maxSpeed / 3), _rigidBody.velocity.y);
-        */
     }
 
     /// <summary>

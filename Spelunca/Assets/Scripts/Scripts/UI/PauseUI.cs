@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseUI : MonoBehaviour
@@ -21,15 +22,12 @@ public class PauseUI : MonoBehaviour
         Resume();
     }
 
-    private void Update()
+    public void OnPause()
     {
-        if (Input.GetButtonDown("Pause"))
-        {
-            if (paused && menu.activeSelf)
-                Resume();
-            else if (paused == false)
-                PauseGame();
-        }
+        if (paused && menu.activeSelf)
+            Resume();
+        else if (paused == false)
+            PauseGame();
     }
 
     private void PauseGame()

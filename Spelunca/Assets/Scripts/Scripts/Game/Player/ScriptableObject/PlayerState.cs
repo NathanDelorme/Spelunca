@@ -61,7 +61,7 @@ public class PlayerState : ScriptableObject
     /// Boolean that define if the user want to move the player.
     /// See <c>InputController</c> to understand the management of player input.
     /// </value>
-    public bool wantToMove = false;
+    public bool wantToMove = true;
     /// <value>
     /// Boolean that is enable if the player is moving.
     /// </value>
@@ -154,7 +154,7 @@ public class PlayerState : ScriptableObject
         verDir = 0f;
 
         canMove = true;
-        wantToMove = false;
+        wantToMove = true;
         isMoving = false;
 
         canJump = true;
