@@ -36,8 +36,8 @@ public class DataPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-            PlayerPrefs.DeleteAll();
+        /*if (Input.GetKeyDown(KeyCode.R))
+            PlayerPrefs.DeleteAll();*/
         
         if ( isJumpingOld == false && playerControler.playerState.isJumping == true )
         {

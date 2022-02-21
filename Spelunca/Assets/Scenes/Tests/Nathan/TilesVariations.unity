@@ -3533,6 +3533,10 @@ PrefabInstance:
       propertyPath: tilemaps.Array.data[1]
       value: 
       objectReference: {fileID: 305443209}
+    - target: {fileID: 5992176461494507458, guid: 69270058eb2f344748f40189a72db5c9, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.7777778
+      objectReference: {fileID: 0}
     - target: {fileID: 7255657883192591570, guid: 69270058eb2f344748f40189a72db5c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8888893

@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb85d85d571ad3946b1a288b1dcb159b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerState: {fileID: 0}
+  playerState: {fileID: 11400000, guid: 2ab7fb3d5119376459e4af41b64be07b, type: 2}
   spawnPoint: {fileID: 5252151010163888567}
   _playerCollider: {fileID: 7501640449339741291}
   reverseSpikeZone: 0
@@ -1329,6 +1329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerState: {fileID: 11400000, guid: 2ab7fb3d5119376459e4af41b64be07b, type: 2}
   movementSettings: {fileID: 11400000, guid: 446d0424404815c4abc1a5edb933469b, type: 2}
+  playerGhost: {fileID: 5862260300387473639, guid: 585a653ecffb249bab6b4b847e8cdf8f, type: 3}
 --- !u!114 &2486221311729204024
 MonoBehaviour:
   m_ObjectHideFlags: 0

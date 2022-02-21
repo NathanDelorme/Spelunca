@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour
     ///  </value>
     private bool wallJumpStoped = false;
 
+    [SerializeField]
+    public GameObject playerGhost;
+
     /// <summary>
     /// Function executed at the start of the program.
     /// Used to get components (<c>_rigidBody</c>, <c>_sprite</c>) from the parent of the current <c>GameObject</c>.
@@ -72,6 +75,9 @@ public class PlayerController : MonoBehaviour
     {
         UpdateAnimations();
         FlipSprite();
+
+        if(playerState.isDashing)
+            Instantiate(playerGhost, _rigidBody.transform.position, _rigidBody.transform.rotation);
     }
 
     /// <summary>
@@ -134,10 +140,20 @@ public class PlayerController : MonoBehaviour
 
     private void FlipSprite()
     {
-        if (_rigidBody.velocity.x < -0.05)
-            _sprite.flipX = true;
+        if(!playerState.isWallSliding)
+        {
+            if (_rigidBody.velocity.x < -0.05)
+                _sprite.flipX = true;
+            else
+                _sprite.flipX = false;
+        }
         else
-            _sprite.flipX = false;
+        {
+            if(playerState.horDir < -0.05)
+                _sprite.flipX = true;
+            else
+                _sprite.flipX = false;
+        }
     }
 
     /// <summary>
