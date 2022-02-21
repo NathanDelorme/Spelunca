@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: PlayerState
   m_EditorClassIdentifier: 
   AbilityType: 2
-  linearDragType: 0
-  facing: -1
+  linearDragType: 1
+  facing: 1
   horDir: 0
   verDir: 0
   canMove: 1
   wantToMove: 1
   isMoving: 0
-  canJump: 1
+  canJump: 0
   wantToJump: 0
-  isJumping: 0
+  isJumping: 1
   canDash: 1
   wantToDash: 0
   isDashing: 0
   currentDashTime: 0
-  canWallSlide: 0
-  wallSlideSide: -1
+  canWallSlide: 1
+  wallSlideSide: 2
   isWallSliding: 0
-  canWallJump: 0
-  wallJumpSide: -1
+  canWallJump: 1
+  wallJumpSide: 2
   isWallJumping: 0

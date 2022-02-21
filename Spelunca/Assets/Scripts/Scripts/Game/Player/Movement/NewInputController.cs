@@ -18,36 +18,15 @@ public class NewInputController : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started || context.performed)
         {
-            playerState.horDir = context.ReadValue<Vector2>().x;
-            playerState.verDir = context.ReadValue<Vector2>().y;
-
             if(context.ReadValue<Vector2>().x > 0f)
                 playerState.facing = 1f;
             else
                 playerState.facing = -1f;
         }
-        if(context.performed)
-        {
-            playerState.horDir = context.ReadValue<Vector2>().x;
-            playerState.verDir = context.ReadValue<Vector2>().y;
-
-            if (context.ReadValue<Vector2>().x > 0f)
-                playerState.facing = 1f;
-            else
-                playerState.facing = -1f;
-        }
-        if(context.canceled)
-        {
-            playerState.horDir = context.ReadValue<Vector2>().x;
-            playerState.verDir = context.ReadValue<Vector2>().y;
-
-            if (context.ReadValue<Vector2>().x > 0f)
-                playerState.facing = 1f;
-            else
-                playerState.facing = -1f;
-        }
+        playerState.horDir = context.ReadValue<Vector2>().x;
+        playerState.verDir = context.ReadValue<Vector2>().y;
     }
 
     public void OnJump(InputAction.CallbackContext context)

@@ -42,7 +42,7 @@ public class PlayerState : ScriptableObject
     /// Lower than 0 : movement go to the left
     /// 0f: No movement
     /// </value>
-    public float horDir = 1f;
+    public float horDir = 0f;
     /// <value>
     /// Face were the player look.
     /// higher than 0 : go up
@@ -133,7 +133,7 @@ public class PlayerState : ScriptableObject
     /// Integer that define if the user want to wall jump and the side of the wall jump.
     /// 0 : no wall slide
     /// 1 : wall jump on the right
-    /// -1 : wall jump ont he left
+    /// -1 : wall jump ont the left
     /// See <c>InputController</c> to understand the management of player input.
     /// </value>
     public int wallJumpSide = 0;
@@ -150,7 +150,7 @@ public class PlayerState : ScriptableObject
         AbilityType = Ability.NONE;
         linearDragType = DragType.NONE;
         facing = 1f;
-        horDir = 1f;
+        horDir = 0f;
         verDir = 0f;
 
         canMove = true;

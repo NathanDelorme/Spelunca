@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class WinDeathCondition : MonoBehaviour
 {
+    public PlayerState playerState;
     private AbilitySystem abilitySystem;
     /// <value>
     /// The <c>killZone</c> property is a Layer which represent dead zone in the level.
@@ -32,6 +34,9 @@ public class WinDeathCondition : MonoBehaviour
     public FallingPlateform[] fallingPlatforms;
     private bool firstLoad = true;
 
+    private Animator animator;
+    private SpriteRenderer _sprite;
+
     /// <summary>
     /// Function executed at the start of the program.
     /// Used to get components (<c>_rigidBody</c>, <c>_playerCollider</c>) from the parent of the current <c>GameObject</c>.
@@ -40,6 +45,8 @@ public class WinDeathCondition : MonoBehaviour
     void Start()
     {
         SaveSceneName();
+        animator = GetComponent<Animator>();
+        _sprite = GetComponent<SpriteRenderer>();
         movementPlatforms = FindObjectsOfType<Movement>();
         fallingPlatforms = FindObjectsOfType<FallingPlateform>();
         abilitySystem = FindObjectOfType<AbilitySystem>();
@@ -52,6 +59,8 @@ public class WinDeathCondition : MonoBehaviour
     /// </summary>
     private void SpawnPlayer()
     {
+        playerState.Initialize();
+        _rigidBody.bodyType = RigidbodyType2D.Dynamic;
         if (!firstLoad)
         {
             foreach (Movement movementScript in movementPlatforms)
@@ -61,16 +70,27 @@ public class WinDeathCondition : MonoBehaviour
         }
 
         abilitySystem.SetState(new NoneState(abilitySystem));
+        animator.SetBool("IsKilled", false);
+        _sprite.flipX = true;
         _rigidBody.transform.position = spawnPoint.transform.position;
         _rigidBody.velocity = new Vector2(0f, 0f);
+        _rigidBody.gravityScale = 7f;
         firstLoad = false;
     }
+
+    private void KillPlayer()
+    {
+        _rigidBody.bodyType = RigidbodyType2D.Static;
+        animator.Play("Death");
+        Invoke("SpawnPlayer", 0.45f);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (reverseSpikeZone)
         {
             if (collision.collider.CompareTag("Ground"))
-                SpawnPlayer();
+                KillPlayer();
         }
     }
     
@@ -80,12 +100,12 @@ public class WinDeathCondition : MonoBehaviour
             NextLevel();
 
         else if (collision.CompareTag("KillZone"))
-            SpawnPlayer();
+            KillPlayer();
 
         else if (!reverseSpikeZone)
         {
             if (collision.CompareTag("SpikeZone") && _playerCollider.IsTouchingLayers(7))
-                SpawnPlayer();
+                KillPlayer();
         }
     }
 

@@ -43,7 +43,7 @@ public class MovementSettings : ScriptableObject
     /// <value>
     /// Ground friction applied to the player when on the ground.
     /// </value>
-    public float groundLinearDrag = 10f;
+    public float groundLinearDrag = 20f;
     /// <value>
     /// Air friction applied to the player when in air.
     /// </value>
@@ -77,7 +77,7 @@ public class MovementSettings : ScriptableObject
         maxJumpTime = 0.125f;
         maxCoyoteTime = 0.1f;
 
-        groundLinearDrag = 10f;
+        groundLinearDrag = 20f;
         airLinearDrag = 2f;
         wallLinearDrag = 20f;
 
