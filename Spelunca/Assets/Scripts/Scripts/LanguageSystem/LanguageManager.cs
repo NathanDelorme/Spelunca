@@ -58,9 +58,11 @@ namespace Language
             foreach (StatsLevelTranslator tr in statsTranslator)
             {
                 List<string> texts = new List<string>();
+
                 foreach (Stats stat in tr.statsToDisplay)
                 {
                     string textStat = "Error";
+
                     switch(stat)
                     {
                         case Stats.LEVEL_DEATHS:
@@ -107,7 +109,7 @@ namespace Language
         private void GetStatsTranslators()
         {
             statsTranslator = new List<StatsLevelTranslator>();
-            //statsTranslator = FindObjectsOfType<StatsLevelTranslator>();
+
             foreach (GameObject gameObject in SceneManager.GetActiveScene().GetRootGameObjects())
                 statsTranslator.AddRange(gameObject.GetComponentsInChildren<StatsLevelTranslator>());
         }

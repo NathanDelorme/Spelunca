@@ -8,6 +8,11 @@ public class UISelectorControllerSwitch : MonoBehaviour, IPointerClickHandler
     private EventSystem eventSystem;
     private GameObject lastSelectedGO;
 
+    private void OnApplicationFocus(bool focus)
+    {
+        if(focus && lastSelectedGO != null)
+            eventSystem.SetSelectedGameObject(lastSelectedGO);
+    }
     public void Start()
     {
         eventSystem = FindObjectOfType<EventSystem>();

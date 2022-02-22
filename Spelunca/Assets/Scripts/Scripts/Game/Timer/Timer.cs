@@ -27,6 +27,8 @@ public class Timer : MonoBehaviour
     {
         string minutes = ((int)sec / 60).ToString();
         string seconds = (sec % 60).ToString("f2");
+        if (minutes.ToString().Equals("0"))
+            return seconds + "s";
         return minutes + "m " + seconds + "s";
     }
 

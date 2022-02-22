@@ -10,7 +10,7 @@ public class UILevelButton : MonoBehaviour
 {
     private string text => GetComponentInChildren<TextMeshProUGUI>().text;
     private Button button => GetComponentInChildren<Button>();
-    private StatsLevelTranslator stats => FindObjectOfType<StatsLevelTranslator>();
+    public StatsLevelTranslator stats;
     private SelectionButtonText buttonPlay => FindObjectOfType<SelectionButtonText>();
 
     public void Start()

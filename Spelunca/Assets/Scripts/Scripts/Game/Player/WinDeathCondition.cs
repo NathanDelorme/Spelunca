@@ -77,7 +77,7 @@ public class WinDeathCondition : MonoBehaviour
 
         abilitySystem.SetState(new NoneState(abilitySystem));
         isKilled = false;
-        _sprite.flipX = true;
+        _sprite.flipX = false;
         _rigidBody.transform.position = spawnPoint.transform.position;
         _rigidBody.velocity = new Vector2(0f, 0f);
         _rigidBody.gravityScale = 7f;

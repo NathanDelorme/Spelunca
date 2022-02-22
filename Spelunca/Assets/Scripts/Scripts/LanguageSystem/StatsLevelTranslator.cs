@@ -87,7 +87,7 @@ public class StatsLevelTranslator : MonoBehaviour
         foreach (Stats stat in statsToDisplay)
         {
             string data = "";
-
+            float time = 0f;
             switch (stat)
             {
                 case Stats.LEVEL_DEATHS:
@@ -114,35 +114,37 @@ public class StatsLevelTranslator : MonoBehaviour
                     else
                         data = ConvertSecToReadable(PlayerPrefs.GetFloat(saveId));
                     break;
+
+
                 case Stats.ALL_DEATHS:
                     saveId = "ALL_DEATHS";
-                    data = PlayerPrefs.GetInt(saveId).ToString();
+                    data = GetTotalIntCount("LEVEL_DEATHS").ToString();
                     break;
                 case Stats.ALL_JUMP:
                     saveId = "ALL_JUMP";
-                    data = PlayerPrefs.GetInt(saveId).ToString();
+                    data = GetTotalIntCount("LEVEL_JUMP").ToString();
                     break;
                 case Stats.ALL_FULLTIME:
                     saveId = "ALL_FULLTIME";
-
-                    if (PlayerPrefs.GetFloat(saveId) <= 0f)
+                    time = GetTotalFloatCount("LEVEL_FULLTIME");
+                    if (time <= 0f)
                         data = "----";
                     else
-                        data = ConvertSecToReadable(PlayerPrefs.GetFloat(saveId));
+                        data = ConvertSecToReadable(time);
                     break;
                 case Stats.ALL_BESTTIME:
                     saveId = "ALL_BESTTIME";
-
-                    if (PlayerPrefs.GetFloat(saveId) <= 0f)
+                    time = GetTotalFloatCount("LEVEL_BESTTIME");
+                    if (time <= 0f)
                         data = "----";
                     else
-                        data = ConvertSecToReadable(PlayerPrefs.GetFloat(saveId));
+                        data = ConvertSecToReadable(time);
                     break;
                 default:
                     break;
             }
             if (i < texts.Count-1)
-                texts[i] += (data + "\n\n");
+                texts[i] += (data + "\n\n\n");
             else
                 texts[i] += data;
             i += 1;
@@ -151,6 +153,22 @@ public class StatsLevelTranslator : MonoBehaviour
         textComponent.SetText("");
         foreach (string s in texts)
             textComponent.SetText(textComponent.text + s);
+    }
+
+    public int GetTotalIntCount(string saveType)
+    {
+        int res = 0;
+        for(int i = 1; i <= 20; i++)
+            res += PlayerPrefs.GetInt(saveType + i);
+        return res;
+    }
+
+    public float GetTotalFloatCount(string saveType)
+    {
+        float res = 0;
+        for (int i = 1; i <= 20; i++)
+            res += PlayerPrefs.GetFloat(saveType + i);
+        return res;
     }
 
     public void changeText(List<string> translatedTexts)
@@ -163,6 +181,8 @@ public class StatsLevelTranslator : MonoBehaviour
     {
         string minutes = ((int)sec / 60).ToString();
         string seconds = (sec % 60).ToString("f2");
+        if (minutes.ToString().Equals("0"))
+            return seconds + "s";
         return minutes + "m " + seconds + "s";
     }
 }
