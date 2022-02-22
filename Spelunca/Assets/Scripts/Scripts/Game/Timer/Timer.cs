@@ -1,34 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public Text timerText;
-    private float startTime;
-    private bool playing = true;
-    // Start is called before the first frame update
+    private TextMeshProUGUI textComponent => GetComponent<TextMeshProUGUI>();
+    private float time;
+    private float bestTime;
+    private float fullTime;
+    private int levelID = -1;
+    public bool playing = true;
+
     void Start()
     {
-        startTime = Time.time;
+        levelID = int.Parse(SceneManager.GetActiveScene().name.Remove(0, 5));
+
+        time = 0;
+        bestTime = PlayerPrefs.GetFloat("LEVEL_BESTTIME" + levelID);
+        fullTime = PlayerPrefs.GetFloat("LEVEL_FULLTIME" + levelID);
     }
 
-    // Update is called once per frame
+    public static string ConvertSecToReadable(float sec)
+    {
+        string minutes = ((int)sec / 60).ToString();
+        string seconds = (sec % 60).ToString("f2");
+        return minutes + "m " + seconds + "s";
+    }
+
     void Update()
     {
         if (playing == true)
         {
-            float t = Time.time - startTime;
-            string minutes = ((int)t / 60).ToString();
-            string seconds = (t % 60).ToString("f2");
-
-            timerText.text = minutes + ":" + seconds;
-            if (Input.GetKeyDown(KeyCode.E))
-                playing = false;
-
+            time += Time.deltaTime;
+            textComponent.SetText(ConvertSecToReadable(time));
         }
-
     }
 
+    public void SaveTime(bool isKilled = false)
+    {
+        playing = false;
+        if (isKilled)
+        {
+            PlayerPrefs.SetFloat("LEVEL_FULLTIME" + levelID, fullTime + time);
+            fullTime = PlayerPrefs.GetFloat("LEVEL_FULLTIME" + levelID);
+            time = 0f;
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("LEVEL_FULLTIME" + levelID, fullTime + time);
+
+            if (time < bestTime || bestTime == 0f)
+                PlayerPrefs.SetFloat("LEVEL_BESTTIME" + levelID, time); ;
+        }
+        playing = true;
+    }
 }

@@ -36,6 +36,7 @@ public class WinDeathCondition : MonoBehaviour
 
     private Animator animator;
     private SpriteRenderer _sprite;
+    public bool isKilled = false;
 
     /// <summary>
     /// Function executed at the start of the program.
@@ -59,7 +60,12 @@ public class WinDeathCondition : MonoBehaviour
     /// </summary>
     private void SpawnPlayer()
     {
-        playerState.Initialize();
+        playerState.isDashing = false;
+        playerState.isJumping = false;
+        playerState.isWallJumping = false;
+        playerState.isWallSliding = false;
+        playerState.isMoving = false;
+
         _rigidBody.bodyType = RigidbodyType2D.Dynamic;
         if (!firstLoad)
         {
@@ -70,16 +76,19 @@ public class WinDeathCondition : MonoBehaviour
         }
 
         abilitySystem.SetState(new NoneState(abilitySystem));
-        animator.SetBool("IsKilled", false);
+        isKilled = false;
         _sprite.flipX = true;
         _rigidBody.transform.position = spawnPoint.transform.position;
         _rigidBody.velocity = new Vector2(0f, 0f);
         _rigidBody.gravityScale = 7f;
         firstLoad = false;
+        Timer timer = FindObjectOfType<Timer>();
+        timer.SaveTime(true);
     }
 
     private void KillPlayer()
     {
+        isKilled = true;
         _rigidBody.bodyType = RigidbodyType2D.Static;
         animator.Play("Death");
         Invoke("SpawnPlayer", 0.45f);
@@ -111,6 +120,9 @@ public class WinDeathCondition : MonoBehaviour
 
     private void NextLevel()
     {
+        Timer timer = FindObjectOfType<Timer>();
+        timer.SaveTime();
+
         int id = int.Parse(SceneManager.GetActiveScene().name.Remove(0, 5)) + 1;
 
         if (id < 20)

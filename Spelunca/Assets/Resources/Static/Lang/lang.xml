@@ -44,7 +44,18 @@ Remerciements
 Gabin Vitoux
 
 Abel Graux
+
+Julien Robineau
         </text>
+
+        <text id="LEVEL_DEATHS">Nombre de morts : </text>
+        <text id="LEVEL_JUMP">Nombre de sauts : </text>
+        <text id="LEVEL_FULLTIME">Temps total : </text>
+        <text id="LEVEL_BESTTIME">Meilleur temps : </text>
+        <text id="ALL_DEATHS">Total de morts : </text>
+        <text id="ALL_JUMP">Total de sauts : </text>
+        <text id="ALL_FULLTIME">Temps total : </text>
+        <text id="ALL_BESTTIME">Meilleur temps : </text>
     </lang>
     <lang name="EN">
         <text id="ui_versionText">Version 0.9</text>
@@ -89,7 +100,18 @@ Acknowledgements
 Gabin Vitoux
 
 Abel Graux
+
+Julien Robineau
         </text>
+
+        <text id="LEVEL_DEATHS">Nombre de morts : </text>
+        <text id="LEVEL_JUMP">Nombre de sauts : </text>
+        <text id="LEVEL_FULLTIME">Temps total : </text>
+        <text id="LEVEL_BESTTIME">Meilleur temps : </text>
+        <text id="ALL_DEATHS">Total de morts : </text>
+        <text id="ALL_JUMP">Total de sauts : </text>
+        <text id="ALL_FULLTIME">Temps total : </text>
+        <text id="ALL_BESTTIME">Meilleur temps : </text>
     </lang>
     <lang name="ES">
         <text id="ui_versionText">Version 0.9</text>
@@ -134,6 +156,17 @@ Agradecimientos
 Gabin Vitoux
 
 Abel Graux
+
+Julien Robineau
         </text>
+
+        <text id="LEVEL_DEATHS">Nombre de morts : </text>
+        <text id="LEVEL_JUMP">Nombre de sauts : </text>
+        <text id="LEVEL_FULLTIME">Temps total : </text>
+        <text id="LEVEL_BESTTIME">Meilleur temps : </text>
+        <text id="ALL_DEATHS">Total de morts : </text>
+        <text id="ALL_JUMP">Total de sauts : </text>
+        <text id="ALL_FULLTIME">Temps total : </text>
+        <text id="ALL_BESTTIME">Meilleur temps : </text>
     </lang>
 </languages>
