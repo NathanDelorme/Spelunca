@@ -30,7 +30,8 @@ public class AbilitySystem : MonoBehaviour
 
     private void Update()
     {
-        currentState.Update();
+        if(currentState != null) 
+            currentState.Update();
     }
 
     private void FixedUpdate()
