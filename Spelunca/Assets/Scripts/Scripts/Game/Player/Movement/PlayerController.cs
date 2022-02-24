@@ -142,14 +142,15 @@ public class PlayerController : MonoBehaviour
     {
         if(!playerState.isWallSliding)
         {
-            if (_rigidBody.velocity.x < -0.05)
+            if (playerState.horDir < -0.05)
                 _sprite.flipX = true;
-            else
+            else if(playerState.horDir > 0.05)
                 _sprite.flipX = false;
         }
         else
         {
-            if(playerState.horDir < -0.05)
+            Debug.Log("WallSliding");
+            if (playerState.horDir < -0.05)
                 _sprite.flipX = true;
             else
                 _sprite.flipX = false;

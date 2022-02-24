@@ -15,9 +15,11 @@ public class PauseUI : MonoBehaviour
     public UI.UIScript creditsMenu;
     public GameObject menu;
     public EventSystem eventSystem;
+    private PlayerInput playerInput;
 
     public void Start()
     {
+        playerInput = FindObjectOfType<PlayerInput>();
         uiManager = FindObjectOfType<UIManager>();
         Resume();
     }
@@ -32,6 +34,7 @@ public class PauseUI : MonoBehaviour
 
     private void PauseGame()
     {
+        playerInput.DeactivateInput();
         menu.SetActive(true);
         Time.timeScale = 0f;
         pauseMenu.Open();
@@ -43,6 +46,7 @@ public class PauseUI : MonoBehaviour
 
     public void Resume()
     {
+        playerInput.ActivateInput();
         pauseMenu.Close();
         settingsMenu.Close();
         creditsMenu.Close();

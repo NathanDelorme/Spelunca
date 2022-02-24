@@ -7,6 +7,7 @@ namespace UI
         PauseMenu,
         LevelMenu,
         SettingsMenu,
-        CreditsMenu
+        CreditsMenu,
+        SelectedLevelMenu
     }
 }

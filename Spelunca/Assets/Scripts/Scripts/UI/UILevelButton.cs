@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,8 @@ public class UILevelButton : MonoBehaviour
 {
     private string text => GetComponentInChildren<TextMeshProUGUI>().text;
     private Button button => GetComponentInChildren<Button>();
+    public StatsLevelTranslator stats;
+    private SelectionButtonText buttonPlay => FindObjectOfType<SelectionButtonText>();
 
     public void Start()
     {
@@ -27,6 +30,14 @@ public class UILevelButton : MonoBehaviour
             button.interactable = false;
         else
             button.interactable = true;
+    }
+
+    public void LoadLevelSelection()
+    {
+        stats.levelID = Convert.ToInt16(text);
+        stats.loadMenu();
+        buttonPlay.levelID = Convert.ToInt16(text);
+        buttonPlay.loadMenu();
     }
 
     public void LoadLevel()
