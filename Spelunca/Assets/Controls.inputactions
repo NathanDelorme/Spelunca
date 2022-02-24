@@ -139,61 +139,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Moving Keys",
-                    "id": "509059a7-7b73-4ca5-b3a0-fb6158af92a7",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "4fd019c2-ab20-4af0-a487-37b048a69364",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "9a5578ea-1411-474a-a1a0-d15d7cea2106",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "ce383ab7-0a08-476c-a8ec-61a17998635b",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "efe0f93d-1bb0-4261-8efe-e1d07abcdea1",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "a7cd734f-d376-4476-bd76-306f8d5d8be7",
                     "path": "<Gamepad>/leftStick",
@@ -207,7 +152,7 @@
                 {
                     "name": "",
                     "id": "ba40fb38-7a9c-4f4a-b442-a640e124312e",
-                    "path": "<Keyboard>/p",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",

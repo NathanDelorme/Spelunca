@@ -16,6 +16,10 @@ public class Rebinding : MonoBehaviour
 
     private void Start()
     {
+        //playerInput.actions
+        playerInput.actions.ToJson();
+        playerInput.actions.LoadFromJson("");
+
         playerInput = FindObjectOfType<PlayerInput>();
         Debug.Log("playerInput==null");
         string rebinds = PlayerPrefs.GetString(RebindsKey, string.Empty);

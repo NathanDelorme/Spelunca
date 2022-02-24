@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2404684827937315710}
   - component: {fileID: 6571663727327828455}
   - component: {fileID: 1019107427494632032}
+  - component: {fileID: 7336576647443214299}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -60,3 +61,16 @@ MonoBehaviour:
   musicVolume: 0.5
   sfxVolume: 0.5
   isFullscreen: 1
+--- !u!114 &7336576647443214299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924955701183827502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf979ad5225103949aafda1303dc6a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  control: {fileID: -944628639613478452, guid: 40cbf9a75907b4466874b0b6a316f0f8, type: 3}
