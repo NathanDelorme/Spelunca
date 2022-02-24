@@ -134,12 +134,12 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimations()
     {
-        bool isIdle = (Mathf.Abs(playerState.horDir) < 0.05 && Mathf.Abs(_rigidBody.velocity.x) < 0.05 && Mathf.Abs(_rigidBody.velocity.y) < 0.05 && playerState.canJump);
+        bool isIdle = ((Mathf.Abs(playerState.horDir) < 0.05 || Mathf.Abs(_rigidBody.velocity.x) < 0.05) && Mathf.Abs(_rigidBody.velocity.y) < 0.05 && playerState.canJump);
         bool isFalling = (_rigidBody.velocity.y < -0.05 && !playerState.canJump && !playerState.isWallSliding);
         bool isRunning = (Mathf.Abs(playerState.horDir) >= 0.05 && Mathf.Abs(_rigidBody.velocity.x) >= 0.05 && playerState.canJump && Mathf.Abs(_rigidBody.velocity.y) < 0.05);
         bool isJumping = (_rigidBody.velocity.y >= 0.05 && ((playerState.isJumping && !playerState.isWallSliding) || (playerState.isWallJumping)));
         bool isDashing = (playerState.isDashing);
-        bool isWallSliding = (playerState.isWallSliding && !playerState.isWallJumping);
+        bool isWallSliding = (playerState.isWallSliding && !playerState.isWallJumping && Mathf.Abs(_rigidBody.velocity.y) > 0.05);
 
         animator.SetBool("IsIdle", isIdle);
         animator.SetBool("IsFalling", isFalling);
