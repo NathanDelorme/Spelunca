@@ -43,7 +43,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 673fd68e0e54af24bb947b55e6a804c4, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 922146a487445014aa70a7724f0020d3, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -238,7 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRunSound: {fileID: 8300000, guid: 922146a487445014aa70a7724f0020d3, type: 3}
-  playerJumpSound: {fileID: 0}
+  playerJumpSound: {fileID: 8300000, guid: 98ffad710e5b37348bcc49304671b3ec, type: 3}
   playerWallSlideSound: {fileID: 0}
-  playerDeathSound: {fileID: 0}
+  playerDashSound: {fileID: 8300000, guid: d35d5a27dbc40e64f992b7eee1e86cce, type: 3}
+  playerDeathSound: {fileID: 8300000, guid: 5710b2a73431f0749a5769690687fd07, type: 3}
   audioSource: {fileID: 3531955590052046401}

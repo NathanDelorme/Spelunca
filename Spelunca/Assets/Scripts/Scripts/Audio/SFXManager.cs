@@ -29,7 +29,6 @@ public class SFXManager : MonoBehaviour
 
     public void PlaySound(string sound)
     {
-        audioSource.Play();
         switch (sound)
         {
             case "playerRun":
@@ -42,19 +41,23 @@ public class SFXManager : MonoBehaviour
             case "playerJump":
                 audioSource.pitch = 1f;
                 audioSource.PlayOneShot(playerJumpSound);
+                //audioSource.clip = playerJumpSound;
                 break;
             case "playerWallSlide":
                 audioSource.pitch = 1f;
-                audioSource.PlayOneShot(playerWallSlideSound);
+                audioSource.clip = playerWallSlideSound;
                 break;
             case "playerDash":
                 audioSource.pitch = 1f;
                 audioSource.PlayOneShot(playerDashSound);
+                //audioSource.clip = playerDashSound;
                 break;
             case "playerDeath":
                 audioSource.pitch = 1f;
                 audioSource.PlayOneShot(playerDeathSound);
+                //audioSource.clip = playerDeathSound;
                 break;
         }
+        audioSource.Play();
     }
 }

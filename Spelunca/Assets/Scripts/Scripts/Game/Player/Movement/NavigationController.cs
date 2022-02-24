@@ -45,7 +45,7 @@ public class NavigationController : MonoBehaviour
     /// <value>
     /// The <c>_dashTimeBuffer</c> property is a float used as a cooldown max time before being able to dash after a dash..
     /// </value>
-    private float _dashTimeBuffer = 0.5f;
+    private float _dashTimeBuffer = 0.05f;
     /// <value>
     /// The <c>_dashTimeBufferCounter</c> property is a float used as a cooldown counter before being able to dash after a dash..
     /// </value>
