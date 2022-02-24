@@ -11,7 +11,7 @@ namespace UI
     {
         public SettingsData settingsData;
         public AudioMixer musicMixer;
-        //private AudioMixer sfxMixer;
+        public AudioMixer SFXMixer;
 
         private LanguageManager languageManager;
 
@@ -41,7 +41,7 @@ namespace UI
         public void ApplyVolume()
         {
             musicMixer.SetFloat("MusicVol", Mathf.Log10(settingsData.musicVolume) * 20);
-            //sfxMixer.SetFloat("SFXVol", Mathf.Log10(settingsSO.data.sfxVolume) * 20);
+            SFXMixer.SetFloat("SFXVol", Mathf.Log10(settingsData.sfxVolume) * 20);
         }
 
         public void ApplyFullscreen()

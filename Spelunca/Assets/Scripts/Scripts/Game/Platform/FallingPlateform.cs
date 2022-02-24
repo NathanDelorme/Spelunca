@@ -40,9 +40,7 @@ public class FallingPlateform : MonoBehaviour
 
         rb.isKinematic = true;
         rb.velocity = new Vector2(0, 0);
-        Debug.Log(_startPos);
         transform.position = _startPos;
-        Debug.Log(transform.position);
         _plateformIsTouch = false;
     }
 

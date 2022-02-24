@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
     ///  </value>
     private bool wallJumpStoped = false;
 
+    private SFXManager sfxManager;
+
     [SerializeField]
     public GameObject playerGhost;
 
@@ -65,6 +67,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        sfxManager = FindObjectOfType<SFXManager>();
         _rigidBody = GetComponentInParent<Rigidbody2D>();
         _sprite = GetComponentInParent<SpriteRenderer>();
         animator = GetComponentInParent<Animator>();
@@ -117,7 +120,8 @@ public class PlayerController : MonoBehaviour
         {
             playerState.canDash = false;
             playerState.isDashing = true;
-            _rigidBody.velocity = new Vector2(0, 0);
+            if(_rigidBody.bodyType != RigidbodyType2D.Static)
+                _rigidBody.velocity = new Vector2(0, 0);
             _dashCurrentTimer = movementSettings.dashTime;
             _dashDirection = new Vector2(playerState.facing, 0f).normalized;
             if (playerState.horDir != 0 || playerState.verDir != 0)
@@ -130,28 +134,42 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimations()
     {
-        animator.SetFloat("Horizontal", Mathf.Abs(playerState.horDir));
-        animator.SetBool("IsJumping", playerState.isJumping);
-        animator.SetBool("IsGrounded", playerState.canJump);
-        animator.SetBool("IsWallSliding", playerState.isWallSliding);
-        animator.SetBool("IsDashing", playerState.isDashing);
-        animator.SetFloat("VelocityY", _rigidBody.velocity.y);
+        bool isIdle = (Mathf.Abs(playerState.horDir) < 0.05 && Mathf.Abs(_rigidBody.velocity.x) < 0.05 && Mathf.Abs(_rigidBody.velocity.y) < 0.05 && playerState.canJump);
+        bool isFalling = (_rigidBody.velocity.y < -0.05 && !playerState.canJump && !playerState.isWallSliding);
+        bool isRunning = (Mathf.Abs(playerState.horDir) >= 0.05 && Mathf.Abs(_rigidBody.velocity.x) >= 0.05 && playerState.canJump && Mathf.Abs(_rigidBody.velocity.y) < 0.05);
+        bool isJumping = (_rigidBody.velocity.y >= 0.05 && ((playerState.isJumping && !playerState.isWallSliding) || (playerState.isWallJumping)));
+        bool isDashing = (playerState.isDashing);
+        bool isWallSliding = (playerState.isWallSliding && !playerState.isWallJumping);
+
+        animator.SetBool("IsIdle", isIdle);
+        animator.SetBool("IsFalling", isFalling);
+        animator.SetBool("IsRunning", isRunning);
+        animator.SetBool("IsJumping", isJumping);
+        animator.SetBool("IsDashing", isDashing);
+        animator.SetBool("IsWallSliding", isWallSliding);
     }
 
     private void FlipSprite()
     {
-        if(!playerState.isWallSliding)
+        if(!playerState.isWallSliding && !playerState.isWallJumping)
         {
             if (playerState.horDir < -0.05)
                 _sprite.flipX = true;
             else if(playerState.horDir > 0.05)
                 _sprite.flipX = false;
         }
+        else if(!playerState.isWallJumping)
+        {
+            if (_rigidBody.velocity.x < -0.05)
+                _sprite.flipX = false;
+            else if (_rigidBody.velocity.x > 0.05)
+                _sprite.flipX = true;
+        }
         else
         {
-            if (playerState.horDir < -0.05)
+            if (_rigidBody.velocity.x < -0.05)
                 _sprite.flipX = true;
-            else
+            else if (_rigidBody.velocity.x > 0.05)
                 _sprite.flipX = false;
         }
     }
@@ -169,7 +187,8 @@ public class PlayerController : MonoBehaviour
         {
             playerState.isDashing = false;
             _rigidBody.gravityScale = 7f;
-            _rigidBody.velocity = _rigidBody.velocity / 4;
+            if (_rigidBody.bodyType != RigidbodyType2D.Static)
+                _rigidBody.velocity = _rigidBody.velocity / 4;
         }
     }
 
@@ -178,7 +197,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void WallJump()
     {
-        _rigidBody.velocity = new Vector2(-_rigidBody.velocity.x, 0f);
+        if (_rigidBody.bodyType != RigidbodyType2D.Static)
+            _rigidBody.velocity = new Vector2(-_rigidBody.velocity.x, 0f);
         _rigidBody.AddForce(Vector2.up * movementSettings.jumpForce * 1.5f, ForceMode2D.Impulse);
 
         Vector2 vect = Vector2.left;
@@ -201,7 +221,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0f);
+        if (_rigidBody.bodyType != RigidbodyType2D.Static)
+            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, 0f);
         _rigidBody.AddForce(Vector2.up * movementSettings.jumpForce, ForceMode2D.Impulse);
 
         if (!playerState.isJumping)
@@ -220,7 +241,9 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         if (Mathf.Abs(_rigidBody.velocity.x) < movementSettings.maxMoveSpeed && playerState.linearDragType == PlayerState.DragType.GROUND)
+        {
             _rigidBody.AddForce(new Vector2(playerState.horDir, 0f) * movementSettings.maxAcceleration);
+        }
 
         else if(Mathf.Abs(_rigidBody.velocity.x) < (movementSettings.maxSpeed / 3) && playerState.linearDragType == PlayerState.DragType.AIR)
             _rigidBody.AddForce(new Vector2(playerState.horDir, 0f) * movementSettings.maxAcceleration);

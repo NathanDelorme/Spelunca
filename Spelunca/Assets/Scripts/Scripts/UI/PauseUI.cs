@@ -15,10 +15,12 @@ public class PauseUI : MonoBehaviour
     public UI.UIScript creditsMenu;
     public GameObject menu;
     public EventSystem eventSystem;
+    private SFXManager sfxManager;
     private PlayerInput playerInput;
 
     public void Start()
     {
+        sfxManager = FindObjectOfType<SFXManager>();
         playerInput = FindObjectOfType<PlayerInput>();
         uiManager = FindObjectOfType<UIManager>();
         Resume();
@@ -26,6 +28,7 @@ public class PauseUI : MonoBehaviour
 
     public void OnPause()
     {
+        sfxManager.flipFlopPause();
         if (paused && menu.activeSelf)
             Resume();
         else if (paused == false)
