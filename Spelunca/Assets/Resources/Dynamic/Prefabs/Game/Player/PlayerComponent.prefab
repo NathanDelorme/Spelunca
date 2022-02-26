@@ -555,6 +555,7 @@ MonoBehaviour:
   reverseSpikeZone: 0
   movementPlatforms: []
   fallingPlatforms: []
+  orbsDashManager: {fileID: 0}
   isKilled: 0
 --- !u!61 &7501640449339741291
 BoxCollider2D:
