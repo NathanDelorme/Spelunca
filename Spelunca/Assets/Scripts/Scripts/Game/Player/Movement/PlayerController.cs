@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
         FlipSprite();
 
         if(playerState.isDashing)
-            Instantiate(playerGhost, _rigidBody.transform.position, _rigidBody.transform.rotation);
+            Instantiate(playerGhost, this.transform.position, this.transform.rotation);
     }
 
     /// <summary>

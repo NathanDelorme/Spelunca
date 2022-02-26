@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 3896595488603769570}
   - component: {fileID: 3896595488603769571}
   - component: {fileID: 3896595488603769568}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Tilemap
-  m_TagString: Ground
+  m_TagString: Platofrm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 7135210904728253810}
   m_Layer: 0
   m_Name: Moving_Plateform
-  m_TagString: Platofrm
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

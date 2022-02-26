@@ -518,10 +518,10 @@ MonoBehaviour:
   navigationController: {fileID: 8337618513194809637}
   ground:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1344
   spikes:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   tilemaps:
   - {fileID: 0}
   - {fileID: 0}
@@ -1591,7 +1591,7 @@ MonoBehaviour:
   movementSettings: {fileID: 11400000, guid: 446d0424404815c4abc1a5edb933469b, type: 2}
   groundLayers:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 1344
   groundCheckCollider: {fileID: 1272973529220374740}
   wallLeftCheckCollider: {fileID: 1658827054963200244}
   wallRightCheckCollider: {fileID: 4715649633780894247}
