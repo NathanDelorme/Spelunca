@@ -32,6 +32,7 @@ public class WinDeathCondition : MonoBehaviour
 
     public Movement[] movementPlatforms;
     public FallingPlateform[] fallingPlatforms;
+    public OrbsDashManager orbsDashManager;
     private bool firstLoad = true;
 
     private Animator animator;
@@ -48,6 +49,7 @@ public class WinDeathCondition : MonoBehaviour
         SaveSceneName();
         animator = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
+        orbsDashManager = FindObjectOfType<OrbsDashManager>();
         movementPlatforms = FindObjectsOfType<Movement>();
         fallingPlatforms = FindObjectsOfType<FallingPlateform>();
         abilitySystem = FindObjectOfType<AbilitySystem>();
@@ -69,6 +71,7 @@ public class WinDeathCondition : MonoBehaviour
         _rigidBody.bodyType = RigidbodyType2D.Dynamic;
         if (!firstLoad)
         {
+            orbsDashManager.resetOrbs();
             foreach (Movement movementScript in movementPlatforms)
                 movementScript.Respawn();
             foreach (FallingPlateform fallingPlatformScript in fallingPlatforms)
