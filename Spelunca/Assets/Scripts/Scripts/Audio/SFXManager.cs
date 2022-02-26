@@ -24,7 +24,8 @@ public class SFXManager : MonoBehaviour
 
     public void StopSound()
     {
-        audioSource.Stop();
+        if(audioSource != null)
+            audioSource.Stop();
     }
 
     public void PlaySound(string sound)
