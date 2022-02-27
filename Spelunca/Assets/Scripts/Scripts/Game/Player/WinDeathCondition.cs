@@ -128,7 +128,7 @@ public class WinDeathCondition : MonoBehaviour
 
         int id = int.Parse(SceneManager.GetActiveScene().name.Remove(0, 5)) + 1;
 
-        if (id < 20)
+        if (id <= 20)
         {
             PlayerPrefs.SetInt("Level" + id.ToString(), 1);
             PlayerPrefs.Save();

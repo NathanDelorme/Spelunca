@@ -2,7 +2,7 @@
 
 <languages>
     <lang name="FR">
-        <text id="ui_versionText">Version 0.9</text>
+        <text id="ui_versionText">Version 1.0</text>
         <text id="ui_playButton">Jouer</text>
         <text id="ui_resumeButton">Reprendre</text>
         <text id="ui_settingsButton">Options</text>
@@ -20,6 +20,10 @@
         <text id="ui_screenText">Ecran</text>
         <text id="ui_fullscreenText">Plein ecran</text>
         <text id="ui_resolutionText">Resolution</text>
+
+		<text id="ui_BindingText">Touches</text>
+		<text id="ui_BindingKeyboardText">Clavier</text>
+		<text id="ui_BindingControllerText">Manette</text>
 
         <text id="ui_creditsText">
 Equipe Spelunca
@@ -57,8 +61,13 @@ Julien Robineau
         <text id="ALL_FULLTIME">Temps total : </text>
         <text id="ALL_BESTTIME">Meilleur temps : </text>
     </lang>
+	
+	
+	
+	
+	
     <lang name="EN">
-        <text id="ui_versionText">Version 0.9</text>
+        <text id="ui_versionText">Version 1.0</text>
         <text id="ui_playButton">Play</text>
         <text id="ui_mainMenuButton">Main menu</text>
         <text id="ui_resumeButton">Resume</text>
@@ -76,6 +85,10 @@ Julien Robineau
         <text id="ui_screenText">Screen</text>
         <text id="ui_fullscreenText">Fullscreen</text>
         <text id="ui_resolutionText">Resolution</text>
+
+		<text id="ui_BindingText">Keys</text>
+		<text id="ui_BindingKeyboardText">Keyboard</text>
+		<text id="ui_BindingControllerText">Controller</text>
 
         <text id="ui_creditsText">
 Spealunca Team
@@ -104,17 +117,25 @@ Abel Graux
 Julien Robineau
         </text>
 
-        <text id="LEVEL_DEATHS">Nombre de morts : </text>
-        <text id="LEVEL_JUMP">Nombre de sauts : </text>
-        <text id="LEVEL_FULLTIME">Temps total : </text>
-        <text id="LEVEL_BESTTIME">Meilleur temps : </text>
-        <text id="ALL_DEATHS">Total de morts : </text>
-        <text id="ALL_JUMP">Total de sauts : </text>
-        <text id="ALL_FULLTIME">Temps total : </text>
-        <text id="ALL_BESTTIME">Meilleur temps : </text>
+        <text id="LEVEL_DEATHS">Total deaths : </text>
+        <text id="LEVEL_JUMP">Total jumps : </text>
+        <text id="LEVEL_FULLTIME">Total time : </text>
+        <text id="LEVEL_BESTTIME">Best time : </text>
+        <text id="ALL_DEATHS">Total deaths : </text>
+        <text id="ALL_JUMP">Total jumps : </text>
+        <text id="ALL_FULLTIME">Temps time : </text>
+        <text id="ALL_BESTTIME">Best time : </text>
     </lang>
+	
+	
+	
+	
+	
+	
+	
+	
     <lang name="ES">
-        <text id="ui_versionText">Version 0.9</text>
+        <text id="ui_versionText">Version 1.0</text>
         <text id="ui_playButton">Jugar</text>
         <text id="ui_mainMenuButton">Menu principal</text>
         <text id="ui_resumeButton">Seguir</text>
@@ -132,6 +153,10 @@ Julien Robineau
         <text id="ui_screenText">Monitor</text>
         <text id="ui_fullscreenText">Pantalla completa</text>
         <text id="ui_resolutionText">Resolucion</text>
+
+		<text id="ui_BindingText">Teclas</text>
+		<text id="ui_BindingKeyboardText">Teclado</text>
+		<text id="ui_BindingControllerText">Controlador</text>
 
         <text id="ui_creditsText">
 Equipo Spelunca
@@ -160,13 +185,13 @@ Abel Graux
 Julien Robineau
         </text>
 
-        <text id="LEVEL_DEATHS">Nombre de morts : </text>
-        <text id="LEVEL_JUMP">Nombre de sauts : </text>
-        <text id="LEVEL_FULLTIME">Temps total : </text>
-        <text id="LEVEL_BESTTIME">Meilleur temps : </text>
-        <text id="ALL_DEATHS">Total de morts : </text>
-        <text id="ALL_JUMP">Total de sauts : </text>
-        <text id="ALL_FULLTIME">Temps total : </text>
-        <text id="ALL_BESTTIME">Meilleur temps : </text>
+        <text id="LEVEL_DEATHS">Muertes totales : </text>
+        <text id="LEVEL_JUMP">Saltos totales : </text>
+        <text id="LEVEL_FULLTIME">Tiempo Total : </text>
+        <text id="LEVEL_BESTTIME">Mejor tiempo : </text>
+        <text id="ALL_DEATHS">Muertes totales : </text>
+        <text id="ALL_JUMP">Saltos totales : </text>
+        <text id="ALL_FULLTIME">Tiempo Total : </text>
+        <text id="ALL_BESTTIME">Mejor tiempo : </text>
     </lang>
 </languages>
