@@ -1083,6 +1083,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 719289663}
     m_Modifications:
+    - target: {fileID: 2296130638206986959, guid: 76bd0e679dbb86f4aa54b4d6e19c5095, type: 3}
+      propertyPath: timeToFall
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296130638206986959, guid: 76bd0e679dbb86f4aa54b4d6e19c5095, type: 3}
+      propertyPath: timeToRespawn
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4715193327527825846, guid: 76bd0e679dbb86f4aa54b4d6e19c5095, type: 3}
       propertyPath: timeToRespawn
       value: 50
@@ -44400,6 +44408,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 719289663}
     m_Modifications:
+    - target: {fileID: 2296130638206986959, guid: 76bd0e679dbb86f4aa54b4d6e19c5095, type: 3}
+      propertyPath: timeToFall
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296130638206986959, guid: 76bd0e679dbb86f4aa54b4d6e19c5095, type: 3}
+      propertyPath: timeToRespawn
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4715193327527825846, guid: 76bd0e679dbb86f4aa54b4d6e19c5095, type: 3}
       propertyPath: timeToRespawn
       value: 20
