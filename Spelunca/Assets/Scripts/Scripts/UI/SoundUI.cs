@@ -15,8 +15,8 @@ public class SoundUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        sliders[0].value = settingsData.musicVolume;
-        sliders[1].value = settingsData.sfxVolume;
+        sliders[0].SetValueWithoutNotify(settingsData.musicVolume);
+        sliders[1].SetValueWithoutNotify(settingsData.sfxVolume);
     }
 
     public void ChangeVolume()

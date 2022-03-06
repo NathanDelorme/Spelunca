@@ -21,15 +21,18 @@ public class SaveSystem : MonoBehaviour
 
     public void SaveSettings()
     {
-        PlayerPrefs.SetString("settings_language", data.language);
-        PlayerPrefs.SetFloat("settings_musicVolume", data.musicVolume);
-        PlayerPrefs.SetFloat("settings_sfxVolume", data.sfxVolume);
-        PlayerPrefs.SetInt("settings_fullscreen", data.isFullscreen ? 1 : 0);
+        if(data != null)
+        {
+            PlayerPrefs.SetString("settings_language", data.language);
+            PlayerPrefs.SetFloat("settings_musicVolume", data.musicVolume);
+            PlayerPrefs.SetFloat("settings_sfxVolume", data.sfxVolume);
+            PlayerPrefs.SetInt("settings_fullscreen", data.isFullscreen ? 1 : 0);
+        }
     }
 
     public void LoadSettings()
     {
-        if(!PlayerPrefs.HasKey("settings_language"))
+        if (!PlayerPrefs.HasKey("settings_language"))
             PlayerPrefs.SetString("settings_language", "EN");
         if (!PlayerPrefs.HasKey("settings_musicVolume"))
             PlayerPrefs.SetFloat("settings_musicVolume", 0.5f);

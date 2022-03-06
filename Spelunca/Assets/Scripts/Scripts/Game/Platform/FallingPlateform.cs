@@ -9,7 +9,6 @@ public class FallingPlateform : MonoBehaviour
     private Vector2 _startPos;
     private bool _plateformIsTouch;
     public bool respawns = true;
-    
 
     private void Start()
     {

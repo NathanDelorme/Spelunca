@@ -42,7 +42,6 @@ public class SFXManager : MonoBehaviour
             case "playerJump":
                 audioSource.pitch = 1f;
                 audioSource.PlayOneShot(playerJumpSound);
-                //audioSource.clip = playerJumpSound;
                 break;
             case "playerWallSlide":
                 audioSource.pitch = 1f;
@@ -51,12 +50,10 @@ public class SFXManager : MonoBehaviour
             case "playerDash":
                 audioSource.pitch = 1f;
                 audioSource.PlayOneShot(playerDashSound);
-                //audioSource.clip = playerDashSound;
                 break;
             case "playerDeath":
                 audioSource.pitch = 1f;
                 audioSource.PlayOneShot(playerDeathSound);
-                //audioSource.clip = playerDeathSound;
                 break;
         }
         audioSource.Play();

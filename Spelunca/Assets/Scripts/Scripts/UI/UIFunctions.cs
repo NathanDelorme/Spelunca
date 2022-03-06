@@ -41,8 +41,7 @@ namespace UI
         public void ApplyVolume()
         {
             musicMixer.SetFloat("MusicVol", Mathf.Log10(settingsData.musicVolume) * 20);
-            if(SFXMixer == null)
-                SFXMixer.SetFloat("SFXVol", Mathf.Log10(settingsData.sfxVolume) * 20);
+            SFXMixer.SetFloat("SFXVol", Mathf.Log10(settingsData.sfxVolume) * 20);
         }
 
         public void ApplyFullscreen()
