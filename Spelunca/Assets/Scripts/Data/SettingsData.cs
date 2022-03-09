@@ -11,4 +11,6 @@ public class SettingsData : MonoBehaviour
     public float sfxVolume = 0.5f;
 
     public bool isFullscreen = true;
+    public int resolutionWidth = 1920;
+    public int resolutionheight = 1080;
 }
