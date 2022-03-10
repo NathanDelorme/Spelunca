@@ -27,6 +27,8 @@ public class SaveSystem : MonoBehaviour
             PlayerPrefs.SetFloat("settings_musicVolume", data.musicVolume);
             PlayerPrefs.SetFloat("settings_sfxVolume", data.sfxVolume);
             PlayerPrefs.SetInt("settings_fullscreen", data.isFullscreen ? 1 : 0);
+            PlayerPrefs.SetInt("settings_fullscreenWidth", data.resolutionWidth);
+            PlayerPrefs.SetInt("settings_fullscreenHeight", data.resolutionheight);
         }
     }
 
@@ -41,9 +43,18 @@ public class SaveSystem : MonoBehaviour
         if (!PlayerPrefs.HasKey("settings_fullscreen"))
             PlayerPrefs.SetInt("settings_fullscreen", 1);
 
+        if (!PlayerPrefs.HasKey("settings_fullscreenWidth") || !PlayerPrefs.HasKey("settings_fullscreenHeight"))
+        {
+            PlayerPrefs.SetInt("settings_fullscreenWidth", 1920);
+            PlayerPrefs.SetInt("settings_fullscreenHeight", 1080);
+        }
+            
+
         data.language = PlayerPrefs.GetString("settings_language");
         data.musicVolume = PlayerPrefs.GetFloat("settings_musicVolume");
         data.sfxVolume = PlayerPrefs.GetFloat("settings_sfxVolume");
         data.isFullscreen = PlayerPrefs.GetInt("settings_fullscreen") == 1;
+        data.resolutionWidth = PlayerPrefs.GetInt("settings_fullscreenWidth");
+        data.resolutionheight = PlayerPrefs.GetInt("settings_fullscreenHeight");
     }
 }
