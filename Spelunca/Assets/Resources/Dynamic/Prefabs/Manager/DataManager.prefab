@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5924955701183827502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0229257, y: 1.8749003, z: -2.7454848}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -61,6 +61,8 @@ MonoBehaviour:
   musicVolume: 0.5
   sfxVolume: 0.5
   isFullscreen: 1
+  resolutionWidth: 1920
+  resolutionheight: 1080
 --- !u!114 &7336576647443214299
 MonoBehaviour:
   m_ObjectHideFlags: 0
