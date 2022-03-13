@@ -133,11 +133,6 @@ public class WinDeathCondition : MonoBehaviour
         {
             PlayerPrefs.SetInt(Application.version + "Level" + id.ToString(), 1);
             PlayerPrefs.Save();
-            //SceneManager.LoadScene("Scenes/Levels/Level" + id);
-        }
-        else
-        {
-            //SceneManager.LoadScene("Scenes/UI/MainMenu");
         }
         endMenu.SetActive(true);
     }

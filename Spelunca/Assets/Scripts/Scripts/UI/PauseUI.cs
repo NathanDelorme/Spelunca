@@ -83,6 +83,9 @@ public class PauseUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         paused = false;
+        PlayerPrefs.SetInt(Application.version + "IS_PLAYING_RUN", 0);
+        PlayerPrefs.SetFloat(Application.version + "ALL_CURRENTRUN", 0f);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("Scenes/UI/MainMenu");
     }
 }

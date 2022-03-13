@@ -66,6 +66,7 @@ Julien Robineau
         <text id="ALL_JUMP">Total de sauts : </text>
         <text id="ALL_FULLTIME">Temps total : </text>
         <text id="ALL_BESTTIME">Meilleur temps : </text>
+		<text id="ALL_BESTRUN">Meilleure run : </text>
     </lang>
 	
 	
@@ -137,6 +138,7 @@ Julien Robineau
         <text id="ALL_JUMP">Total jumps : </text>
         <text id="ALL_FULLTIME">Total time : </text>
         <text id="ALL_BESTTIME">Best time : </text>
+		<text id="ALL_BESTRUN">Best run : </text>
     </lang>
 	
 	
@@ -211,5 +213,6 @@ Julien Robineau
         <text id="ALL_JUMP">Saltos totales : </text>
         <text id="ALL_FULLTIME">Tiempo Total : </text>
         <text id="ALL_BESTTIME">Mejor tiempo : </text>
+		<text id="ALL_BESTRUN">Mejor run : </text>
     </lang>
 </languages>

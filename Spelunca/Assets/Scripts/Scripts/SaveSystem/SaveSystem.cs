@@ -23,7 +23,7 @@ public class SaveSystem : MonoBehaviour
     {
         string saveId = "";
 
-        for (int levelID = 1; levelID < 20; levelID++)
+        for (int levelID = 1; levelID <= 20; levelID++)
         {
             if(levelID != 1)
             {

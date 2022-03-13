@@ -97,6 +97,9 @@ namespace Language
                         case Stats.ALL_BESTTIME:
                             textStat = languages[lang]["ALL_BESTTIME"];
                             break;
+                        case Stats.ALL_BESTRUN:
+                            textStat = languages[lang]["ALL_BESTRUN"];
+                            break;
                         default:
                             break;
                     }

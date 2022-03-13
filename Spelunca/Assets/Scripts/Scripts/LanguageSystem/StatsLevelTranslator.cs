@@ -16,7 +16,8 @@ public class StatsLevelTranslator : MonoBehaviour
         ALL_DEATHS,
         ALL_JUMP,
         ALL_FULLTIME,
-        ALL_BESTTIME
+        ALL_BESTTIME,
+        ALL_BESTRUN
     }
 
     public int levelID = 0;
@@ -76,6 +77,10 @@ public class StatsLevelTranslator : MonoBehaviour
             saveId = Application.version + "ALL_BESTTIME";
             if (!PlayerPrefs.HasKey(saveId))
                 PlayerPrefs.SetFloat(saveId, 0f);
+
+            saveId = Application.version + "ALL_BESTRUN";
+            if (!PlayerPrefs.HasKey(saveId))
+                PlayerPrefs.SetFloat(saveId, 0f);
         }
     }
 
@@ -98,10 +103,12 @@ public class StatsLevelTranslator : MonoBehaviour
                     saveId = Application.version + "LEVEL_DEATHS" + levelID;
                     data = PlayerPrefs.GetInt(saveId).ToString();
                     break;
+
                 case Stats.LEVEL_JUMP:
                     saveId = Application.version + "LEVEL_JUMP" + levelID;
                     data = PlayerPrefs.GetInt(saveId).ToString();
                     break;
+
                 case Stats.LEVEL_FULLTIME:
                     saveId = Application.version + "LEVEL_FULLTIME" + levelID;
 
@@ -110,6 +117,7 @@ public class StatsLevelTranslator : MonoBehaviour
                     else
                         data = ConvertSecToReadable(PlayerPrefs.GetFloat(saveId));
                     break;
+
                 case Stats.LEVEL_BESTTIME:
                     saveId = Application.version + "LEVEL_BESTTIME" + levelID;
 
@@ -124,10 +132,12 @@ public class StatsLevelTranslator : MonoBehaviour
                     saveId = Application.version + "ALL_DEATHS";
                     data = GetTotalIntCount("LEVEL_DEATHS").ToString();
                     break;
+
                 case Stats.ALL_JUMP:
                     saveId = Application.version + "ALL_JUMP";
                     data = GetTotalIntCount("LEVEL_JUMP").ToString();
                     break;
+
                 case Stats.ALL_FULLTIME:
                     saveId = Application.version + "ALL_FULLTIME";
                     time = GetTotalFloatCount("LEVEL_FULLTIME");
@@ -136,6 +146,7 @@ public class StatsLevelTranslator : MonoBehaviour
                     else
                         data = ConvertSecToReadable(time);
                     break;
+
                 case Stats.ALL_BESTTIME:
                     saveId = Application.version + "LEVEL_BESTTIME20";
                     if (PlayerPrefs.GetFloat(saveId) <= 0f)
@@ -145,6 +156,16 @@ public class StatsLevelTranslator : MonoBehaviour
 
                     saveId = Application.version + "ALL_BESTTIME";
                     time = GetTotalFloatCount("LEVEL_BESTTIME");
+                    if (time <= 0f)
+                        data = "--";
+                    else
+                        data = ConvertSecToReadable(time);
+                    break;
+
+                case Stats.ALL_BESTRUN:
+                    saveId = Application.version + "ALL_BESTRUN";
+
+                    time = PlayerPrefs.GetFloat(saveId);
                     if (time <= 0f)
                         data = "--";
                     else

@@ -21,6 +21,13 @@ public class SelectionButtonText : MonoBehaviour
         textComponent.SetText(levelID.ToString());
     }
 
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt(Application.version + "IS_PLAYING_RUN", 0);
+        PlayerPrefs.SetFloat(Application.version + "ALL_CURRENTRUN", 0f);
+        PlayerPrefs.Save();
+    }
+
     public void LoadLevel()
     {
         SceneManager.LoadScene("Scenes/Levels/Level" + levelID.ToString());
