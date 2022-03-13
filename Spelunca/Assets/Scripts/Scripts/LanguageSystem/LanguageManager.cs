@@ -15,6 +15,8 @@ namespace Language
 
         private List<Translator> translators;
         private List<StatsLevelTranslator> statsTranslator;
+        private List<LevelTranslator> levelsTranslator;
+        private string lastLanguage = "EN";
 
 
         private void Awake()
@@ -36,11 +38,17 @@ namespace Language
         {
             GetTranslators();
             GetStatsTranslators();
+            GetLevelsTranslators();
             ApplyLanguage("EN");
         }
 
         public void ApplyLanguage(string lang)
         {
+            if (lang == "None")
+                lang = lastLanguage;
+
+            lastLanguage = lang;
+
             foreach (Translator tr in translators)
             {
                 string text = "TextError";
@@ -96,6 +104,20 @@ namespace Language
                 }
                 tr.changeText(texts);
             }
+
+            foreach (LevelTranslator tr in levelsTranslator)
+            {
+                string text = "TextError";
+
+                if (!languages.ContainsKey(lang))
+                    Debug.LogError("TranslationSystem - lang (" + lang + ") not found in the languages dictionary.");
+                else if (!languages[lang].ContainsKey(tr.textId))
+                    Debug.LogError("TranslationSystem - textId (" + tr.textId + ") not found in the text dictionary of the " + lang + " dictionary.");
+                else
+                    text = languages[lang][tr.textId];
+
+                tr.changeText(text);
+            }
         }
 
         private void GetTranslators()
@@ -112,6 +134,14 @@ namespace Language
 
             foreach (GameObject gameObject in SceneManager.GetActiveScene().GetRootGameObjects())
                 statsTranslator.AddRange(gameObject.GetComponentsInChildren<StatsLevelTranslator>());
+        }
+
+        private void GetLevelsTranslators()
+        {
+            levelsTranslator = new List<LevelTranslator>();
+
+            foreach (GameObject gameObject in SceneManager.GetActiveScene().GetRootGameObjects())
+                levelsTranslator.AddRange(gameObject.GetComponentsInChildren<LevelTranslator>());
         }
 
         private void XMLReader()

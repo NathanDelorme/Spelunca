@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class WinDeathCondition : MonoBehaviour
 {
+    public GameObject endMenu;
     public PlayerState playerState;
     private AbilitySystem abilitySystem;
     /// <value>
@@ -130,18 +131,19 @@ public class WinDeathCondition : MonoBehaviour
 
         if (id <= 20)
         {
-            PlayerPrefs.SetInt("Level" + id.ToString(), 1);
+            PlayerPrefs.SetInt(Application.version + "Level" + id.ToString(), 1);
             PlayerPrefs.Save();
-            SceneManager.LoadScene("Scenes/Levels/Level" + id);
+            //SceneManager.LoadScene("Scenes/Levels/Level" + id);
         }
         else
         {
-            SceneManager.LoadScene("Scenes/UI/MainMenu");
+            //SceneManager.LoadScene("Scenes/UI/MainMenu");
         }
+        endMenu.SetActive(true);
     }
 
     private void SaveSceneName()
     {
-        PlayerPrefs.SetString("player_lastScene", SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetString(Application.version + "player_lastScene", SceneManager.GetActiveScene().name);
     }
 }

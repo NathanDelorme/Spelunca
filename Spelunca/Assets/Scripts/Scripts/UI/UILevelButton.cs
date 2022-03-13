@@ -15,18 +15,18 @@ public class UILevelButton : MonoBehaviour
 
     public void Start()
     {
-        if (!PlayerPrefs.HasKey("Level" + text))
+        if (!PlayerPrefs.HasKey(Application.version + "Level" + text))
         {
-            PlayerPrefs.SetInt("Level" + text, 0);
+            PlayerPrefs.SetInt(Application.version + "Level" + text, 0);
             if (text.Equals("1"))
-                PlayerPrefs.SetInt("Level" + text, 1);
+                PlayerPrefs.SetInt(Application.version + "Level" + text, 1);
             PlayerPrefs.Save();
         }
     }
 
     public void OnEnable()
     {
-        if (PlayerPrefs.GetInt("Level" + text) != 1)
+        if (PlayerPrefs.GetInt(Application.version + "Level" + text) != 1)
             button.interactable = false;
         else
             button.interactable = true;

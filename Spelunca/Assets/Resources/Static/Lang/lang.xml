@@ -2,7 +2,12 @@
 
 <languages>
     <lang name="FR">
-        <text id="ui_versionText">Version 1.0</text>
+		<text id="inGame_LevelName">Niveau</text>
+		<text id="inGame_previousLevel">Precedent</text>
+		<text id="inGame_restartLevel">Rejouer</text>
+		<text id="inGame_nextLevel">Suivant</text>
+		
+        <text id="ui_versionText">Version 1.1</text>
         <text id="ui_playButton">Jouer</text>
         <text id="ui_resumeButton">Reprendre</text>
         <text id="ui_settingsButton">Options</text>
@@ -12,8 +17,9 @@
         <text id="ui_backButton">Retour</text>
 
         <text id="ui_selectionLevelText">Choix du niveau</text>
+		<text id="ui_resetButton">Effacer progression</text>
 
-        <text id="ui_languageText">Langues</text>
+		<text id="ui_languageText">Langues</text>
         <text id="ui_soundText">Sons</text>
         <text id="ui_musicText">Musique</text>
         <text id="ui_effectsText">Effets</text>
@@ -67,7 +73,12 @@ Julien Robineau
 	
 	
     <lang name="EN">
-        <text id="ui_versionText">Version 1.0</text>
+		<text id="inGame_LevelName">Level</text>
+		<text id="inGame_previousLevel">Previous</text>
+		<text id="inGame_restartLevel">Restart</text>
+		<text id="inGame_nextLevel">Next</text>
+		
+        <text id="ui_versionText">Version 1.1</text>
         <text id="ui_playButton">Play</text>
         <text id="ui_mainMenuButton">Main menu</text>
         <text id="ui_resumeButton">Resume</text>
@@ -77,6 +88,7 @@ Julien Robineau
         <text id="ui_backButton">Back</text>
 
         <text id="ui_selectionLevelText">Level Selection</text>
+		<text id="ui_resetButton">Clear progression</text>
 
         <text id="ui_languageText">Languages</text>
         <text id="ui_soundText">Sounds</text>
@@ -135,7 +147,12 @@ Julien Robineau
 	
 	
     <lang name="ES">
-        <text id="ui_versionText">Version 1.0</text>
+		<text id="inGame_LevelName">Nivel</text>
+		<text id="inGame_previousLevel">Anterior</text>
+		<text id="inGame_restartLevel">Reinicia</text>
+		<text id="inGame_nextLevel">Siguiente</text>
+		
+        <text id="ui_versionText">Version 1.1</text>
         <text id="ui_playButton">Jugar</text>
         <text id="ui_mainMenuButton">Menu principal</text>
         <text id="ui_resumeButton">Seguir</text>
@@ -145,6 +162,7 @@ Julien Robineau
         <text id="ui_backButton">Atras</text>
 
         <text id="ui_selectionLevelText">Seleccion del nivel</text>
+		<text id="ui_resetButton">Suprimir progresion</text>
 
         <text id="ui_languageText">Idiomas</text>
         <text id="ui_soundText">Audio</text>

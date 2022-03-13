@@ -21,8 +21,8 @@ public class DataPlayer : MonoBehaviour
     {
         levelID = int.Parse(SceneManager.GetActiveScene().name.Remove(0, 5));
 
-        deathTotalNb = PlayerPrefs.GetInt("LEVEL_DEATHS" + levelID);
-        jumpTotalNb = PlayerPrefs.GetInt("LEVEL_JUMP" + levelID);
+        deathTotalNb = PlayerPrefs.GetInt(Application.version + "LEVEL_DEATHS" + levelID);
+        jumpTotalNb = PlayerPrefs.GetInt(Application.version + "LEVEL_JUMP" + levelID);
     }
 
     void Update()
@@ -31,7 +31,7 @@ public class DataPlayer : MonoBehaviour
         {
             isKilledOld = true;
             deathTotalNb++;
-            PlayerPrefs.SetInt("LEVEL_DEATHS" + levelID, deathTotalNb);
+            PlayerPrefs.SetInt(Application.version + "LEVEL_DEATHS" + levelID, deathTotalNb);
         }
         if (winDeathCondition.isKilled == false)
             isKilledOld = false;
@@ -40,7 +40,7 @@ public class DataPlayer : MonoBehaviour
         {
             isJumpingOld = true;
             jumpTotalNb++;
-            PlayerPrefs.SetInt("LEVEL_JUMP" + levelID, jumpTotalNb);
+            PlayerPrefs.SetInt(Application.version + "LEVEL_JUMP" + levelID, jumpTotalNb);
         }
         if (playerState.isJumping == false)
             isJumpingOld = false;
@@ -49,7 +49,7 @@ public class DataPlayer : MonoBehaviour
         {
             IsWallJumpingOld = true;
             jumpTotalNb++;
-            PlayerPrefs.SetInt("LEVEL_JUMP" + levelID, jumpTotalNb);
+            PlayerPrefs.SetInt(Application.version + "LEVEL_JUMP" + levelID, jumpTotalNb);
         }
         if (playerState.isWallJumping == false)
             IsWallJumpingOld = false;

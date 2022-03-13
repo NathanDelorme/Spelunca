@@ -19,8 +19,8 @@ public class Timer : MonoBehaviour
         levelID = int.Parse(SceneManager.GetActiveScene().name.Remove(0, 5));
 
         time = 0;
-        bestTime = PlayerPrefs.GetFloat("LEVEL_BESTTIME" + levelID);
-        fullTime = PlayerPrefs.GetFloat("LEVEL_FULLTIME" + levelID);
+        bestTime = PlayerPrefs.GetFloat(Application.version + "LEVEL_BESTTIME" + levelID);
+        fullTime = PlayerPrefs.GetFloat(Application.version + "LEVEL_FULLTIME" + levelID);
     }
 
     public static string ConvertSecToReadable(float sec)
@@ -46,16 +46,16 @@ public class Timer : MonoBehaviour
         playing = false;
         if (isKilled)
         {
-            PlayerPrefs.SetFloat("LEVEL_FULLTIME" + levelID, fullTime + time);
-            fullTime = PlayerPrefs.GetFloat("LEVEL_FULLTIME" + levelID);
+            PlayerPrefs.SetFloat(Application.version + "LEVEL_FULLTIME" + levelID, fullTime + time);
+            fullTime = PlayerPrefs.GetFloat(Application.version + "LEVEL_FULLTIME" + levelID);
             time = 0f;
         }
         else
         {
-            PlayerPrefs.SetFloat("LEVEL_FULLTIME" + levelID, fullTime + time);
+            PlayerPrefs.SetFloat(Application.version + "LEVEL_FULLTIME" + levelID, fullTime + time);
 
             if (time < bestTime || bestTime == 0f)
-                PlayerPrefs.SetFloat("LEVEL_BESTTIME" + levelID, time); ;
+                PlayerPrefs.SetFloat(Application.version + "LEVEL_BESTTIME" + levelID, time); ;
         }
         playing = true;
     }

@@ -3,19 +3,47 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SelectionButtonText : MonoBehaviour
 {
     private TextMeshProUGUI textComponent => GetComponentInChildren<TextMeshProUGUI>();
+    private Button button => GetComponent<Button>();
+    public StatsLevelTranslator statsText;
     public int levelID = -1;
 
     public void loadMenu()
     {
+        if (PlayerPrefs.GetInt(Application.version + "Level" + levelID.ToString()) != 1)
+            button.interactable = false;
+        else
+            button.interactable = true;
         textComponent.SetText(levelID.ToString());
     }
 
     public void LoadLevel()
     {
         SceneManager.LoadScene("Scenes/Levels/Level" + levelID.ToString());
+    }
+
+    public void ChangeLevelMenu()
+    {
+        if (levelID < 1)
+            levelID = 20;
+        else if (levelID > 20)
+            levelID = 1;
+        loadMenu();
+        statsText.levelID = levelID;
+        statsText.loadMenu();
+    }
+
+    public void NextLevel()
+    {
+        levelID += 1;
+    }
+
+    public void PreviousLevel()
+    {
+        levelID -= 1;
     }
 }

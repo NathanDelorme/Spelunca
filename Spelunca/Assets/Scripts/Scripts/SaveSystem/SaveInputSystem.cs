@@ -55,7 +55,7 @@ public class SaveInputSystem : MonoBehaviour
             }
         }
 
-        PlayerPrefs.SetString("ControlOverrides", JsonUtility.ToJson(bindingList));
+        PlayerPrefs.SetString(Application.version + "ControlOverrides", JsonUtility.ToJson(bindingList));
         PlayerPrefs.Save();
     }
 
@@ -64,9 +64,9 @@ public class SaveInputSystem : MonoBehaviour
     /// </summary>
     public void LoadControlOverrides()
     {
-        if (PlayerPrefs.HasKey("ControlOverrides"))
+        if (PlayerPrefs.HasKey(Application.version + "ControlOverrides"))
         {
-            BindingWrapperClass bindingList = JsonUtility.FromJson(PlayerPrefs.GetString("ControlOverrides"), typeof(BindingWrapperClass)) as BindingWrapperClass;
+            BindingWrapperClass bindingList = JsonUtility.FromJson(PlayerPrefs.GetString(Application.version + "ControlOverrides"), typeof(BindingWrapperClass)) as BindingWrapperClass;
 
             //create a dictionary to easier check for existing overrides
             Dictionary<System.Guid, string> overrides = new Dictionary<System.Guid, string>();

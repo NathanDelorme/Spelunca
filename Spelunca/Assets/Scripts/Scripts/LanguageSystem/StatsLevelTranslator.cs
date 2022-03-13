@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StatsLevelTranslator : MonoBehaviour
 {
@@ -28,9 +29,12 @@ public class StatsLevelTranslator : MonoBehaviour
     {
         if (!textComponent)
             Debug.LogError("Translator - textComponent is null.");
-
-        if(levelID == -1)
+        else if(levelID == -1 || levelID == -2)
+        {
+            if (levelID == -2)
+                levelID = int.Parse(SceneManager.GetActiveScene().name.Remove(0, 5));
             loadMenu();
+        }
     }
 
     private void InitializeLevelStats()
@@ -39,37 +43,37 @@ public class StatsLevelTranslator : MonoBehaviour
 
         if(levelID != -1)
         {
-            saveId = "LEVEL_DEATHS" + levelID;
+            saveId = Application.version + "LEVEL_DEATHS" + levelID;
             if (!PlayerPrefs.HasKey(saveId))
                 PlayerPrefs.SetInt(saveId, 0);
 
-            saveId = "LEVEL_JUMP" + levelID;
+            saveId = Application.version + "LEVEL_JUMP" + levelID;
             if (!PlayerPrefs.HasKey(saveId))
                 PlayerPrefs.SetInt(saveId, 0);
 
-            saveId = "LEVEL_FULLTIME" + levelID;
+            saveId = Application.version + "LEVEL_FULLTIME" + levelID;
             if (!PlayerPrefs.HasKey(saveId))
                 PlayerPrefs.SetFloat(saveId, 0f);
 
-            saveId = "LEVEL_BESTTIME" + levelID;
+            saveId = Application.version + "LEVEL_BESTTIME" + levelID;
             if (!PlayerPrefs.HasKey(saveId))
                 PlayerPrefs.SetFloat(saveId, 0f);
         }
         else
         {
-            saveId = "ALL_DEATHS";
+            saveId = Application.version + "ALL_DEATHS";
             if (!PlayerPrefs.HasKey(saveId))
                 PlayerPrefs.SetInt(saveId, 0);
 
-            saveId = "ALL_JUMP";
+            saveId = Application.version + "ALL_JUMP";
             if (!PlayerPrefs.HasKey(saveId))
                 PlayerPrefs.SetInt(saveId, 0);
 
-            saveId = "ALL_FULLTIME";
+            saveId = Application.version + "ALL_FULLTIME";
             if (!PlayerPrefs.HasKey(saveId))
                 PlayerPrefs.SetFloat(saveId, 0f);
 
-            saveId = "ALL_BESTTIME";
+            saveId = Application.version + "ALL_BESTTIME";
             if (!PlayerPrefs.HasKey(saveId))
                 PlayerPrefs.SetFloat(saveId, 0f);
         }
@@ -91,52 +95,58 @@ public class StatsLevelTranslator : MonoBehaviour
             switch (stat)
             {
                 case Stats.LEVEL_DEATHS:
-                    saveId = "LEVEL_DEATHS" + levelID;
+                    saveId = Application.version + "LEVEL_DEATHS" + levelID;
                     data = PlayerPrefs.GetInt(saveId).ToString();
                     break;
                 case Stats.LEVEL_JUMP:
-                    saveId = "LEVEL_JUMP" + levelID;
+                    saveId = Application.version + "LEVEL_JUMP" + levelID;
                     data = PlayerPrefs.GetInt(saveId).ToString();
                     break;
                 case Stats.LEVEL_FULLTIME:
-                    saveId = "LEVEL_FULLTIME" + levelID;
+                    saveId = Application.version + "LEVEL_FULLTIME" + levelID;
 
                     if (PlayerPrefs.GetFloat(saveId) <= 0f)
-                        data = "----";
+                        data = "--";
                     else
                         data = ConvertSecToReadable(PlayerPrefs.GetFloat(saveId));
                     break;
                 case Stats.LEVEL_BESTTIME:
-                    saveId = "LEVEL_BESTTIME" + levelID;
+                    saveId = Application.version + "LEVEL_BESTTIME" + levelID;
 
                     if (PlayerPrefs.GetFloat(saveId) <= 0f)
-                        data = "----";
+                        data = "--";
                     else
                         data = ConvertSecToReadable(PlayerPrefs.GetFloat(saveId));
                     break;
 
 
                 case Stats.ALL_DEATHS:
-                    saveId = "ALL_DEATHS";
+                    saveId = Application.version + "ALL_DEATHS";
                     data = GetTotalIntCount("LEVEL_DEATHS").ToString();
                     break;
                 case Stats.ALL_JUMP:
-                    saveId = "ALL_JUMP";
+                    saveId = Application.version + "ALL_JUMP";
                     data = GetTotalIntCount("LEVEL_JUMP").ToString();
                     break;
                 case Stats.ALL_FULLTIME:
-                    saveId = "ALL_FULLTIME";
+                    saveId = Application.version + "ALL_FULLTIME";
                     time = GetTotalFloatCount("LEVEL_FULLTIME");
                     if (time <= 0f)
-                        data = "----";
+                        data = "--";
                     else
                         data = ConvertSecToReadable(time);
                     break;
                 case Stats.ALL_BESTTIME:
-                    saveId = "ALL_BESTTIME";
+                    saveId = Application.version + "LEVEL_BESTTIME20";
+                    if (PlayerPrefs.GetFloat(saveId) <= 0f)
+                        textComponent.color = Color.red;
+                    else
+                        textComponent.color = Color.white;
+
+                    saveId = Application.version + "ALL_BESTTIME";
                     time = GetTotalFloatCount("LEVEL_BESTTIME");
                     if (time <= 0f)
-                        data = "----";
+                        data = "--";
                     else
                         data = ConvertSecToReadable(time);
                     break;
@@ -159,7 +169,7 @@ public class StatsLevelTranslator : MonoBehaviour
     {
         int res = 0;
         for(int i = 1; i <= 20; i++)
-            res += PlayerPrefs.GetInt(saveType + i);
+            res += PlayerPrefs.GetInt(Application.version + saveType + i);
         return res;
     }
 
@@ -167,7 +177,7 @@ public class StatsLevelTranslator : MonoBehaviour
     {
         float res = 0;
         for (int i = 1; i <= 20; i++)
-            res += PlayerPrefs.GetFloat(saveType + i);
+            res += PlayerPrefs.GetFloat(Application.version + saveType + i);
         return res;
     }
 
@@ -175,6 +185,7 @@ public class StatsLevelTranslator : MonoBehaviour
     {
         defaultTexts = new List<string>();
         defaultTexts = translatedTexts;
+        loadMenu();
     }
 
     public static string ConvertSecToReadable(float sec)
