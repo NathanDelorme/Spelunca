@@ -58,6 +58,30 @@ Abel Graux
 Julien Robineau
         </text>
 
+        <text id="dialog_Begin">
+Ho Ho Ho mon cher petit-fils, comment vas-tu ?
+
+Je te legue ma vieille maison pleine de souvenirs et de tresors !
+Prend garde, n’oublie pas de reactiver le disjoncteur, il est dans la cave !
+
+Amuse-toi bien dans ton nouveau chez toi !
+Des gros poutous partout ton papy d’amour
+
+Papito
+        </text>
+
+        <text id="dialog_End">
+Vous : Papy tu est ici depuis tout ce temps ?
+
+Papy : Eh oui mon fiston,
+je te gardais le fusible bien au chaud !
+
+Vous : Vraiment ?! Tu as fait tout ca pour moi ?
+Mais on fait comment pour remonter ?
+
+Papy : Ca fait des années que je me le demande...
+        </text>
+
         <text id="LEVEL_DEATHS">Nombre de morts : </text>
         <text id="LEVEL_JUMP">Nombre de sauts : </text>
         <text id="LEVEL_FULLTIME">Temps total : </text>
@@ -128,6 +152,29 @@ Gabin Vitoux
 Abel Graux
 
 Julien Robineau
+        </text>
+
+        <text id="dialog_Begin">
+Ho Ho Ho my dear grandson, how are you?
+
+I leave you my old house full of memories and treasures!
+Be careful, don't forget to reactivate the circuit breaker, it's in the cellar!
+
+Have fun in your new home !
+Big kisses, your loving grandpa
+
+Papito
+        </text>
+        <text id="dialog_End">
+You : Grandpa, have you been here all this time?
+
+Grandpa: Yes, son,
+I was keeping the fuse warm for you!
+
+You : Really?! You did all this for me?
+But how do we get back up?
+
+Grandpa: I've been wondering about that for years...
         </text>
 
         <text id="LEVEL_DEATHS">Total deaths : </text>
@@ -203,6 +250,29 @@ Gabin Vitoux
 Abel Graux
 
 Julien Robineau
+        </text>
+
+        <text id="dialog_Begin">
+Ho Ho Ho mi querido nieto, ¿como estas?
+
+¡Os dejo mi vieja casa llena de recuerdos y tesoros!
+Cuidado, no te olvides de reactivar el disyuntor, ¡esta en el sótano!
+
+¡Diviertete en tu nueva casa!
+Besos grandes, tu querido abuelo
+
+Papito
+        </text>
+        <text id="dialog_End">
+Tu : Abuelo, ¿has estado aqui todo este tiempo?
+
+Abuelo: Si, hijo,
+¡Estaba manteniendo la mecha caliente para ti!
+
+Tu : ¿De verdad? ¿Hiciste todo esto por mi?
+Pero, ¿como nos levantamos?
+
+Abuelo: Hace anos que me lo pregunto...
         </text>
 
         <text id="LEVEL_DEATHS">Muertes totales : </text>

@@ -56,6 +56,8 @@ public class EndUI : MonoBehaviour
     
     public void NextLevel()
     {
+        if(levelID == 20)
+            nextLevel = "Scenes/History/End";
         SceneManager.LoadScene(nextLevel);
     }
 }

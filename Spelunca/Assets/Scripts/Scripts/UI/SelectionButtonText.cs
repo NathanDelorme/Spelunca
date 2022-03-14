@@ -30,7 +30,10 @@ public class SelectionButtonText : MonoBehaviour
 
     public void LoadLevel()
     {
-        SceneManager.LoadScene("Scenes/Levels/Level" + levelID.ToString());
+        if(levelID == 1)
+            SceneManager.LoadScene("Scenes/History/Start");
+        else
+            SceneManager.LoadScene("Scenes/Levels/Level" + levelID.ToString());
     }
 
     public void ChangeLevelMenu()
