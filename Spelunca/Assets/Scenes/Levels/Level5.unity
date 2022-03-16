@@ -1416,6 +1416,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -22, y: 4, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -6, y: 4, z: 0}
     second:
       serializedVersion: 2
@@ -1670,8 +1680,8 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: e1de2b271fcc3774c94a01c1ca9bac1b, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 77fa075dbce58221c9cc79bc4390612b, type: 2}
   - m_RefCount: 20
     m_Data: {fileID: 11400000, guid: e9ae6b984d3074040bc59f3c77643fde, type: 2}
   - m_RefCount: 1
@@ -1697,8 +1707,8 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 5
     m_Data: {fileID: -118565243246339121, guid: df5a7026ea8ccaf4693e8d606b31e9c3, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300066, guid: 6c545372182eb19bc5ee98c72cd69f52, type: 3}
   - m_RefCount: 20
     m_Data: {fileID: -7328723532331727223, guid: df5a7026ea8ccaf4693e8d606b31e9c3, type: 3}
   - m_RefCount: 1
@@ -1722,7 +1732,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -4440570693391771124, guid: 097eda2fb67193546a727b73601a665c, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 36
+  - m_RefCount: 37
     m_Data:
       e00: 1
       e01: 0
@@ -1741,7 +1751,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 36
+  - m_RefCount: 37
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -17905,7 +17915,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ee53aff6a23564d0e785315c68115c3e, type: 2}
     - {fileID: 11400000, guid: dde5ce4b353fdcc4bb95ca2242a4b180, type: 2}
     frequency: 1
---- !u!43 &738015122
+--- !u!43 &694716553
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21709,8 +21719,8 @@ MonoBehaviour:
   - {x: 20.999971, y: 7, z: 0}
   - {x: 15, y: 6.9999704, z: 0}
   m_ShapePathHash: 0
-  m_Mesh: {fileID: 738015122}
-  m_InstanceId: 53160
+  m_Mesh: {fileID: 694716553}
+  m_InstanceId: 88652
 --- !u!1001 &1727438889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22460,7 +22470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5067391021887721905, guid: 69270058eb2f344748f40189a72db5c9, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6563611019912362247, guid: 69270058eb2f344748f40189a72db5c9, type: 3}
       propertyPath: m_Sprite
