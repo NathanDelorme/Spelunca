@@ -75,7 +75,7 @@ Papito
         </text>
 
         <text id="dialog_End">
-Vous : Papy tu est ici depuis tout ce temps ?
+Vous : Papy tu es ici depuis tout ce temps ?
 
 Papy : Eh oui mon fiston,
 je te gardais le fusible bien au chaud !
@@ -132,7 +132,7 @@ Papy : Ca fait des annees que je me le demande...
 		<text id="ui_BindingControllerText">Controller</text>
 
         <text id="ui_creditsText">
-Spealunca Team
+Spelunca Team
 
 
 Nathan Delorme
@@ -330,58 +330,58 @@ Abuelo: Hace anos que me lo pregunto...
 		<text id="ui_BindingControllerText">Lanker</text>
 
 		<text id="ui_creditsText">
-			Skilpailh Spelunca
+Skilpailh Spelunca
 
 
-			Nathan Delorme
+Nathan Delorme
 
-			Arthur Pellegrini
+Arthur Pellegrini
 
-			Leo Meyne
+Leo Meyne
 
-			Balthazar Puget
+Balthazar Puget
 
-			Abdourahmane Gadio
-
-
+Abdourahmane Gadio
 
 
-			Trugarez da
 
 
-			Gabin Vitoux
+Trugarez da
 
-			Abel Graux
 
-			Julien Robineau
+Gabin Vitoux
 
-			Trombone.kun
-			
-			Erell Menguy
+Abel Graux
+
+Julien Robineau
+
+Trombone.kun
+
+Erell Menguy
 		</text>
 
 		<text id="dialog_Begin">
-			Arc'hanta mab bihan kaer penaos mañ kont ?
+Arc'hanta mab bihan kaer penaos mañ kont ?
 
-			Legadiñ a ran dit ma zi kozh leun a eñvorennoù ha teñzorioù !
-			Diwall, na zisoñj ket adweredekaat an disjunter a zo er c'hav !
+Legadiñ a ran dit ma zi kozh leun a eñvorennoù ha teñzorioù !
+Diwall, na zisoñj ket adweredekaat an disjunter a zo er c'hav !
 
-			Michañs e po plijadur du mañ !
-			Bouchoù trouz a-berzh da zad kozh,
+Michañs e po plijadur du mañ !
+Bouchoù trouz a-berzh da zad kozh,
 
-			Papito
+Papito
 		</text>
 
 		<text id="dialog_End">
-			C’hwi: Amañ 'maout abaoe kement a amber ?
+C’hwi: Amañ 'maout abaoe kement a amber ?
 
-			Tad-kozh : Ya mabig,
-			ha derc'hel a raen an teuzus tomm evidout !
+Tad-kozh : Ya mabig,
+ha derc'hel a raen an teuzus tomm evidout !
 
-			C’hwi : N'eo ket gwir ! Graet t'eus kement ha kement evidon !
-			Koulskoude, penaos 'vez graet da adpignat ?
+C’hwi : N'eo ket gwir ! Graet t'eus kement ha kement evidon !
+Koulskoude, penaos 'vez graet da adpignat ?
 
-			Tad-kozh : bloavezhioù zo a n'em c'houlennan ...
+Tad-kozh : bloavezhioù zo a n'em c'houlennan ...
 		</text>
 
 		<text id="LEVEL_DEATHS">Niver a dud marv : </text>
