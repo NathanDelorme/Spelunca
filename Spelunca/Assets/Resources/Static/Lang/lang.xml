@@ -56,6 +56,10 @@ Gabin Vitoux
 Abel Graux
 
 Julien Robineau
+
+Trombone.kun
+
+Erell Menguy
         </text>
 
         <text id="dialog_Begin">
@@ -152,6 +156,10 @@ Gabin Vitoux
 Abel Graux
 
 Julien Robineau
+
+Trombone.kun
+
+Erell Menguy
         </text>
 
         <text id="dialog_Begin">
@@ -250,6 +258,10 @@ Gabin Vitoux
 Abel Graux
 
 Julien Robineau
+
+Trombone.kun
+
+Erell Menguy
         </text>
 
         <text id="dialog_Begin">
@@ -285,4 +297,101 @@ Abuelo: Hace anos que me lo pregunto...
         <text id="ALL_BESTTIME">Mejor tiempo : </text>
 		<text id="ALL_BESTRUN">Mejor run : </text>
     </lang>
+
+
+	<lang name="BZ">
+		<text id="inGame_LevelName">Live</text>
+		<text id="inGame_previousLevel">war-gil</text>
+		<text id="inGame_restartLevel">adc’hoari</text>
+		<text id="inGame_nextLevel">da-heul</text>
+
+		<text id="ui_versionText">Doare 1.1</text>
+		<text id="ui_playButton">C'hoari</text>
+		<text id="ui_resumeButton">Adstagañ ganti</text>
+		<text id="ui_settingsButton">Dibarzhioù</text>
+		<text id="ui_creditsButton">Kredadoù</text>
+		<text id="ui_mainMenuButton">Pennlañser</text>
+		<text id="ui_quitButton">Kuitaat</text>
+		<text id="ui_backButton">Distro</text>
+
+		<text id="ui_selectionLevelText">Dibab al liveoù</text>
+		<text id="ui_resetButton">Dilemel araokadur</text>
+
+		<text id="ui_languageText">Yezhoù</text>
+		<text id="ui_soundText">Sonioù</text>
+		<text id="ui_musicText">Sonerezh</text>
+		<text id="ui_effectsText">Efedoù</text>
+		<text id="ui_screenText">Skramm</text>
+		<text id="ui_fullscreenText">Skramm leun</text>
+		<text id="ui_resolutionText">Spisterioù</text>
+
+		<text id="ui_BindingText">bouton</text>
+		<text id="ui_BindingKeyboardText">Klavier</text>
+		<text id="ui_BindingControllerText">Lanker</text>
+
+		<text id="ui_creditsText">
+			Skilpailh Spelunca
+
+
+			Nathan Delorme
+
+			Arthur Pellegrini
+
+			Leo Meyne
+
+			Balthazar Puget
+
+			Abdourahmane Gadio
+
+
+
+
+			Trugarez da
+
+
+			Gabin Vitoux
+
+			Abel Graux
+
+			Julien Robineau
+
+			Trombone.kun
+			
+			Erell Menguy
+		</text>
+
+		<text id="dialog_Begin">
+			Arc'hanta mab bihan kaer penaos mañ kont ?
+
+			Legadiñ a ran dit ma zi kozh leun a eñvorennoù ha teñzorioù !
+			Diwall, na zisoñj ket adweredekaat an disjunter a zo er c'hav !
+
+			Michañs e po plijadur du mañ !
+			Bouchoù trouz a-berzh da zad kozh,
+
+			Papito
+		</text>
+
+		<text id="dialog_End">
+			C’hwi: Amañ 'maout abaoe kement a amber ?
+
+			Tad-kozh : Ya mabig,
+			ha derc'hel a raen an teuzus tomm evidout !
+
+			C’hwi : N'eo ket gwir ! Graet t'eus kement ha kement evidon !
+			Koulskoude, penaos 'vez graet da adpignat ?
+
+			Tad-kozh : bloavezhioù zo a n'em c'houlennan ...
+		</text>
+
+		<text id="LEVEL_DEATHS">Niver a dud marv : </text>
+		<text id="LEVEL_JUMP">Niver a lammoù : </text>
+		<text id="LEVEL_FULLTIME">Amzer hollek : </text>
+		<text id="LEVEL_BESTTIME">Amzer gwellañ : </text>
+		<text id="ALL_DEATHS">Niver hollek a dud marv : </text>
+		<text id="ALL_JUMP">Niver hollek a lammoù : </text>
+		<text id="ALL_FULLTIME">Amzer hollek : </text>
+		<text id="ALL_BESTTIME">Amzer gwellañ : </text>
+		<text id="ALL_BESTRUN">Gwellañ esae : </text>
+	</lang>
 </languages>
