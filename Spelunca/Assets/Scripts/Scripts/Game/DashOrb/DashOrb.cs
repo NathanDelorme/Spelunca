@@ -1,43 +1,44 @@
 using UnityEngine;
 
 /// <summary>
-/// This class is the class that define the comportement of a dash orb
+/// Cette classe définit le comportement d'une orbe de dash.
 /// </summary>
 public class DashOrb : MonoBehaviour
 {
     /// <value>
-    /// The <c>playerState</c> property is a ScriptableObject (structure implemented by Unity) which is an object with values shared between all scripts and scene that use it.
-    /// playerState store all variables usefull to know what the player want to do, what he can do and what he is doing.
+    /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+    /// Cet attributs stocke toutes les variables utile pour savoir ce que le joueur veut faire,
+    /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
     /// </value>
     public PlayerState playerState;
     /// <value>
-    /// The <c>playerCollider</c> property is a BoxCollider2D which represent the player hitbox.
+    /// Zone de collision du joueur.
     /// </value>
     private BoxCollider2D playerCollider;
     /// <value>
-    /// The <c>_collider</c> property is a PolygonCollider2D which represent the orb's hitbox.
+    /// Zone de collision de l'orbe de dash.
     /// </value>
     private PolygonCollider2D _collider;
     /// <value>
-    /// The <c>_sprite</c> property is a SpriteRenderer which is the current sprite of the dash orb.
+    /// SpriteRenderer de l'orbe de dash.
     /// </value>
     private SpriteRenderer _sprite;
     /// <value>
-    /// The <c>_objectTotalTime</c> property is a float which is the number of second needed to switch the dash orb from enable to disable.
+    /// Nombre floatant qui contient le nombre de secondes nécéssaires pour réactiver l'orbe de dash si elle a été consommé.
     /// </value>
     private float _objectTotalTime = 2f;
     /// <value>
-    /// The <c>_objectTime</c> property is a float which is the current timer.
+    /// Temps restant avant la réactivation de l'orbe de dash.
     /// </value>
     private float _objectTime = 0f;
     /// <value>
-    /// The <c>_isEnable</c> property is a boolean which is the state of the dash orb.
+    /// Contient la valeur courante de l'état de l'orbe (activée ou désactivé).
     /// </value>
     private bool _isEnable = true;
 
     /// <summary>
-    /// Function executed at the start of the program.
-    /// Used to get components (<c>_collider</c>, <c>_sprite</c>) from the parent of the current <c>GameObject</c>.
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+    /// Cette fonction agit comme un constructeur permettant d'initialiser les attributs et effectuer des actions au chargement du script.
     /// </summary>
     void Start()
     {
@@ -45,11 +46,18 @@ public class DashOrb : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
     }
 
+    /// <summary>
+    /// Permet de set l'attribut de la zone de collision du joueur.
+    /// </summary>
+    /// <param name="collider">Zone de collision du joueur</param>
     public void SetPlayerCollider(BoxCollider2D collider)
     {
         playerCollider = collider;
     }
 
+    /// <summary>
+    /// Fonction qui reset l'état de l'orbe à son état initial (activée).
+    /// </summary>
     public void resetOrb()
     {
         _isEnable = true;
@@ -58,15 +66,16 @@ public class DashOrb : MonoBehaviour
     }
 
     /// <summary>
-    /// Check if the player collide with the dash orb
+    /// Fonction qui retourne si le joueur entre en collision avec l'orbe de dash.
     /// </summary>
+    /// <returns></returns>
     private bool CheckCollision()
     {
         return _collider.IsTouching(playerCollider);
     }
 
     /// <summary>
-    /// Allow to the player to recover his dash.
+    /// Permet au joueur de récupérer son dash.
     /// </summary>
     private void RecoverDash()
     {
@@ -77,8 +86,8 @@ public class DashOrb : MonoBehaviour
     }
 
     /// <summary>
-    /// Function executed a fixed times per second.
-    /// Each fixed frame we get if the player collide with the orb dash.
+    /// Fonction exécuté un certain nombre de fois par seconde.
+    /// Permet le comportement de l'orbe de dash.
     /// </summary>
     void FixedUpdate()
     {
@@ -89,8 +98,6 @@ public class DashOrb : MonoBehaviour
             _objectTime -= Time.deltaTime;
 
         if(!_isEnable && _objectTime <= 0)
-        {
             resetOrb();
-        }
     }
 }

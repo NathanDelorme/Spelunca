@@ -1,20 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///  This class is a script apply to different background layers to create a depth sensation.
+/// Applique un mouvement à une layer afin de créer une sensation de profondeur.
 /// </summary>
 public class Parallax : MonoBehaviour
 {
+    /// <value>
+    /// Intensité de l'effet de parallax appliqué au layer.
+    /// </value>
     public float parallaxEffect;
-
+    /// <value>
+    /// Stocke la position et la rotation de la caméra dans la scène.
+    /// </value>
     public Transform cameraTransform;
+    /// <value>
+    /// Stocke la position de la camera lors de la dernière frame.
+    /// </value>
     private Vector3 lastCamPos;
 
     /// <summary>
-    /// Function executed at the start of the program.
-    /// We initialize the variables used in the FixedUpdate.
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+    /// Cette fonction agit comme un constructeur permettant d'initialiser les attributs et effectuer des actions au chargement du script.
     /// </summary>
     void Start()
     {
@@ -22,8 +28,8 @@ public class Parallax : MonoBehaviour
     }
 
     /// <summary>
-    /// Function executed a fixed times per second.
-    /// Each fixed frame we update the position of the current GameObject to make the depth sensation.
+    /// Fonction exécuté à chaque frame.
+    /// On met à jour la position du layer en fonction de la position et du mouvement de la camera.
     /// </summary>
     void LateUpdate()
     {

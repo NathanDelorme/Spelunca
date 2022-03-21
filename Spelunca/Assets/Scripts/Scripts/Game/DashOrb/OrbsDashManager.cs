@@ -1,41 +1,37 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///  This class is used as a manager for all dash orb of a level.
+/// Cette classe est le manager de toutes les orbes de dash présentent dans le niveau courant.
 /// </summary>
 public class OrbsDashManager : MonoBehaviour
 {
     /// <value>
-    /// The <c>playerCollider</c> property is a BoxCollider2D which represent the player hitbox.
+    /// Zone de collision du joueur.
     /// </value>
     public BoxCollider2D playerCollider;
     /// <value>
-    /// The <c>dashOrbPrefab</c> property is a GameObject which is the dash orb prefab.
+    /// Liste de toutes les orbes de dash présentent dans le niveau courant.
     /// </value>
-    public GameObject dashOrbPrefab;
-
     private DashOrb[] dashOrbPositionsList = { };
 
     /// <summary>
-    /// Function executed at the start of the program.
-    /// for each position in <c>dashOrbPositionsList</c> we instantiate a new dash orb from the prefab.
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+    /// Cette fonction agit comme un constructeur permettant d'initialiser les attributs et effectuer des actions au chargement du script.
     /// </summary>
     void Start()
     {
         dashOrbPositionsList = FindObjectsOfType<DashOrb>();
 
         foreach (DashOrb dashOrb in dashOrbPositionsList)
-        {
             dashOrb.SetPlayerCollider(playerCollider);
-        }
     }
 
+    /// <summary>
+    /// Réinitialise toutes les orbes de dash. (utile quand le joueur meurt et qu'il faut réinitialiser le niveau).
+    /// </summary>
     public void resetOrbs()
     {
         foreach (DashOrb dashOrb in dashOrbPositionsList)
-        {
             dashOrb.resetOrb();
-        }
     }
 }

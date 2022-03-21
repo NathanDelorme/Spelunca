@@ -1,12 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Classe qui implémente StateMachineBehaviour.
+/// Cela permet de joeur des sons lorsque l'on entre / sort / update l'animation joué par le joueur.
+/// </summary>
 public class PlaySound : StateMachineBehaviour
 {
+    /// <value>
+    /// Nom du son à jouer
+    /// </value>
     public string soundName;
+    /// <value>
+    /// Référence au sfxManager qui permet la gestion des effets sonores.
+    /// </value>
     public SFXManager sfxManager;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+
+    /// <summary>
+    /// OnStateEnter est appelé quand on entre dans un nouvel état.
+    /// </summary>
+    /// <param name="animator">animator</param>
+    /// <param name="stateInfo">informations sur l'état</param>
+    /// <param name="layerIndex">layerIndex</param>
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         sfxManager = FindObjectOfType<SFXManager>();
@@ -17,27 +31,15 @@ public class PlaySound : StateMachineBehaviour
             sfxManager.StopSound();
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
-
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    /// <summary>
+    /// OnStateExit est appelé quand on quitte l'état courant.
+    /// </summary>
+    /// <param name="animator">animator</param>
+    /// <param name="stateInfo">informations sur l'état</param>
+    /// <param name="layerIndex">layerIndex</param>
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (sfxManager != null && soundName != "playerDash" && soundName != "playerJump")
             sfxManager.StopSound();
     }
-
-    // OnStateMove is called right after Animator.OnAnimatorMove()
-    override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-    }
-
-    // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
 }

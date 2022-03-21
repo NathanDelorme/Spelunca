@@ -2,28 +2,31 @@ using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+/// <summary>
+/// Classe qui définie le comportement du layer des jump-pads
+/// </summary>
 public class Jump_Pad : MonoBehaviour
 {
     /// <value>
-    /// The <c>jumpPadZone</c> property is a Layer which represent the jump pads collisions in the level.
+    /// Layer qui représent la zone de collisions des jump-pads dans le niveau.
     /// </value>
     public LayerMask jumpPadZone;
     /// <value>
-    /// The <c>tilemap</c> property is a Tilemap of the jump pad tilemap. It allow us to pass through the tiles and get their names.
-    /// The goal is to detect the position of the jump pad to know what is the bounce to apply.
+    /// Tilemap qui comporte les jump-pad.
+    /// Cela permet de passer à travers ces tuiles afin de connaître leurs noms et récupérer le sens de poussé du jump-pad.
     /// </value>
     public Tilemap tilemap;
 
     ///  <value>
-    ///  The <c>_rigidBody</c> property is a RigidBody2D which allow us to give physics to a <c>GameObject</c>.
+    ///  RigidBody qui permet de donner une physique à un GameObject
     ///  </value>
     private Rigidbody2D _rigidBody;
     /// <value>
-    /// The <c>_playerCollider</c> property is a BoxCollider2D. It's an hitbox which is usefull to detect when the player hit something like a jump pad.
+    /// Zone de collision du joueur.
     /// </value>
     private BoxCollider2D _playerCollider;
     /// <value>
-    /// Force of the bounce to apply to the player when touching the <c>jumpPadZone</c> layer.
+    /// Force appliqué sur le joueur lorsqu'il touche un jump-pad.
     /// </value>
     private float _bounceForce = 30f;
 
@@ -38,9 +41,9 @@ public class Jump_Pad : MonoBehaviour
     }
 
     /// <summary>
-    /// Function executed a fixed times per second.
-    /// Each fixed frame we check if the player is touching a jump pad or not.
-    /// If he is touching a jump pad, we apply to the player the bounce with the good direction.
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+    /// Cette fonction agit comme un constructeur permettant d'initialiser les attributs et effectuer des actions au chargement du script.
+    /// Si le joueur touche un jump-pad, on lui applique une force dans une direction.
     /// </summary>
     private void FixedUpdate()
     {
@@ -49,10 +52,10 @@ public class Jump_Pad : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that check if the player touch a jump pad.
+    /// Vérifie si le joueur touche un jump-pad ou non.
     /// </summary>
     /// <returns>
-    /// True if the player is in the dead zone, else false.
+    /// Vrai si le joueur touche un jump-pad, sinon faux.
     /// </returns>
     private bool CheckIsInJumpPad()
     {
@@ -60,14 +63,14 @@ public class Jump_Pad : MonoBehaviour
     }
 
     /// <summary>
-    /// Get the direction of the jump pad tile.
+    /// Récupère la direction du jump-pad.
     /// </summary>
     /// <return>
-    /// Return an int :
-    ///     0 : the jump pad bounce up.
-    ///     1 : the jump pad bounce left.
-    ///     2 : the jump pad bounce down.
-    ///     3 : the jump pad bounce right.
+    /// Renvoi un entier :
+    ///     0 : Rebondi vers le haut.
+    ///     1 : Rebondi vers la gauche.
+    ///     2 : Rebondi vers le le bas.
+    ///     3 : Rebondi vers la droite.
     /// </return>
     private int GetTileDirection()
     {
@@ -89,14 +92,14 @@ public class Jump_Pad : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that apply the good bounce from the direction
-    /// 0 : the jump pad bounce up.
-    /// 1 : the jump pad bounce left.
-    /// 2 : the jump pad bounce down.
-    /// 3 : the jump pad bounce right.
+    /// Fonction qui applique le rebond du joueur dans une direction
+    ///     0 : Rebondi vers le haut.
+    ///     1 : Rebondi vers la gauche.
+    ///     2 : Rebondi vers le le bas.
+    ///     3 : Rebondi vers la droite.
     /// </summary>
     /// <param name="padDirection">
-    /// The direction of the trigered jump pad.
+    /// Direction vers laquelle le joueur sera propulsé.
     /// </param>
     /// <argument>
     private void JumpPad(int padDirection)
