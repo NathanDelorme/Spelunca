@@ -1,24 +1,28 @@
 using UnityEngine;
 
 /// <summary>
-///  This class get and interpret the player's inputs. This inform about what the player want to do.
+/// Dépréciée : Cette classe ne doit plus être utilisée.
+/// 
+/// Cette classe récupère et interprète les inputs du joueur (touches appuyées).
+/// Cela permet de savoir ce que le joueur souhaite faire comme actions.
 /// </summary>
 public class InputController : MonoBehaviour
 {
     /// <value>
-    /// The <c>playerState</c> property is a ScriptableObject (structure implemented by Unity) which is an object with values shared between all scripts and scene that use it.
-    /// playerState store all variables usefull to know what the player want to do, what he can do and what he is doing.
+    /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+    /// Cet attribut stocke toutes les variables utiles pour savoir ce que le joueur veut faire,
+    /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
     /// </value>
     public PlayerState playerState;
-    ///  <value>
-    ///  The <c>movementSettings</c> property is a ScriptableObject (structure implemented by Unity) which is an object with values shared between all scripts and scene that use it.
-    ///  movementSettings store all variables that imply the parameters of the movements (example : the jump force or the dash duration).
-    ///  </value>
+    /// <value>
+    /// Cette propriété (<see cref="MovementSettings"/>) est un ScriptableObject.
+    /// Cet attribut stocke toutes les variables utiles pour les mouvements (exemple : force du saut ou duration du dash).
+    /// </value>
     public MovementSettings movementSettings;
 
     /// <summary>
-    /// Function executed at the start of the program.
-    /// We initialize the variable of the ScriptableObject <c>playerState</c>.
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+    /// Ici on initialise les données de l'attribut <c>playerState</c>.
     /// </summary>
     private void Start()
     {
@@ -26,8 +30,8 @@ public class InputController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function executed each frame.
-    /// Each frame we check if the player want to move, jump or dash.
+    /// Fonction exécuté à chaque frame.
+    /// On vérifie si le joueur veut se déplacer, sauter ou dash.
     /// </summary>
     private void Update()
     {
@@ -37,8 +41,7 @@ public class InputController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that detect if the player want to move.
-    /// We get if the keys assign to the movement are trigered.
+    /// Fonction qui détecte si le joueur veut bouger grâce aux touches pressées.
     /// </summary>
     private void CheckMoveInput()
     {
@@ -53,8 +56,7 @@ public class InputController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that detect if the player want to jump.
-    /// We get if the keys assign to the jump are trigered.
+    /// Fonction qui détecte si le joueur veut sauter grâce aux touches pressées.
     /// </summary>
     private void CheckJumpInput()
     {
@@ -62,8 +64,7 @@ public class InputController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that detect if the player want to dash.
-    /// We get if the keys assign to the dash are trigered.
+    /// Fonction qui détecte si le joueur veut dash grâce aux touches pressées.
     /// </summary>
     private void CheckDashInput()
     {

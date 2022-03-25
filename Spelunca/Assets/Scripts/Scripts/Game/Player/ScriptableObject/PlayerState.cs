@@ -1,13 +1,13 @@
 using UnityEngine;
 
 /// <summary>
-///  This class is an ScriptableObject that contain all variables useful for getting the state of the player in real time.
+/// Cette classe est un ScriptableObject qui contient toutes les variables nécessaire pour définir l'état du joueur en temps réel.
 /// </summary>
 [CreateAssetMenu]
 public class PlayerState : ScriptableObject
 {
     /// <summary>
-    /// Enumeration of the possible player state in the level.
+    /// Enumération de tous les états possible de la friction du joueur.
     /// </summary>
     public enum DragType
     {
@@ -17,6 +17,9 @@ public class PlayerState : ScriptableObject
         NONE
     }
 
+    /// <summary>
+    /// Enumération de tous les pouvoirs que le joueur peut avoir.
+    /// </summary>
     public enum Ability
     {
         SPIKE,
@@ -25,125 +28,118 @@ public class PlayerState : ScriptableObject
     }
 
     [Header("General variables")]
+    /// <value>
+    /// Pouvoir que le joueur possède.
+    /// </value>
     public Ability AbilityType = Ability.NONE;
     /// <value>
-    /// Friction type to apply to the player.
+    /// Friction à appliquer au joueur.
     /// </value>
     public DragType linearDragType = DragType.NONE;
     /// <value>
-    /// Face were the player look.
-    /// 1f : player look on the right
-    /// -1f : player look on the left
+    /// Côté où le joueur regarde.
+    /// 1f : regarde à droite
+    /// -1f : regarde à gauche
     /// </value>
     public float facing = 1f;
     /// <value>
-    /// Face were the player look.
-    /// Higher than 0 : movement go to the rigth
-    /// Lower than 0 : movement go to the left
-    /// 0f: No movement
+    /// Axe x où le joueur regarde
+    /// Higher than 0 : Aller vers là droite
+    /// Lower than 0 : Aller vers là gauche
+    /// 0f: Pas de mouvement
     /// </value>
     public float horDir = 0f;
     /// <value>
-    /// Face were the player look.
-    /// higher than 0 : go up
-    /// lower than 0 : go done
-    /// 0 : Nothing
+    /// Axe y où le joueur regarde
+    /// > 0 : vers le haut
+    /// < 0 : vers le bas
+    /// 0 : Rien
     /// </value>
     public float verDir = 0f;
 
     [Header("Movement variables")]
     /// <value>
-    /// Boolean that define if the player can move.
-    /// See <c>NavigationController</c> to know when the player can move.
+    /// Booléen qui défini si le joueur peut se déplacer.
     /// </value>
     public bool canMove = true;
     /// <value>
-    /// Boolean that define if the user want to move the player.
-    /// See <c>InputController</c> to understand the management of player input.
+    /// Booléen qui défini si le joueur veut se déplacer.
     /// </value>
     public bool wantToMove = true;
     /// <value>
-    /// Boolean that is enable if the player is moving.
+    /// Booléen qui défini si le joueur se déplace.
     /// </value>
     public bool isMoving = false;
 
     [Header("Jump variables")]
     /// <value>
-    /// Boolean that define if the player can jump.
-    /// See <c>NavigationController</c> to know when the player can jump.
+    /// Booléen qui défini si le joueur peut sauter.
     /// </value>
     public bool canJump = true;
     /// <value>
-    /// Boolean that define if the user want to jump.
-    /// See <c>InputController</c> to understand the management of player input.
+    /// Booléen qui défini si le joueur veut sauter.
     /// </value>
     public bool wantToJump = false;
     /// <value>
-    /// Boolean that is enable if the player is jumping.
+    /// Booléen qui défini si le joueur saute.
     /// </value>
     public bool isJumping = false;
 
     [Header("Dash variables")]
     /// <value>
-    /// Boolean that define if the player can dash.
-    /// See <c>NavigationController</c> to know when the player can dash.
+    /// Booléen qui défini si le joueur peut dash.
     /// </value>
     public bool canDash = true;
     /// <value>
-    /// Boolean that define if the user want to dash.
-    /// See <c>InputController</c> to understand the management of player input.
+    /// Booléen qui défini si le joueur veut dash.
     /// </value>
     public bool wantToDash = false;
     /// <value>
-    /// Boolean that is enable if the player is dashing.
+    /// Booléen qui défini si le joueur dash.
     /// </value>
     public bool isDashing = false;
     /// <value>
-    /// float which is a time counter for the dash.
+    /// Compteur pour la durée du dash.
     /// </value>
     public float currentDashTime = 0f;
 
     [Header("Wall slide variables")]
     /// <value>
-    /// Boolean that define if the player can wall slide.
-    /// See <c>NavigationController</c> to know when the player can wall slide.
+    /// Booléen qui défini si le joueur peut wall slide.
     /// </value>
     public bool canWallSlide = true;
     /// <value>
-    /// Integer that define if the user want to wall slide and the side of the wall slide.
-    /// 0 : no wall slide
-    /// 1 : wall slide on the right
-    /// -1 : wall slide ont he left
-    /// 2 : wall slide on both side.
-    /// See <c>InputController</c> to understand the management of player input.
+    /// Entier qui défini si le joueur veut wall slide.
+    /// 0 : pas de wall slide
+    /// 1 : wall slide sur la droite
+    /// -1 : wall slide sur la gauche
+    /// 2 : wall slide les deux côtés
     /// </value>
     public int wallSlideSide = 0;
     /// <value>
-    /// Boolean that is enable if the player is wall sliding.
+    /// Booléen qui défini si le joueur est en train de wall slide.
     /// </value>
     public bool isWallSliding = false;
 
     [Header("Wall jump variables")]
     /// <value>
-    /// Boolean that define if the player can wall jump.
-    /// See <c>NavigationController</c> to know when the player can wall jump.
+    /// Booléen qui défini si le joueur peut wall jump.
     /// </value>
     public bool canWallJump = false;
     /// <value>
-    /// Integer that define if the user want to wall jump and the side of the wall jump.
-    /// 0 : no wall slide
-    /// 1 : wall jump on the right
-    /// -1 : wall jump ont the left
-    /// See <c>InputController</c> to understand the management of player input.
+    /// Entier qui défini si le joueur veut wall jump.
+    /// 0 : pas de wall slide
+    /// 1 : wall jump sur la droite
+    /// -1 : wall slide sur la gauche
     /// </value>
     public int wallJumpSide = 0;
     /// <value>
-    /// Boolean that is enable if the player is wall jumping.
+    /// Booléen qui défini si le joueur est en train de wall jump.
     /// </value>
     public bool isWallJumping = false;
 
     /// <summary>
-    /// Function which initialise the variabkes of this ScriptableObject.
+    /// Fonction qui initialise les variables de ce ScriptableObject.
     /// </summary>
     public void Initialize()
     {

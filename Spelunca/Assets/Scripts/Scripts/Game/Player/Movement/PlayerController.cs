@@ -1,69 +1,70 @@
 using UnityEngine;
 
 /// <summary>
-///  This class is used as a controller for the player. This is this class which will apply the movement of the player.
-///  So after the modification done to the ScriptableObject <c>playerState</c> during the execution of the <c>InputController</c> and <c>NavigationController</c> classes,
-///  <c>PlayerController</c> will apply the movements.
+/// Cette classe est utilisé comme un controlleur pour le joueur.
+/// Elle permet d'appliquer les mouvements du joueur en fonction de ce qu'il veut/peut faire.
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
     /// <value>
-    /// The <c>playerState</c> property is a ScriptableObject (structure implemented by Unity) which is an object with values shared between all scripts and scene that use it.
-    /// playerState store all variables usefull to know what the player want to do, what he can do and what he is doing.
+    /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+    /// Cet attribut stocke toutes les variables utiles pour savoir ce que le joueur veut faire,
+    /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
     /// </value>
     public PlayerState playerState;
-    ///  <value>
-    ///  The <c>movementSettings</c> property is a ScriptableObject (structure implemented by Unity) which is an object with values shared between all scripts and scene that use it.
-    ///  movementSettings store all variables that imply the parameters of the movements (example : the jump force or the dash duration).
-    ///  </value>
+    /// <value>
+    /// Cette propriété (<see cref="MovementSettings"/>) est un ScriptableObject.
+    /// Cet attribut stocke toutes les variables utiles pour les mouvements (exemple : force du saut ou duration du dash).
+    /// </value>
     public MovementSettings movementSettings;
-
+    /// <value>
+    /// Animator qui permet de définir des variables dans l'animator pour savoir l'animation que le personnage doit executer.
+    /// </value>
     private Animator animator;
-
     ///  <value>
-    ///  The <c>_rigidBody</c> property is a RigidBody2D which allow us to give physics to a <c>GameObject</c>.
+    ///  RigidBody2D qui permet d'ajouter de la physique à un GameObject.
     ///  </value>
     private Rigidbody2D _rigidBody;
     ///  <value>
-    ///  The <c>_sprite</c> property is a SpriteRender which allow us to change the sprite of the player. This property will be remove when the AnimatorController will be ready for implementation.
+    ///  SpriteRenderer qui permet de changer l'apparence du joueur.
     ///  </value>
     private SpriteRenderer _sprite;
     ///  <value>
-    ///  The <c>_jumpTimeCounter</c> property is a float that is used as a time counter for the player's jump.
+    ///  Float utilisé comme compteur pour le saut du joueur.
     ///  </value>
     private float _jumpTimeCounter;
     ///  <value>
-    ///  The <c>_wallJumpTimeCounter</c> property is a float that is used as a time counter for the player's wall jump.
+    ///  Float utilisé comme compteur pour le wzll jump du joueur.
     ///  </value>
     private float _wallJumpTimeCounter;
     ///  <value>
-    ///  The <c>_dashCurrentTimer</c> property is a float that is used as a time counter for the player's dash.
+    ///  Float utilisé comme compteur pour le dash du joueur.
     ///  </value>
     private float _dashCurrentTimer;
     ///  <value>
-    ///  The <c>_dashDirection</c> property is a Vector2 (Vector which have a x and y position) that is used to determine were the dash should go.
+    ///  Vector en 2D qui représente la direction du dash du joueur.
     ///  </value>
     private Vector2 _dashDirection;
     ///  <value>
-    ///  The <c>jumpStoped</c> property is a boolean used to avoid multiple little jump during a long jump.
-    ///  If the player jump and unpress the jump key, jumpStoped will be set on true and the player can't jump anymore before touching the ground.
+    ///  Variable qui empêche de faire de multiples jumps lors du spam de la touche de saut.
+    ///  Si le joueur arrête d'appuyer sur la touche de saut, automatiquement cette variable sera mise sur Vrai et empechera le joueur de re sauter. 
     ///  </value>
     private bool jumpStoped = false;
-    ///  <value>
-    ///  The <c>wallJumpStoped</c> property is a boolean used to avoid multiple little jump during a long jump.
-    ///  If the player jump and unpress the jump key, wallJumpStoped will be set on true and the player can't jump anymore before touching the ground.
-    ///  </value>
     private bool wallJumpStoped = false;
-
+    /// <value>
+    /// Référence au manager des effets sonores du jeu.
+    /// </value>
     private SFXManager sfxManager;
 
+    /// <value>
+    /// Permet l'ajout d'un effet de fantome lors du dash du joueur.
+    /// </value>
     [SerializeField]
     public GameObject playerGhost;
 
     /// <summary>
-    /// Function executed at the start of the program.
-    /// Used to get components (<c>_rigidBody</c>, <c>_sprite</c>) from the parent of the current <c>GameObject</c>.
-    /// Moreover, we initialize the movements variables. (<c>movementSettings</c>)
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+    /// Cette fonction agit comme un constructeur permettant d'initialiser les attributs et effectuer des actions au chargement du script.
     /// </summary>
     private void Start()
     {
@@ -74,6 +75,9 @@ public class PlayerController : MonoBehaviour
         movementSettings.Initialize();
     }
 
+    /// <summary>
+    /// Fonction exécuté à chaque frame.
+    /// </summary>
     private void Update()
     {
         UpdateAnimations();
@@ -84,9 +88,8 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function executed a fixed times per second.
-    /// Each fixed frame we execute the player wanted movements if they can be executed.
-    /// As an example, if the player want to jump, but he is not touching the ground, the movement will not be executed.
+    /// Fonction exécuté un nombre déterminer de fois par seconde.
+    /// Execute les fonction nécessaire au déplacement du joueur.
     /// </summary>
     private void FixedUpdate()
     {
@@ -132,6 +135,9 @@ public class PlayerController : MonoBehaviour
         ApplyLayerEffect();
     }
 
+    /// <summary>
+    /// Change l'animation du joueur qui est joué par l'attribut <c>animator</c>.
+    /// </summary>
     private void UpdateAnimations()
     {
         bool isIdle = ((Mathf.Abs(playerState.horDir) < 0.05 || Mathf.Abs(_rigidBody.velocity.x) < 0.05) && Mathf.Abs(_rigidBody.velocity.y) < 0.05 && playerState.canJump);
@@ -149,6 +155,9 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsWallSliding", isWallSliding);
     }
 
+    /// <summary>
+    /// Change de sens le sprite du joueur pour le faire regarder à droite ou à gauche.
+    /// </summary>
     private void FlipSprite()
     {
         if(!playerState.isWallSliding && !playerState.isWallJumping)
@@ -175,7 +184,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that put a high force during <c>movementSettings.dashTime</c> to the player in the <c>_dashDirection</c> Vector2's direction.
+    /// Fonction qui applique une grande force durant <c>movementSettings.dashTime</c> au joueur dans la direction <c>_dashDirection</c> qui est un vector2D.
     /// </summary>
     private void Dash()
     {
@@ -193,7 +202,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that put a force to the upper direction on the player's (<c>_rigidBody</c>).
+    /// Fonction qui applique une force dans la direction opposé au mur pour le wall jump.
     /// </summary>
     private void WallJump()
     {
@@ -217,7 +226,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that put a force to the upper direction on the player's (<c>_rigidBody</c>).
+    /// Fonction qui applique une force vers le haut du joueur.
     /// </summary>
     private void Jump()
     {
@@ -235,8 +244,8 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that moves the player in the wanted direction (<c>playerState.horDir</c>).
-    /// If the player's not on the ground, the friction will be different than if he were on the ground.
+    /// Fonction qui déplace le joueur dans la direction souhaité <c>playerState.horDir</c>.
+    /// Si le joueur n'est pas sur le sol, alors la friction appliqué au joueur sera différente de celle appliqué s'il était sur le sol.
     /// </summary>
     private void Move()
     {
@@ -250,7 +259,8 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that apply differents effet if the player is in the <c>PlayerState.DragType.GROUND</c>, <c>PlayerState.DragType.AIR</c> or <c>PlayerState.DragType.Wall</c> State.
+    /// Fonction qui applique les différents effets de friction sur le joueur.
+    /// <c>PlayerState.DragType.GROUND</c>, <c>PlayerState.DragType.AIR</c> ou <c>PlayerState.DragType.Wall</c>.
     /// </summary>
     private void ApplyLayerEffect()
     {

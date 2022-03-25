@@ -1,70 +1,70 @@
 using UnityEngine;
 
 /// <summary>
-///  This class is an ScriptableObject that contain all variables useful for the movements.
-///  It's the settings of the player movement.
+/// Cette classe est un ScriptableObject qui contient toutes les variables utiles pour le mouvement.
+/// Il s'agit de valeurs "constantes".
 /// </summary>
 [CreateAssetMenu]
 public class MovementSettings : ScriptableObject
 {
     [Header("Movement variables")]
     /// <value>
-    /// Max acceleration of the player on the ground.
+    /// Accélération maximum du joueur sur le sol.
     /// </value>
     public float maxAcceleration = 50f;
     /// <value>
-    /// Max speed of the player on the ground.
+    /// Vitesse maximum du joueur sur le sol.
     /// </value>
     public float maxMoveSpeed = 10f;
     /// <value>
-    /// Max speed of the player in the air.
+    /// Vitesse maximum du joueur dans l'air.
     /// </value>
     public float maxSpeed = 30f;
 
     [Header("Jump variables")]
     /// <value>
-    /// Jump force applied to the player when jumping.
+    /// Force appliqué sur le joueur lors du saut.
     /// </value>
     public float jumpForce = 12f;
     /// <value>
-    /// Wall jump force applied to the player when wall jumping.
+    /// Force appliqué sur le joueur lors du wall jump.
     /// </value>
     public float wallJumpForce = 8f;
     /// <value>
-    /// Max duration while the player can keep his jumping touch pressed to do high jump.
+    /// Durée maximum durant laquelle le joueur peut rester appuyer sur sa touche de saut pour effectuer un saut plus haut.
     /// </value>
     public float maxJumpTime = 0.125f;
     /// <value>
-    /// Coyote time define the time during the player can jump before getting out of a 2D plateform.
+    /// Le coyote time défini le temps durant lequel le joueur peut encore sauté après avoir quitté une plateforme.
     /// </value>
     public float maxCoyoteTime = 0.1f;
 
     [Header("Drag variables")]
     /// <value>
-    /// Ground friction applied to the player when on the ground.
+    /// Friction du sol appliquée sur le joueur lorsqu'il est sur le sol.
     /// </value>
     public float groundLinearDrag = 20f;
     /// <value>
-    /// Air friction applied to the player when in air.
+    /// Friction de l'ai appliquée sur le joueur lorsqu'il est en l'air.
     /// </value>
     public float airLinearDrag = 2f;
     /// <value>
-    /// Wall friction applied to the player when wall sliding.
+    /// Friction murale appliquée sur le joueur lorsqu'il est en train de wall slide.
     /// </value>
     public float wallLinearDrag = 20f;
 
     [Header("Dash variables")]
     /// <value>
-    /// Dash force applied to the player when dashing.
+    /// Force appliqué au joueur lors du dash ?
     /// </value>
     public float dashForce = 25f;
     /// <value>
-    /// Duration of the dash in second.
+    /// Durée du dash en seconde.
     /// </value>
     public float dashTime = 0.07f;
 
     /// <summary>
-    /// Function which initialise the variables of the ScriptableObject.
+    /// Fonction qui initialise les variables de ce ScriptableObject.
     /// </summary>
     public void Initialize()
     {

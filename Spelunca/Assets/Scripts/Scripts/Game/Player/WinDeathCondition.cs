@@ -1,49 +1,74 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-///  This class get and interpret when the player should die or win.
-///  By winning, we mean finish the current play level
-///  By dying, we mean being touche by something that kill the player. like spikes or void.
+/// Cette classe définie quand le joueur doit mourrir ou gagner.
+/// Par "gagner" on entend finir le niveau courant.
+/// Par "mourrir" on entend lorsque le joueur entre en collision avec des piques ou le vide.
 /// </summary>
 public class WinDeathCondition : MonoBehaviour
 {
+    /// <value>
+    /// GameObject du menu de fin lorsque le joueur fini le niveau.
+    /// </value>
     public GameObject endMenu;
+    /// <value>
+    /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+    /// Cet attribut stocke toutes les variables utiles pour savoir ce que le joueur veut faire,
+    /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
+    /// </value>
     public PlayerState playerState;
+    /// <value>
+    /// Référence vers l'<see cref="AbilitySystem"/> du joueur.
+    /// </value>
     private AbilitySystem abilitySystem;
     /// <value>
-    /// The <c>killZone</c> property is a Layer which represent dead zone in the level.
-    /// </value>
-    /// <value>
-    /// The <c>spawnPoint</c> property is a GameObject that is placed at the desired spawn point.
+    /// Point de réapparition du joueur.
     /// </value>
     public GameObject spawnPoint;
     ///  <value>
-    ///  The <c>_rigidBody</c> property is a RigidBody2D which allow us to give physics to a <c>GameObject</c>.
+    ///  RigidBody2D qui permet d'ajouter de la physique à un GameObject.
     ///  </value>
     private Rigidbody2D _rigidBody;
     /// <value>
-    /// The <c>_playerCollider</c> property is a BoxCollider2D. It's an hitbox which is usefull to detect when the player is hit by something.
+    /// Zone de collision du joueur.
     /// </value>
     public BoxCollider2D _playerCollider;
+    /// <value>
+    /// Booléen qui défini si les piques et le sol sont inversé par le pouvoir Spike du joueur.
+    /// </value>
     public bool reverseSpikeZone = false;
-
+    /// <value>
+    /// Liste des plateformes mouvantes présentent dans le niveau courant.
+    /// </value>
     public Movement[] movementPlatforms;
+    /// <value>
+    /// Liste des plateformes tombantes présentent dans le niveau courant.
+    /// </value>
     public FallingPlateform[] fallingPlatforms;
+    /// <value>
+    /// Manager des orbes de dash.
+    /// </value>
     public OrbsDashManager orbsDashManager;
+    /// <value>
+    /// Booléen qui stocke si c'est le premier spawn du joueur dans le niveau ou non.
+    /// </value>
     private bool firstLoad = true;
-
+    /// <value>
+    /// Animator qui permet de définir des variables dans l'animator pour savoir l'animation que le personnage doit executer.
+    /// </value>
     private Animator animator;
+    ///  <value>
+    ///  SpriteRenderer qui permet de changer l'apparence du joueur.
+    ///  </value>
     private SpriteRenderer _sprite;
+    ///  <value>
+    ///  Booléen qui contient la valeur de si le joueur meurt ou non.
+    ///  </value>
     public bool isKilled = false;
 
     /// <summary>
-    /// Function executed at the start of the program.
-    /// Used to get components (<c>_rigidBody</c>, <c>_playerCollider</c>) from the parent of the current <c>GameObject</c>.
-    /// Moreover, we initialize spawn the player at the good position.
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
     /// </summary>
     void Start()
     {
@@ -59,7 +84,7 @@ public class WinDeathCondition : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that teleport the player at the spawnpoint of the level.
+    /// Fonction qui téléporte le joueur au spawn du niveau.
     /// </summary>
     private void SpawnPlayer()
     {
@@ -90,6 +115,9 @@ public class WinDeathCondition : MonoBehaviour
         timer.SaveTime(true);
     }
 
+    /// <summary>
+    /// Fonction qui tue le joueur.
+    /// </summary>
     private void KillPlayer()
     {
         isKilled = true;
@@ -98,6 +126,10 @@ public class WinDeathCondition : MonoBehaviour
         Invoke("SpawnPlayer", 0.45f);
     }
 
+    /// <summary>
+    /// Fonction qui traite les collision entre le joueur et les autres objets qui composent la scène.
+    /// </summary>
+    /// <param name="collision">Collision générée par le joueur et un objet.</param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (reverseSpikeZone)
@@ -106,7 +138,11 @@ public class WinDeathCondition : MonoBehaviour
                 KillPlayer();
         }
     }
-    
+
+    /// <summary>
+    /// Fonction qui traite les collision entre le joueur et les autres objets qui composent la scène.
+    /// </summary>
+    /// <param name="collision">Objet qui est entré en collision avec le joueur.</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Finish"))
@@ -122,6 +158,9 @@ public class WinDeathCondition : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Charge le niveau suivant.
+    /// </summary>
     private void NextLevel()
     {
         Timer timer = FindObjectOfType<Timer>();
@@ -137,6 +176,9 @@ public class WinDeathCondition : MonoBehaviour
         endMenu.SetActive(true);
     }
 
+    /// <summary>
+    /// Sauvegarde la dernière scène dans laquelle le joueur est entré.
+    /// </summary>
     private void SaveSceneName()
     {
         PlayerPrefs.SetString(Application.version + "player_lastScene", SceneManager.GetActiveScene().name);

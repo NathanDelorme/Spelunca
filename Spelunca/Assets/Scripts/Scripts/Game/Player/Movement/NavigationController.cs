@@ -2,58 +2,56 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///  This class check what the player can do. It's independent from what he want to do.
+/// Cette classe vérifie ce que le joueur peut faire.
 /// </summary>
 public class NavigationController : MonoBehaviour
 {
     /// <value>
-    /// The <c>playerState</c> property is a ScriptableObject (structure implemented by Unity) which is an object with values shared between all scripts and scene that use it.
-    /// playerState store all variables usefull to know what the player want to do, what he can do and what he is doing.
+    /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+    /// Cet attribut stocke toutes les variables utiles pour savoir ce que le joueur veut faire,
+    /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
     /// </value>
     public PlayerState playerState;
-    ///  <value>
-    ///  The <c>movementSettings</c> property is a ScriptableObject (structure implemented by Unity) which is an object with values shared between all scripts and scene that use it.
-    ///  movementSettings store all variables that imply the parameters of the movements (example : the jump force or the dash duration).
-    ///  </value>
+    /// <value>
+    /// Cette propriété (<see cref="MovementSettings"/>) est un ScriptableObject.
+    /// Cet attribut stocke toutes les variables utiles pour les mouvements (exemple : force du saut ou duration du dash).
+    /// </value>
     public MovementSettings movementSettings;
     ///  <value>
-    ///  The <c>_rigidBody</c> property is a RigidBody2D which allow us to get and give physics to a <c>GameObject</c>.
+    ///  RigidBody2D qui permet d'ajouter de la physique à un GameObject.
     ///  </value>
     private Rigidbody2D _rigidBody;
     /// <value>
-    /// The <c>groundLayers</c> property is a list that contains all layers that need to be interpreted as the ground.
+    /// Liste des layers qui doivent être considérés comme le sol.
     /// </value>
     public LayerMask groundLayers;
     /// <value>
-    /// The <c>groundCheckCollider</c> property is a collider2D. It's an hitbox which is usefull to detect when the player is on the ground.
+    /// Zone de collision du sol.
     /// </value>
     public Collider2D groundCheckCollider;
     /// <value>
-    /// The <c>wallLeftCheckCollider</c> property is a collider2D. It's an hitbox which is usefull to detect when the player is close to the wall on the left.
+    /// Zone de collision permettant de savoir si le joueur peut wall jump vers la droite.
     /// </value>
     public Collider2D wallLeftCheckCollider;
     /// <value>
-    /// The <c>wallRightCheckCollider</c> property is a collider2D. It's an hitbox which is usefull to detect when the player is close to the wall on the left.
+    /// Zone de collision permettant de savoir si le joueur peut wall jump vers la gauche.
     /// </value>
     public Collider2D wallRightCheckCollider;
-
-
     /// <value>
-    /// The <c>_coyoteTimeCounter</c> property is a float used as a time counter.
+    /// Float utilisé comme compteur pour le coyote time.
     /// </value>
     private float _coyoteTimeCounter;
     /// <value>
-    /// The <c>_dashTimeBuffer</c> property is a float used as a cooldown max time before being able to dash after a dash..
+    /// Float utilisé comme temps maximum avant de pouvoir de nouveau dash après un dash.
     /// </value>
     private float _dashTimeBuffer = 0.05f;
     /// <value>
-    /// The <c>_dashTimeBufferCounter</c> property is a float used as a cooldown counter before being able to dash after a dash..
+    /// Float utilisé comme cooldown avant de pouvoir de nouveau dash après un dash.
     /// </value>
     private float _dashTimeBufferCounter;
 
-    // <summary>
-    /// Function executed at the start of the program.
-    /// Used to get component (<c>_rigidBody</c>) from the parent of the current <c>GameObject</c>.
+    /// <summary>
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
     /// </summary>
     private void Start()
     {
@@ -61,8 +59,8 @@ public class NavigationController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function executed a fixed times per second.
-    /// Each fixed frame we check if the player want to move, jump or dash.
+    /// Fonction exécuté un nombre déterminé de fois par secondes.
+    /// Permet de récupérer si le joueur peut sauter, dash, wall slide ou wall jump.
     /// </summary>
     private void FixedUpdate()
     {
@@ -73,7 +71,7 @@ public class NavigationController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that detect if the player can jump.
+    /// Detecte si le joueur peut sauter.
     /// </summary>
     private void CheckCanJump()
     {
@@ -94,7 +92,7 @@ public class NavigationController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that detect if the player can dash.
+    /// Detecte si le joueur peut dash.
     /// </summary>
     private void CheckCanDash()
     {
@@ -109,7 +107,7 @@ public class NavigationController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that detect if the player can wall slide.
+    /// Detecte si le joueur peut wall slide.
     /// </summary>
     private void CheckCanWallSlide()
     {
@@ -128,7 +126,7 @@ public class NavigationController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that detect if the player can wall jump.
+    /// Detecte si le joueur peut wall jump.
     /// </summary>
     private void CheckCanWallJump()
     {
@@ -147,11 +145,9 @@ public class NavigationController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that detect if the player is on the ground.
+    /// Function qui détecte si le joueur est sur le sol.
     /// </summary>
-    /// <returns>
-    /// True if is on the ground, else false.
-    /// </returns>
+    /// <returns>Vrai si sur le sol, sinon Faux.</returns>
     private bool CheckTouchingGround()
     {
         if (groundCheckCollider.IsTouchingLayers(groundLayers))
@@ -160,11 +156,9 @@ public class NavigationController : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that detect if the player is close to the wall to slide.
+    /// Function qui détecte si le joueur touche un mur.
     /// </summary>
-    /// <returns>
-    /// True if is close to the ground, else false.
-    /// </returns>
+    /// <returns>Vrai si touche un mur, sinon Faux.</returns>
     private bool CheckTouchingWall()
     {
         if (wallLeftCheckCollider.IsTouchingLayers(groundLayers) || wallRightCheckCollider.IsTouchingLayers(groundLayers))

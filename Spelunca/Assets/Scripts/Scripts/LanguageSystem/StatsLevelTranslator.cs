@@ -1,11 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Classe permettant la traduction d'un texte contenant des statistiques liées joueurs..
+/// </summary>
 public class StatsLevelTranslator : MonoBehaviour
 {
+    /// <summary>
+    /// Enumeration des statistiques qui peuvent être affichées.
+    /// </summary>
     public enum Stats
     {
         LEVEL_DEATHS,
@@ -20,12 +25,30 @@ public class StatsLevelTranslator : MonoBehaviour
         ALL_BESTRUN
     }
 
+    /// <value>
+    /// Identifiant du niveau courant.
+    /// </value>
     public int levelID = 0;
+    /// <value>
+    /// Liste des types de statistiques à afficher dans le texte.
+    /// </value>
     public List<Stats> statsToDisplay;
+    /// <value>
+    /// Textes à afficher.
+    /// </value>
     private List<string> texts;
+    /// <value>
+    /// Textes par défaut.
+    /// </value>
     private List<string> defaultTexts;
+    /// <value>
+    /// Component qui affiche le texte au joueur.
+    /// </value>
     private TextMeshProUGUI textComponent => GetComponent<TextMeshProUGUI>();
 
+    /// <summary>
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+    /// </summary>
     void Start()
     {
         if (!textComponent)
@@ -38,6 +61,9 @@ public class StatsLevelTranslator : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fonction qui initialise les statistiques d'un niveau si elle n'ont pas déjà été initialisées.
+    /// </summary>
     private void InitializeLevelStats()
     {
         string saveId;
@@ -84,6 +110,9 @@ public class StatsLevelTranslator : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Affiche le texte souhaité lorsque le menu est chargé aux yeux du joueur.
+    /// </summary>
     public void loadMenu()
     {
         InitializeLevelStats();
@@ -186,6 +215,11 @@ public class StatsLevelTranslator : MonoBehaviour
             textComponent.SetText(textComponent.text + s);
     }
 
+    /// <summary>
+    /// Fonction qui calcul la sommes de toutes les valeurs d'une statistique précise.
+    /// </summary>
+    /// <param name="saveType">Statistique à sommer.</param>
+    /// <returns>Somme des valeurs.</returns>
     public int GetTotalIntCount(string saveType)
     {
         int res = 0;
@@ -194,6 +228,11 @@ public class StatsLevelTranslator : MonoBehaviour
         return res;
     }
 
+    /// <summary>
+    /// Fonction qui calcul la sommes de toutes les valeurs d'une statistique précise.
+    /// </summary>
+    /// <param name="saveType">Statistique à sommer.</param>
+    /// <returns>Somme des valeurs.</returns>
     public float GetTotalFloatCount(string saveType)
     {
         float res = 0;
@@ -202,6 +241,10 @@ public class StatsLevelTranslator : MonoBehaviour
         return res;
     }
 
+    /// <summary>
+    /// Permet de changer le texte du composant par la traduction souhaitée.
+    /// </summary>
+    /// <param name="translatedText">Texte à afficher.</param>
     public void changeText(List<string> translatedTexts)
     {
         defaultTexts = new List<string>();
@@ -209,6 +252,11 @@ public class StatsLevelTranslator : MonoBehaviour
         loadMenu();
     }
 
+    /// <summary>
+    /// Fonction qui converti un nombre de seconde en chaine de caratère.
+    /// </summary>
+    /// <param name="sec">Secondes à convertir.</param>
+    /// <returns>Chaine de caractère de la forme : "mm:ss.ms"</returns>
     public static string ConvertSecToReadable(float sec)
     {
         string minutes = ((int)sec / 60).ToString();

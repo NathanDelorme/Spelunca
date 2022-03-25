@@ -1,19 +1,28 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Classe permettant la sauvegarde de la configuration des touches choisies par le joueur.
+/// Ce script provient d'internet.
+/// </summary>
 public class SaveInputSystem : MonoBehaviour
 {
+    /// <value>
+    /// Fichier des configurations des touches du joueur.
+    /// </value>
     public InputActionAsset control;
 
+    /// <summary>
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+    /// </summary>
     private void Start()
     {
         LoadControlOverrides();
     }
 
     /// <summary>
-    /// Private wrapper class for json serialization of the overrides
+    /// Fonction qui initialise la serialization du changements des touches.
     /// </summary>
     [System.Serializable]
     class BindingWrapperClass
@@ -22,7 +31,7 @@ public class SaveInputSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// internal struct to store an id overridepath pair for a list
+    /// Structure permettant de stocker un identifiant pour une liste via un chemin.
     /// </summary>
     [System.Serializable]
     private struct BindingSerializable
@@ -38,11 +47,10 @@ public class SaveInputSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// stores the active control overrides to player prefs
+    /// Enregistre les remplacements de touches fait par le joueur dans les PlayerPrefs.
     /// </summary>
     public void StoreControlOverrides()
     {
-        //saving
         BindingWrapperClass bindingList = new BindingWrapperClass();
         foreach (var map in control.actionMaps)
         {
@@ -60,33 +68,24 @@ public class SaveInputSystem : MonoBehaviour
     }
 
     /// <summary>
-    /// Loads control overrides from playerprefs
+    /// Charge les contrôles sauvegardé dans les PlayerPrefs.
     /// </summary>
     public void LoadControlOverrides()
     {
         if (PlayerPrefs.HasKey(Application.version + "ControlOverrides"))
         {
             BindingWrapperClass bindingList = JsonUtility.FromJson(PlayerPrefs.GetString(Application.version + "ControlOverrides"), typeof(BindingWrapperClass)) as BindingWrapperClass;
-
-            //create a dictionary to easier check for existing overrides
             Dictionary<System.Guid, string> overrides = new Dictionary<System.Guid, string>();
-            foreach (var item in bindingList.bindingList)
-            {
-                overrides.Add(new System.Guid(item.id), item.path);
-            }
 
-            //walk through action maps check dictionary for overrides
+            foreach (var item in bindingList.bindingList)
+                overrides.Add(new System.Guid(item.id), item.path);
+
             foreach (var map in control.actionMaps)
             {
                 var bindings = map.bindings;
                 for (var i = 0; i < bindings.Count; ++i)
-                {
                     if (overrides.TryGetValue(bindings[i].id, out string overridePath))
-                    {
-                        //if there is an override apply it
                         map.ApplyBindingOverride(i, new InputBinding { overridePath = overridePath });
-                    }
-                }
             }
         }
     }

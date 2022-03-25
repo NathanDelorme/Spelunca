@@ -1,24 +1,36 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+/// <summary>
+/// System de sauvegarde des données du joueur (des paramètres plus particulièrement).
+/// </summary>
 public class SaveSystem : MonoBehaviour
 {
+    /// <value>
+    /// Objet qui stocke les paramètre du joueur en temps réel.
+    /// </value>
     private SettingsData data;
 
+    /// <summary>
+    /// Fonction appelé quand le script est chargée.
+    /// </summary>
     public void Awake()
     {
         data = GetComponent<SettingsData>();
         LoadSettings();
     }
 
+    /// <summary>
+    /// Fonction appelé juste avant la fermeture totale du jeu.
+    /// </summary>
     public void OnApplicationQuit()
     {
         SaveSettings();
     }
 
+    /// <summary>
+    /// Fonction permettant de réinitialiser les données du joueur liées aux niveaux.
+    /// </summary>
     public void resetGameData()
     {
         string saveId = "";
@@ -50,6 +62,9 @@ public class SaveSystem : MonoBehaviour
         PlayerPrefs.SetFloat(saveId, 0);
     }
 
+    /// <summary>
+    /// Fonction qui permet de sauvegarder les données.
+    /// </summary>
     public void SaveSettings()
     {
         if(data != null)
@@ -63,6 +78,9 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fonction qui permet de charger les données.
+    /// </summary>
     public void LoadSettings()
     {
         if (!PlayerPrefs.HasKey(Application.version + "settings_language"))

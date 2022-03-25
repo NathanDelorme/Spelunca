@@ -1,31 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Script permettant la gestion et la mise en pause du jeu.
+/// </summary>
 public class PauseUI : MonoBehaviour
 {
+    /// <value>
+    /// Est-ce que le jeu est en pause ou non.
+    /// </value>
     private bool paused = false;
-    private UIManager uiManager;
-    public UI.UIScript pauseMenu;
-    public UI.UIScript settingsMenu;
-    public UI.UIScript creditsMenu;
+    /// <value>
+    /// Script menu pause
+    /// </value>
+    public UIScript pauseMenu;
+    /// <value>
+    /// Script menu des options
+    /// </value>
+    public UIScript settingsMenu;
+    /// <value>
+    /// Script menu des crédits
+    /// </value>
+    public UIScript creditsMenu;
+    /// <value>
+    /// Script du menu
+    /// </value>
     public GameObject menu;
+    /// <value>
+    /// Système qui gère les entrées clavier/souris/manette du joueur.
+    /// Permet de spécifier des paramètres pour la navigation dans les menus.
+    /// </value>
     public EventSystem eventSystem;
+    /// <value>
+    /// Gestionnaire des effets sonores du jeu.
+    /// </value>
     private SFXManager sfxManager;
+    /// <value>
+    /// Récupération des inputs du joueur.
+    /// </value>
     private PlayerInput playerInput;
 
+    /// <summary>
+    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+    /// </summary>
     public void Start()
     {
         sfxManager = FindObjectOfType<SFXManager>();
         playerInput = FindObjectOfType<PlayerInput>();
-        uiManager = FindObjectOfType<UIManager>();
         Resume();
     }
 
+    /// <summary>
+    /// Fonction qui switch entre "Pause Mode" et "Play Mode".
+    /// </summary>
     public void OnPause()
     {
         sfxManager.flipFlopPause();
@@ -35,6 +65,9 @@ public class PauseUI : MonoBehaviour
             PauseGame();
     }
 
+    /// <summary>
+    /// Fonction qui met en pause le jeu ainsi que toutes les taches que le joueur effectuait lrosqu'il jouait.
+    /// </summary>
     private void PauseGame()
     {
         playerInput.DeactivateInput();
@@ -47,6 +80,9 @@ public class PauseUI : MonoBehaviour
         paused = true;
     }
 
+    /// <summary>
+    /// Remet le jeu en "Play Mode". Le joueur peut à nouveau se déplacer et jouer.
+    /// </summary>
     public void Resume()
     {
         playerInput.ActivateInput();
@@ -58,6 +94,9 @@ public class PauseUI : MonoBehaviour
         paused = false;
     }
 
+    /// <summary>
+    /// Ouvrir le menu pause et ferme les autres menus.
+    /// </summary>
     public void OpenPause()
     {
         pauseMenu.Open();
@@ -65,6 +104,9 @@ public class PauseUI : MonoBehaviour
         creditsMenu.Close();
     }
 
+    /// <summary>
+    /// Ouvrir le menu options et ferme les autres menus.
+    /// </summary>
     public void OpenSettings()
     {
         pauseMenu.Close();
@@ -72,6 +114,9 @@ public class PauseUI : MonoBehaviour
         creditsMenu.Close();
     }
 
+    /// <summary>
+    /// Ouvrir le menu crédits et ferme les autres menus.
+    /// </summary>
     public void OpenCredits()
     {
         pauseMenu.Close();
@@ -79,6 +124,9 @@ public class PauseUI : MonoBehaviour
         creditsMenu.Open();
     }
 
+    /// <summary>
+    /// Fonction qui permet au joueur de revenir au menu principal.
+    /// </summary>
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
