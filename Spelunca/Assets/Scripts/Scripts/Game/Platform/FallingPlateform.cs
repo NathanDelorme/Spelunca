@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 /// <summary>
-/// Permet le fonctionnement des FallingPlateforms.
+/// Classe permettant le fonctionnement des FallingPlateforms.
 /// </summary>
 public class FallingPlateform : MonoBehaviour
 {
