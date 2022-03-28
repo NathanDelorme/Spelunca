@@ -1,22 +1,25 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(ShadowCaster2DFromComposite))]
-public class ShadowCastersGeneratorEditor : Editor
+namespace ShadowCaster
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(ShadowCaster2DFromComposite))]
+    public class ShadowCastersGeneratorEditor : Editor
     {
-        DrawDefaultInspector();
-        ShadowCaster2DFromComposite generator = (ShadowCaster2DFromComposite)target;
+        public override void OnInspectorGUI()
+        {
+            DrawDefaultInspector();
+            ShadowCaster2DFromComposite generator = (ShadowCaster2DFromComposite)target;
 
-        for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
+                EditorGUILayout.Space();
+
+            if (GUILayout.Button("Generate"))
+                generator.Generate();
+
             EditorGUILayout.Space();
-
-        if (GUILayout.Button("Generate"))
-            generator.Generate();
-
-        EditorGUILayout.Space();
-        if (GUILayout.Button("Destroy All Children"))
-            generator.DestroyAllChildren();
+            if (GUILayout.Button("Destroy All Children"))
+                generator.DestroyAllChildren();
+        }
     }
 }

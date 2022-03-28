@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Xml;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using static StatsLevelTranslator;
+using static Language.StatsLevelTranslator;
 
 namespace Language
 {

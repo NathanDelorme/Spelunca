@@ -2,90 +2,93 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
-/// Classe permettant la sauvegarde de la configuration des touches choisies par le joueur.
-/// Ce script provient d'internet.
-/// </summary>
-public class SaveInputSystem : MonoBehaviour
+namespace SaveSystem
 {
-    /// <value>
-    /// Fichier des configurations des touches du joueur.
-    /// </value>
-    public InputActionAsset control;
-
     /// <summary>
-    /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+    /// Classe permettant la sauvegarde de la configuration des touches choisies par le joueur.
+    /// Ce script provient d'internet.
     /// </summary>
-    private void Start()
+    public class SaveInputSystem : MonoBehaviour
     {
-        LoadControlOverrides();
-    }
+        /// <value>
+        /// Fichier des configurations des touches du joueur.
+        /// </value>
+        public InputActionAsset control;
 
-    /// <summary>
-    /// Fonction qui initialise la serialization du changements des touches.
-    /// </summary>
-    [System.Serializable]
-    class BindingWrapperClass
-    {
-        public List<BindingSerializable> bindingList = new List<BindingSerializable>();
-    }
-
-    /// <summary>
-    /// Structure permettant de stocker un identifiant pour une liste via un chemin.
-    /// </summary>
-    [System.Serializable]
-    private struct BindingSerializable
-    {
-        public string id;
-        public string path;
-
-        public BindingSerializable(string bindingId, string bindingPath)
+        /// <summary>
+        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// </summary>
+        private void Start()
         {
-            id = bindingId;
-            path = bindingPath;
+            LoadControlOverrides();
         }
-    }
 
-    /// <summary>
-    /// Enregistre les remplacements de touches fait par le joueur dans les PlayerPrefs.
-    /// </summary>
-    public void StoreControlOverrides()
-    {
-        BindingWrapperClass bindingList = new BindingWrapperClass();
-        foreach (var map in control.actionMaps)
+        /// <summary>
+        /// Fonction qui initialise la serialization du changements des touches.
+        /// </summary>
+        [System.Serializable]
+        class BindingWrapperClass
         {
-            foreach (var binding in map.bindings)
+            public List<BindingSerializable> bindingList = new List<BindingSerializable>();
+        }
+
+        /// <summary>
+        /// Structure permettant de stocker un identifiant pour une liste via un chemin.
+        /// </summary>
+        [System.Serializable]
+        private struct BindingSerializable
+        {
+            public string id;
+            public string path;
+
+            public BindingSerializable(string bindingId, string bindingPath)
             {
-                if (!string.IsNullOrEmpty(binding.overridePath))
-                {
-                    bindingList.bindingList.Add(new BindingSerializable(binding.id.ToString(), binding.overridePath));
-                }
+                id = bindingId;
+                path = bindingPath;
             }
         }
 
-        PlayerPrefs.SetString(Application.version + "ControlOverrides", JsonUtility.ToJson(bindingList));
-        PlayerPrefs.Save();
-    }
-
-    /// <summary>
-    /// Charge les contrôles sauvegardé dans les PlayerPrefs.
-    /// </summary>
-    public void LoadControlOverrides()
-    {
-        if (PlayerPrefs.HasKey(Application.version + "ControlOverrides"))
+        /// <summary>
+        /// Enregistre les remplacements de touches fait par le joueur dans les PlayerPrefs.
+        /// </summary>
+        public void StoreControlOverrides()
         {
-            BindingWrapperClass bindingList = JsonUtility.FromJson(PlayerPrefs.GetString(Application.version + "ControlOverrides"), typeof(BindingWrapperClass)) as BindingWrapperClass;
-            Dictionary<System.Guid, string> overrides = new Dictionary<System.Guid, string>();
-
-            foreach (var item in bindingList.bindingList)
-                overrides.Add(new System.Guid(item.id), item.path);
-
+            BindingWrapperClass bindingList = new BindingWrapperClass();
             foreach (var map in control.actionMaps)
             {
-                var bindings = map.bindings;
-                for (var i = 0; i < bindings.Count; ++i)
-                    if (overrides.TryGetValue(bindings[i].id, out string overridePath))
-                        map.ApplyBindingOverride(i, new InputBinding { overridePath = overridePath });
+                foreach (var binding in map.bindings)
+                {
+                    if (!string.IsNullOrEmpty(binding.overridePath))
+                    {
+                        bindingList.bindingList.Add(new BindingSerializable(binding.id.ToString(), binding.overridePath));
+                    }
+                }
+            }
+
+            PlayerPrefs.SetString(Application.version + "ControlOverrides", JsonUtility.ToJson(bindingList));
+            PlayerPrefs.Save();
+        }
+
+        /// <summary>
+        /// Charge les contrôles sauvegardé dans les PlayerPrefs.
+        /// </summary>
+        public void LoadControlOverrides()
+        {
+            if (PlayerPrefs.HasKey(Application.version + "ControlOverrides"))
+            {
+                BindingWrapperClass bindingList = JsonUtility.FromJson(PlayerPrefs.GetString(Application.version + "ControlOverrides"), typeof(BindingWrapperClass)) as BindingWrapperClass;
+                Dictionary<System.Guid, string> overrides = new Dictionary<System.Guid, string>();
+
+                foreach (var item in bindingList.bindingList)
+                    overrides.Add(new System.Guid(item.id), item.path);
+
+                foreach (var map in control.actionMaps)
+                {
+                    var bindings = map.bindings;
+                    for (var i = 0; i < bindings.Count; ++i)
+                        if (overrides.TryGetValue(bindings[i].id, out string overridePath))
+                            map.ApplyBindingOverride(i, new InputBinding { overridePath = overridePath });
+                }
             }
         }
     }
