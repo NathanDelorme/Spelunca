@@ -18,7 +18,7 @@ MonoBehaviour:
   jumpForce: 12
   wallJumpForce: 8
   maxJumpTime: 0.125
-  maxCoyoteTime: 0.1
+  maxCoyoteTime: 2
   groundLinearDrag: 10
   airLinearDrag: 2
   wallLinearDrag: 20

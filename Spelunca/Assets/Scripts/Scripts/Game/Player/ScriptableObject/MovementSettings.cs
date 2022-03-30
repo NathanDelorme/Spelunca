@@ -39,7 +39,7 @@ namespace Data
         /// <value>
         /// Le coyote time défini le temps durant lequel le joueur peut encore sauté après avoir quitté une plateforme.
         /// </value>
-        public float maxCoyoteTime = 0.1f;
+        public float maxCoyoteTime = 2f;
 
         [Header("Drag variables")]
         /// <value>
@@ -77,7 +77,7 @@ namespace Data
             jumpForce = 12f;
             wallJumpForce = 8f;
             maxJumpTime = 0.125f;
-            maxCoyoteTime = 0.1f;
+            maxCoyoteTime = 2f;
 
             groundLinearDrag = 20f;
             airLinearDrag = 2f;
