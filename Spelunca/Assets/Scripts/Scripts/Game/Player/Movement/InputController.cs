@@ -4,28 +4,28 @@ using UnityEngine;
 namespace Player
 {
     /// <summary>
-    /// Dépréciée : Cette classe ne doit plus être utilisée.
+    /// DÃ©prÃ©ciÃ©e : Cette classe ne doit plus Ãªtre utilisÃ©e.
     /// 
-    /// Cette classe récupère et interprète les inputs du joueur (touches appuyées).
+    /// Cette classe rÃ©cupÃ¨re et interprÃ¨te les inputs du joueur (touches appuyÃ©es).
     /// Cela permet de savoir ce que le joueur souhaite faire comme actions.
     /// </summary>
     public class InputController : MonoBehaviour
     {
         /// <value>
-        /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+        /// Cette propriÃ©tÃ© (<see cref="PlayerState"/>) est un ScriptableObject.
         /// Cet attribut stocke toutes les variables utiles pour savoir ce que le joueur veut faire,
         /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
         /// </value>
         public PlayerState playerState;
         /// <value>
-        /// Cette propriété (<see cref="MovementSettings"/>) est un ScriptableObject.
+        /// Cette propriÃ©tÃ© (<see cref="MovementSettings"/>) est un ScriptableObject.
         /// Cet attribut stocke toutes les variables utiles pour les mouvements (exemple : force du saut ou duration du dash).
         /// </value>
         public MovementSettings movementSettings;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
-        /// Ici on initialise les données de l'attribut <c>playerState</c>.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
+        /// Ici on initialise les donnÃ©es de l'attribut <c>playerState</c>.
         /// </summary>
         private void Start()
         {
@@ -33,8 +33,8 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction exécuté à chaque frame.
-        /// On vérifie si le joueur veut se déplacer, sauter ou dash.
+        /// Fonction exÃ©cutÃ© Ã  chaque frame.
+        /// On vÃ©rifie si le joueur veut se dÃ©placer, sauter ou dash.
         /// </summary>
         private void Update()
         {
@@ -44,7 +44,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction qui détecte si le joueur veut bouger grâce aux touches pressées.
+        /// Fonction qui dÃ©tecte si le joueur veut bouger grÃ¢ce aux touches pressÃ©es.
         /// </summary>
         private void CheckMoveInput()
         {
@@ -59,7 +59,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction qui détecte si le joueur veut sauter grâce aux touches pressées.
+        /// Fonction qui dÃ©tecte si le joueur veut sauter grÃ¢ce aux touches pressÃ©es.
         /// </summary>
         private void CheckJumpInput()
         {
@@ -67,7 +67,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction qui détecte si le joueur veut dash grâce aux touches pressées.
+        /// Fonction qui dÃ©tecte si le joueur veut dash grÃ¢ce aux touches pressÃ©es.
         /// </summary>
         private void CheckDashInput()
         {

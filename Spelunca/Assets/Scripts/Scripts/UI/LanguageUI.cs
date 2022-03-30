@@ -7,12 +7,12 @@ using UnityEngine.UI;
 namespace UI
 {
     /// <summary>
-    /// Permet de gérer les toggles pour le changement de langage dans les options.
+    /// Permet de gÃ©rer les toggles pour le changement de langage dans les options.
     /// </summary>
     public class LanguageUI : MonoBehaviour
     {
         /// <value>
-        /// Objet qui stocke les paramètre du joueur en temps réel.
+        /// Objet qui stocke les paramÃ¨tre du joueur en temps rÃ©el.
         /// </value>
         public SettingsData settingsData;
         /// <value>
@@ -20,11 +20,11 @@ namespace UI
         /// </value>
         public List<Toggle> toggles;
         /// <value>
-        /// Liste des images des toggles lorsqu'ils ne sont pas sélectionnés.
+        /// Liste des images des toggles lorsqu'ils ne sont pas sÃ©lectionnÃ©s.
         /// </value>
         public List<Sprite> sprites;
         /// <value>
-        /// Liste des images des toggles lorsqu'ils sont sélectionnés.
+        /// Liste des images des toggles lorsqu'ils sont sÃ©lectionnÃ©s.
         /// </value>
         public List<Sprite> spritesSelected;
         /// <value>
@@ -32,12 +32,12 @@ namespace UI
         /// </value>
         public List<string> languages;
         /// <summary>
-        /// Référence vers le LanguageManager pour changer la langue du jeu.
+        /// RÃ©fÃ©rence vers le LanguageManager pour changer la langue du jeu.
         /// </summary>
         private LanguageManager languageManager;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ©re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         public void Start()
         {
@@ -46,7 +46,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Fonction appelée lorsque l'object passe de "désactivé" à "activé".
+        /// Fonction appelÃ©e lorsque l'object passe de "dÃ©sactivÃ©" Ã  "activÃ©".
         /// </summary>
         public void OnEnable()
         {
@@ -54,7 +54,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Mets à jour l'interface en fonction des dernière valeurs sauvegardées.
+        /// Met Ã  jour l'interface en fonction des derniÃ¨re valeurs sauvegardÃ©es.
         /// </summary>
         public void UpdateUI()
         {

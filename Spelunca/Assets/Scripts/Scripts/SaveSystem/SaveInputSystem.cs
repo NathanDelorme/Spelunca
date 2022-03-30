@@ -16,7 +16,7 @@ namespace SaveSystem
         public InputActionAsset control;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         private void Start()
         {
@@ -70,7 +70,7 @@ namespace SaveSystem
         }
 
         /// <summary>
-        /// Charge les contrôles sauvegardé dans les PlayerPrefs.
+        /// Charge les contrÃ´les sauvegardÃ© dans les PlayerPrefs.
         /// </summary>
         public void LoadControlOverrides()
         {

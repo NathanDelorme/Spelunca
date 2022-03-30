@@ -7,37 +7,37 @@ using static Language.StatsLevelTranslator;
 namespace Language
 {
     /// <summary>
-    /// Classe qui s'occupe de gérer les différentes langues présentent en jeu.
+    /// Classe qui s'occupe de gÃ©rer les diffÃ©rentes langues prÃ©sentent en jeu.
     /// </summary>
     public class LanguageManager : MonoBehaviour
     {
         /// <value>
-        /// Fichier XML où sont stockées les traductions.
+        /// Fichier XML oÃ¹ sont stockÃ©es les traductions.
         /// </value>
         public TextAsset xmlFile;
         /// <value>
-        /// Structure de données permettant d'avoir, en fonction de la langue et de l'identifiant du texte, la bonne traduction.
+        /// Structure de donnÃ©es permettant d'avoir, en fonction de la langue et de l'identifiant du texte, la bonne traduction.
         /// </value>
         private Dictionary<string, Dictionary<string, string>> languages = new Dictionary<string, Dictionary<string, string>>();
         /// <value>
-        /// Liste de tous les textes basiques à traduire dans le niveau courant.
+        /// Liste de tous les textes basiques Ã  traduire dans le niveau courant.
         /// </value>
         private List<Translator> translators;
         /// <value>
-        /// Liste de tous les textes liés aux statistiques à traduire dans le niveau courant.
+        /// Liste de tous les textes liÃ©s aux statistiques Ã  traduire dans le niveau courant.
         /// </value>
         private List<StatsLevelTranslator> statsTranslator;
         /// <value>
-        /// Liste de tous les textes liés à l'affichage des niveaux à traduire dans le niveau courant.
+        /// Liste de tous les textes liÃ©s Ã  l'affichage des niveaux Ã  traduire dans le niveau courant.
         /// </value>
         private List<LevelTranslator> levelsTranslator;
         /// <value>
-        /// Langage par défaut.
+        /// Langage par dÃ©faut.
         /// </value>
         private string lastLanguage = "EN";
 
         /// <summary>
-        /// Fonction appelé à chaque chargement du script.
+        /// Fonction appelÃ© Ã  chaque chargement du script.
         /// </summary>
         private void Awake()
         {
@@ -45,7 +45,7 @@ namespace Language
         }
 
         /// <summary>
-        /// Fonction appelé quand l'objet passe de "désactivé" à "activé".
+        /// Fonction appelÃ© quand l'objet passe de "dÃ©sactivÃ©" Ã  "activÃ©".
         /// </summary>
         void OnEnable()
         {
@@ -53,7 +53,7 @@ namespace Language
         }
 
         /// <summary>
-        /// Fonction appelé quand l'objet passe de "activé" à "désactivé".
+        /// Fonction appelÃ© quand l'objet passe de "activÃ©" Ã  "dÃ©sactivÃ©".
         /// </summary>
         void OnDisable()
         {
@@ -61,9 +61,9 @@ namespace Language
         }
 
         /// <summary>
-        /// Fonction appelé dès qu'un niveau est chargé afin d'initialiser le LanguageManager.
+        /// Fonction appelÃ© dÃ¨s qu'un niveau est chargÃ© afin d'initialiser le LanguageManager.
         /// </summary>
-        /// <param name="scene">Objet qui représente la Scene.</param>
+        /// <param name="scene">Objet qui reprÃ©sente la Scene.</param>
         /// <param name="mode"></param>
         private void OnLevelIsLoaded(Scene scene, LoadSceneMode mode)
         {
@@ -74,7 +74,7 @@ namespace Language
         }
 
         /// <summary>
-        /// Permet d'appliquer le changement de language lors de la selection d'une nouvelle langue dans les paramètres.
+        /// Permet d'appliquer le changement de language lors de la selection d'une nouvelle langue dans les paramÃ¨tres.
         /// </summary>
         /// <param name="lang">Identifiant de la langue (exemple : FR, EN, ES, BZ).</param>
         public void ApplyLanguage(string lang)
@@ -159,7 +159,7 @@ namespace Language
         }
 
         /// <summary>
-        /// Récupère la liste des textes basiques à traduire.
+        /// RÃ©cupÃ¨re la liste des textes basiques Ã  traduire.
         /// </summary>
         private void GetTranslators()
         {
@@ -170,7 +170,7 @@ namespace Language
         }
 
         /// <summary>
-        /// Récupère la liste des textes liés aux statistiques à traduire.
+        /// RÃ©cupÃ¨re la liste des textes liÃ©s aux statistiques Ã  traduire.
         /// </summary>
         private void GetStatsTranslators()
         {
@@ -181,7 +181,7 @@ namespace Language
         }
 
         /// <summary>
-        /// Récupère la liste des textes liés à l'affichage du niveau à traduire.
+        /// RÃ©cupÃ¨re la liste des textes liÃ©s Ã  l'affichage du niveau Ã  traduire.
         /// </summary>
         private void GetLevelsTranslators()
         {
@@ -192,8 +192,8 @@ namespace Language
         }
 
         /// <summary>
-        /// Permet la lecture, le traitement et donc le parsing des données présentent dans le fichier XML des langues.
-        /// Les données sont stocké dans la structure de données <c>languages</c>.
+        /// Permet la lecture, le traitement et donc le parsing des donnÃ©es prÃ©sentent dans le fichier XML des langues.
+        /// Les donnÃ©es sont stockÃ© dans la structure de donnÃ©es <c>languages</c>.
         /// </summary>
         private void XMLReader()
         {

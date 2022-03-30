@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 namespace UI
 {
     /// <summary>
-    /// Cette classe permet de donner un comportement à un texte pour qu'il soit considéré comme un timer.
+    /// Cette classe permet de donner un comportement Ã  un texte pour qu'il soit considÃ©rÃ© comme un timer.
     /// </summary>
     public class Timer : MonoBehaviour
     {
@@ -38,7 +38,7 @@ namespace UI
         /// </value>
         public bool playing = true;
         /// <value>
-        /// Variable qui détermine si le joueur fait une run globale ou non.
+        /// Variable qui dÃ©termine si le joueur fait une run globale ou non.
         /// </value>
         private bool isInRun;
         /// <value>
@@ -47,7 +47,7 @@ namespace UI
         private float runTime = 0f;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// Cette fonction agit comme un constructeur permettant d'initialiser les attributs et effectuer des actions au chargement du script.
         /// </summary>
         void Start()
@@ -82,7 +82,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Fonction exécuté lorsque l'application est fermé. Cela permet d'arrêter la run en cours.
+        /// Fonction exÃ©cutÃ© lorsque l'application est fermÃ©. Cela permet d'arrÃªter la run en cours.
         /// </summary>
         private void OnApplicationQuit()
         {
@@ -92,10 +92,10 @@ namespace UI
         }
 
         /// <summary>
-        /// Fonction qui converti un nombre de seconde en chaine de caratère.
+        /// Fonction qui converti un nombre de seconde en chaine de caratÃ¨re.
         /// </summary>
-        /// <param name="sec">Secondes à convertir.</param>
-        /// <returns>Chaine de caractère de la forme : "mm:ss.ms"</returns>
+        /// <param name="sec">Secondes Ã  convertir.</param>
+        /// <returns>Chaine de caractÃ¨re de la forme : "mm:ss.ms"</returns>
         public static string ConvertSecToReadable(float sec)
         {
             string minutes = ((int)sec / 60).ToString();
@@ -106,7 +106,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Fonction exécuté à chaque frame.
+        /// Fonction exÃ©cutÃ© Ã  chaque frame.
         /// </summary>
         void Update()
         {
@@ -119,9 +119,9 @@ namespace UI
         }
 
         /// <summary>
-        /// Met à jour le texte de l'UI en fonction du temps.
+        /// Met Ã  jour le texte de l'UI en fonction du temps.
         /// </summary>
-        /// <param name="currentRunTime">Temps à afficher.</param>
+        /// <param name="currentRunTime">Temps Ã  afficher.</param>
         public void updateUI(float currentRunTime)
         {
             if (isInRun)
@@ -133,7 +133,7 @@ namespace UI
         /// <summary>
         /// Permet de sauvegarder les temps du niveau. (cumul du temps + meilleur temps).
         /// </summary>
-        /// <param name="isKilled">Booléen Vrai si le joueur est mort, sinon Faux.</param>
+        /// <param name="isKilled">BoolÃ©en Vrai si le joueur est mort, sinon Faux.</param>
         public void SaveTime(bool isKilled = false)
         {
             playing = false;

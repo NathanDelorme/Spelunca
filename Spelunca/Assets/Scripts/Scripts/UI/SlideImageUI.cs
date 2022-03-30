@@ -7,28 +7,28 @@ using TMPro;
 namespace UI
 {
     /// <summary>
-    /// Classe permettant d'afficher les différentes images liées à l'histoire.
+    /// Classe permettant d'afficher les diffÃ©rentes images liÃ©es Ã  l'histoire.
     /// </summary>
     public class SlideImageUI : MonoBehaviour
     {
         /// <value>
-        /// Images à afficher.
+        /// Images Ã  afficher.
         /// </value>
         public List<Sprite> images;
         /// <value>
-        /// Texte à afficher sur une des images.
+        /// Texte Ã  afficher sur une des images.
         /// </value>
         public TextMeshProUGUI text;
         /// <value>
-        /// Image par défaut.
+        /// Image par dÃ©faut.
         /// </value>
         public Image imageUi;
         /// <value>
-        /// Scène à ouvrir après avoir visionné les images.
+        /// ScÃ¨ne Ã  ouvrir aprÃ¨s avoir visionnÃ© les images.
         /// </value>
         public string switchSceneOnFinished;
         /// <value>
-        /// Image sur laquelle le texte doit apparaître.
+        /// Image sur laquelle le texte doit apparaÃ®tre.
         /// </value>
         public int indexTextApparition = 1;
         /// <value>
@@ -37,7 +37,7 @@ namespace UI
         private int index = 0;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         public void Start()
         {
@@ -45,7 +45,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Permet de passer à l'image suivante ou de charger le niveau.
+        /// Permet de passer Ã  l'image suivante ou de charger le niveau.
         /// </summary>
         public void Next()
         {

@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 namespace Player
 {
     /// <summary>
-    /// Cette classe définie quand le joueur doit mourrir ou gagner.
+    /// Cette classe dÃ©finie quand le joueur doit mourrir ou gagner.
     /// Par "gagner" on entend finir le niveau courant.
     /// Par "mourrir" on entend lorsque le joueur entre en collision avec des piques ou le vide.
     /// </summary>
@@ -20,21 +20,21 @@ namespace Player
         /// </value>
         public GameObject endMenu;
         /// <value>
-        /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+        /// Cette propriÃ©tÃ© (<see cref="PlayerState"/>) est un ScriptableObject.
         /// Cet attribut stocke toutes les variables utiles pour savoir ce que le joueur veut faire,
         /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
         /// </value>
         public PlayerState playerState;
         /// <value>
-        /// Référence vers l'<see cref="AbilitySystem"/> du joueur.
+        /// RÃ©fÃ©rence vers l'<see cref="AbilitySystem"/> du joueur.
         /// </value>
         private AbilitySystem abilitySystem;
         /// <value>
-        /// Point de réapparition du joueur.
+        /// Point de rÃ©apparition du joueur.
         /// </value>
         public GameObject spawnPoint;
         ///  <value>
-        ///  RigidBody2D qui permet d'ajouter de la physique à un GameObject.
+        ///  RigidBody2D qui permet d'ajouter de la physique Ã  un GameObject.
         ///  </value>
         private Rigidbody2D _rigidBody;
         /// <value>
@@ -42,15 +42,15 @@ namespace Player
         /// </value>
         public BoxCollider2D _playerCollider;
         /// <value>
-        /// Booléen qui défini si les piques et le sol sont inversé par le pouvoir Spike du joueur.
+        /// BoolÃ©en qui dÃ©fini si les piques et le sol sont inversÃ© par le pouvoir Spike du joueur.
         /// </value>
         public bool reverseSpikeZone = false;
         /// <value>
-        /// Liste des plateformes mouvantes présentent dans le niveau courant.
+        /// Liste des plateformes mouvantes prÃ©sentent dans le niveau courant.
         /// </value>
         public Movement[] movementPlatforms;
         /// <value>
-        /// Liste des plateformes tombantes présentent dans le niveau courant.
+        /// Liste des plateformes tombantes prÃ©sentent dans le niveau courant.
         /// </value>
         public FallingPlateform[] fallingPlatforms;
         /// <value>
@@ -58,11 +58,11 @@ namespace Player
         /// </value>
         public OrbsDashManager orbsDashManager;
         /// <value>
-        /// Booléen qui stocke si c'est le premier spawn du joueur dans le niveau ou non.
+        /// BoolÃ©en qui stocke si c'est le premier spawn du joueur dans le niveau ou non.
         /// </value>
         private bool firstLoad = true;
         /// <value>
-        /// Animator qui permet de définir des variables dans l'animator pour savoir l'animation que le personnage doit executer.
+        /// Animator qui permet de dÃ©finir des variables dans l'animator pour savoir l'animation que le personnage doit executer.
         /// </value>
         private Animator animator;
         ///  <value>
@@ -70,12 +70,12 @@ namespace Player
         ///  </value>
         private SpriteRenderer _sprite;
         ///  <value>
-        ///  Booléen qui contient la valeur de si le joueur meurt ou non.
+        ///  BoolÃ©en qui contient la valeur de si le joueur meurt ou non.
         ///  </value>
         public bool isKilled = false;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         void Start()
         {
@@ -91,7 +91,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction qui téléporte le joueur au spawn du niveau.
+        /// Fonction qui tÃ©lÃ©porte le joueur au spawn du niveau.
         /// </summary>
         private void SpawnPlayer()
         {
@@ -134,9 +134,9 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction qui traite les collision entre le joueur et les autres objets qui composent la scène.
+        /// Fonction qui traite les collision entre le joueur et les autres objets qui composent la scÃ¨ne.
         /// </summary>
-        /// <param name="collision">Collision générée par le joueur et un objet.</param>
+        /// <param name="collision">Collision gÃ©nÃ©rÃ©e par le joueur et un objet.</param>
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (reverseSpikeZone)
@@ -147,9 +147,9 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction qui traite les collision entre le joueur et les autres objets qui composent la scène.
+        /// Fonction qui traite les collision entre le joueur et les autres objets qui composent la scÃ¨ne.
         /// </summary>
-        /// <param name="collision">Objet qui est entré en collision avec le joueur.</param>
+        /// <param name="collision">Objet qui est entrÃ© en collision avec le joueur.</param>
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Finish"))
@@ -184,7 +184,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Sauvegarde la dernière scène dans laquelle le joueur est entré.
+        /// Sauvegarde la derniÃ¨re scÃ¨ne dans laquelle le joueur est entrÃ©.
         /// </summary>
         private void SaveSceneName()
         {

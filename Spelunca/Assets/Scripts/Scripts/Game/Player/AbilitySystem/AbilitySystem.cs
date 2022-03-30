@@ -6,12 +6,12 @@ using UnityEngine.Tilemaps;
 namespace Ability
 {
     /// <summary>
-    /// Permet de gérer l'habilité que le joueur possède.
-    /// Il y a trois pouvoirs différent.
+    /// Permet de gÃ©rer l'habilitÃ© que le joueur possÃ¨de.
+    /// Il y a trois pouvoirs diffÃ©rent.
     /// Le None qui signifie que le joueur n'a pas de pouvoir.
-    /// Le Cristal qui fait apparaître des plateformes en cristal.
+    /// Le Cristal qui fait apparaÃ®tre des plateformes en cristal.
     /// Le Spike qui permet au joueur de marcher sur les piques mais en contre-partie, il ne peut plus marcher sur le sol.
-    /// On applique le Design pattern d'état pour gérer les pouvoirs du joueur.
+    /// On applique le Design pattern d'Ã©tat pour gÃ©rer les pouvoirs du joueur.
     /// </summary>
     public class AbilitySystem : MonoBehaviour
     {
@@ -24,17 +24,17 @@ namespace Ability
         /// </value>
         public State previousState;
         /// <value>
-        /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+        /// Cette propriÃ©tÃ© (<see cref="PlayerState"/>) est un ScriptableObject.
         /// Cet attribut stocke toutes les variables utiles pour savoir ce que le joueur veut faire,
         /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
         /// </value>
         public PlayerState playerState;
         /// <value>
-        /// Zone de collision des piques présents dans le niveau.
+        /// Zone de collision des piques prÃ©sents dans le niveau.
         /// </value>
         public CompositeCollider2D spikesCollider;
         /// <value>
-        /// Script qui gère la condition de mort et de victoire du joueur.
+        /// Script qui gÃ¨re la condition de mort et de victoire du joueur.
         /// </value>
         public WinDeathCondition winDeathCondition;
         /// <value>
@@ -42,23 +42,23 @@ namespace Ability
         /// </value>
         public NavigationController navigationController;
         /// <value>
-        /// Stocke les layers qui sont liés au sol.
+        /// Stocke les layers qui sont liÃ©s au sol.
         /// </value>
         public LayerMask ground;
         /// <value>
-        /// Stocke les layers qui sont liés aux piques.
+        /// Stocke les layers qui sont liÃ©s aux piques.
         /// </value>
         public LayerMask spikes;
         /// <value>
-        /// Stocke les tilemaps sur lesquelles le joueur peut se déplacer.
+        /// Stocke les tilemaps sur lesquelles le joueur peut se dÃ©placer.
         /// </value>
         public Tilemap[] tilemaps;
         /// <value>
-        /// Stocke la tilemap de cristal pour la faire apparaître / disparaître.
+        /// Stocke la tilemap de cristal pour la faire apparaÃ®tre / disparaÃ®tre.
         /// </value>
         public Tilemap cristalTilemap;
         /// <value>
-        /// Zone de collision des plateformes de cristal présentent dans le niveau.
+        /// Zone de collision des plateformes de cristal prÃ©sentent dans le niveau.
         /// </value>
         public CompositeCollider2D cristalTmCollider;
         /// <value>
@@ -66,22 +66,22 @@ namespace Ability
         /// </value>
         public GameObject goGround_Cristal;
         /// <value>
-        /// Teinte de couleur lorsque le joueur possède le pouvoir Spike.
+        /// Teinte de couleur lorsque le joueur possÃ¨de le pouvoir Spike.
         /// </value>
         public Color32 killGroundColor = new Color32(255, 0, 0, 255);
         /// <value>
-        /// Teinte de couleur des cristaux lorsqu'il sont activés.
+        /// Teinte de couleur des cristaux lorsqu'il sont activÃ©s.
         /// </value>
         public Color32 cristalUnable = new Color32(255, 0, 0, 255);
         /// <value>
-        /// Teinte de couleur des cristaux lorsqu'il sont désactivés.
+        /// Teinte de couleur des cristaux lorsqu'il sont dÃ©sactivÃ©s.
         /// </value>
         public Color32 cristalDisable = new Color32(255, 0, 0, 50);
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// Cette fonction agit comme un constructeur permettant d'initialiser les attributs et effectuer des actions au chargement du script.
-        /// On y initialise le pouvoir par défaut du joueur.
+        /// On y initialise le pouvoir par dÃ©faut du joueur.
         /// </summary>
         private void Start()
         {
@@ -90,8 +90,8 @@ namespace Ability
         }
 
         /// <summary>
-        /// Fonction exécuté à chaque frame.
-        /// On execute la fonction Update() de l'état courant du joueur.
+        /// Fonction exÃ©cutÃ© Ã  chaque frame.
+        /// On execute la fonction Update() de l'Ã©tat courant du joueur.
         /// </summary>
         private void Update()
         {
@@ -100,9 +100,9 @@ namespace Ability
         }
 
         /// <summary>
-        /// Fonction exécuté un nombre déterminer de fois par secondes.
-        /// On execute la fonction FixedUpdate() de l'état courant du joueur.
-        /// On effectue aussi les transition de couleur pour les éléments affecté par les pouvoirs du joueur.
+        /// Fonction exÃ©cutÃ© un nombre dÃ©terminer de fois par secondes.
+        /// On execute la fonction FixedUpdate() de l'Ã©tat courant du joueur.
+        /// On effectue aussi les transition de couleur pour les Ã©lÃ©ments affectÃ© par les pouvoirs du joueur.
         /// </summary>
         private void FixedUpdate()
         {
@@ -124,9 +124,9 @@ namespace Ability
         }
 
         /// <summary>
-        /// Change l'état du joueur.
+        /// Change l'Ã©tat du joueur.
         /// </summary>
-        /// <param name="newState">Nouvel état du joueur</param>
+        /// <param name="newState">Nouvel Ã©tat du joueur</param>
         public void SetState(State newState)
         {
             if (currentState != null)
@@ -140,9 +140,9 @@ namespace Ability
         }
 
         /// <summary>
-        /// Fonction appelé lorsque le joueur entre en collision avec un objet.
+        /// Fonction appelÃ© lorsque le joueur entre en collision avec un objet.
         /// </summary>
-        /// <param name="collision">Objet qui est entré en collision avec le joueur.</param>
+        /// <param name="collision">Objet qui est entrÃ© en collision avec le joueur.</param>
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("ResetOrb"))

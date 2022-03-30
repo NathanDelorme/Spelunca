@@ -7,12 +7,12 @@ using UnityEngine.UI;
 namespace UI
 {
     /// <summary>
-    /// Script qui gère le menu de fin lorsque le joueur fini un niveau.
+    /// Script qui gÃ¨re le menu de fin lorsque le joueur fini un niveau.
     /// </summary>
     public class EndUI : MonoBehaviour
     {
         /// <value>
-        /// Bouton pour lancer le niveau précédent.
+        /// Bouton pour lancer le niveau prÃ©cÃ©dent.
         /// </value>
         public Button previousButton;
         /// <value>
@@ -24,12 +24,12 @@ namespace UI
         /// </value>
         public Button nextButton;
         /// <value>
-        /// Récupération des inputs du joueur.
+        /// RÃ©cupÃ©ration des inputs du joueur.
         /// </value>
         private PlayerInput playerInput;
         /// <value>
-        /// Système qui gère les entrées clavier/souris/manette du joueur.
-        /// Permet de spécifier des paramètres pour la navigation dans les menus.
+        /// SystÃ¨me qui gÃ¨re les entrÃ©es clavier/souris/manette du joueur.
+        /// Permet de spÃ©cifier des paramÃ¨tres pour la navigation dans les menus.
         /// </value>
         private EventSystem eventSystem;
         /// <value>
@@ -37,7 +37,7 @@ namespace UI
         /// </value>
         private int levelID = -1;
         /// <value>
-        /// Nom du niveau précédent.
+        /// Nom du niveau prÃ©cÃ©dent.
         /// </value>
         private string previousLevel = "";
         /// <value>
@@ -50,7 +50,7 @@ namespace UI
         private string nextLevel = "";
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         void Start()
         {
@@ -69,7 +69,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Fonction appelée lorsque l'object passe de "désactivé" à "activé".
+        /// Fonction appelÃ©e lorsque l'object passe de "dÃ©sactivÃ©" Ã  "activÃ©".
         /// </summary>
         private void OnEnable()
         {
@@ -82,7 +82,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Fonction qui lance le niveau précédent.
+        /// Fonction qui lance le niveau prÃ©cÃ©dent.
         /// </summary>
         public void PreviousLevel()
         {

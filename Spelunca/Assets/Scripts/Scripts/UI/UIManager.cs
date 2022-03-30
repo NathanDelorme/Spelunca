@@ -4,12 +4,12 @@ using UnityEngine;
 namespace UI
 {
     /// <summary>
-    /// Classe permettant la gestion des différentes interface utilisateur.
+    /// Classe permettant la gestion des diffÃ©rentes interface utilisateur.
     /// </summary>
     public class UIManager : MonoBehaviour
     {
         /// <value>
-        /// Menu ouvert par défaut.
+        /// Menu ouvert par dÃ©faut.
         /// </value>
         public UIType defaultUIType = UIType.None;
         /// <value>
@@ -18,7 +18,7 @@ namespace UI
         private Dictionary<UIType, UIScript> UIDict;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         private void Start()
         {
@@ -39,9 +39,9 @@ namespace UI
         }
 
         /// <summary>
-        /// Ferme tout les menus et ouvre celui désiré.
+        /// Ferme tout les menus et ouvre celui dÃ©sirÃ©.
         /// </summary>
-        /// <param name="targetScript">Script du menu à ouvrir.</param>
+        /// <param name="targetScript">Script du menu Ã  ouvrir.</param>
         public void OpenScreen(UIScript targetScript)
         {
             UIType targetUI = targetScript.UIType;

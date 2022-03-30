@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 namespace UI
 {
     /// <summary>
-    /// Classe possédant les fonctions principales du menu principal.
+    /// Classe possÃ©dant les fonctions principales du menu principal.
     /// </summary>
     public class UIFunctions : MonoBehaviour
     {
         /// <value>
-        /// Objet qui stocke les paramètre du joueur en temps réel.
+        /// Objet qui stocke les paramÃ¨tre du joueur en temps rÃ©el.
         /// </value>
         public SettingsData settingsData;
         /// <value>
@@ -24,12 +24,12 @@ namespace UI
         /// </value>
         public AudioMixer SFXMixer;
         /// <value>
-        /// LanguageManager permettant la gestion des différentes langues et traduction des textes.
+        /// LanguageManager permettant la gestion des diffÃ©rentes langues et traduction des textes.
         /// </value>
         private LanguageManager languageManager;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         public void Start()
         {
@@ -74,7 +74,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Applique le dernier paramètre plein écran pour mettre le jeu en plein écran ou non.
+        /// Applique le dernier paramÃ¨tre plein Ã©cran pour mettre le jeu en plein Ã©cran ou non.
         /// </summary>
         public void ApplyFullscreen()
         {
@@ -85,7 +85,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Applique le dernier paramètre résolution pour changer la résolution du jeu.
+        /// Applique le dernier paramÃ¨tre rÃ©solution pour changer la rÃ©solution du jeu.
         /// </summary>
         public void ApplyResolution()
         {

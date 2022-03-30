@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Platform
 {
     /// <summary>
-    /// Classe permettant à une plateforme de se déplacer sur une liste de points.
+    /// Classe permettant Ã  une plateforme de se dÃ©placer sur une liste de points.
     /// </summary>
     public class Movement : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace Platform
         /// </value>
         [SerializeField] private GameObject[] pos;
         /// <value>
-        /// Plateforme à déplacer.
+        /// Plateforme Ã  dÃ©placer.
         /// </value>
         [SerializeField] private GameObject platform;
         /// <value>
@@ -25,7 +25,7 @@ namespace Platform
         [SerializeField] private float speed = 2f;
 
         /// <summary>
-        /// Fonction exécuté un nombre déterminé de fois par secondes.
+        /// Fonction exÃ©cutÃ© un nombre dÃ©terminÃ© de fois par seconde.
         /// </summary>
         private void FixedUpdate()
         {
@@ -39,7 +39,7 @@ namespace Platform
         }
 
         /// <summary>
-        /// Permet de faire réapparaître la plateforme à son point initial.
+        /// Permet de faire rÃ©apparaÃ®tre la plateforme Ã  son point initial.
         /// </summary>
         public void Respawn()
         {

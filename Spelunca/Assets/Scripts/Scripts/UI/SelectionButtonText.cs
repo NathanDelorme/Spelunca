@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace UI
 {
     /// <summary>
-    /// Classe permettant le fonctionnement du menu qui s'ouvre après la sélection d'un niveau dans la liste des niveaux.
+    /// Classe permettant le fonctionnement du menu qui s'ouvre aprÃ¨s la sÃ©lection d'un niveau dans la liste des niveaux.
     /// </summary>
     public class SelectionButtonText : MonoBehaviour
     {
@@ -20,16 +20,16 @@ namespace UI
         /// </value>
         private Button button => GetComponent<Button>();
         /// <value>
-        /// Texte qui affiche les statistique du niveau sélectionné.
+        /// Texte qui affiche les statistique du niveau sÃ©lectionnÃ©.
         /// </value>
         public StatsLevelTranslator statsText;
         /// <value>
-        /// Identifiant du niveau sélectionné.
+        /// Identifiant du niveau sÃ©lectionnÃ©.
         /// </value>
         public int levelID = -1;
 
         /// <summary>
-        /// Fonction appelé lorsque le menu est chargé où que l'on change de niveau sélectionné.
+        /// Fonction appelÃ© lorsque le menu est chargÃ© oÃ¹ que l'on change de niveau sÃ©lectionnÃ©.
         /// </summary>
         public void loadMenu()
         {
@@ -41,7 +41,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Fonction appelé juste avant la fermeture de l'application.
+        /// Fonction appelÃ© juste avant la fermeture de l'application.
         /// </summary>
         private void OnApplicationQuit()
         {
@@ -51,7 +51,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Ouvre le niveau sélectionné.
+        /// Ouvre le niveau sÃ©lectionnÃ©.
         /// </summary>
         public void LoadLevel()
         {
@@ -62,8 +62,8 @@ namespace UI
         }
 
         /// <summary>
-        /// Permet le changement de sélection du niveau.
-        /// Si l'on appuis sur le bouton pour prendre le niveau précédent, cette fonction s'assure de rester dans l'interval de niveaux.
+        /// Permet le changement de sÃ©lection du niveau.
+        /// Si l'on appuis sur le bouton pour prendre le niveau prÃ©cÃ©dent, cette fonction s'assure de rester dans l'interval de niveaux.
         /// </summary>
         public void ChangeLevelMenu()
         {
@@ -77,7 +77,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Incrémente de 1 l'identifiant du niveau sélectionné.
+        /// IncrÃ©mente de 1 l'identifiant du niveau sÃ©lectionnÃ©.
         /// </summary>
         public void NextLevel()
         {
@@ -85,7 +85,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Décrémente de 1 l'identifiant du niveau sélectionné.
+        /// DÃ©crÃ©mente de 1 l'identifiant du niveau sÃ©lectionnÃ©.
         /// </summary>
         public void PreviousLevel()
         {

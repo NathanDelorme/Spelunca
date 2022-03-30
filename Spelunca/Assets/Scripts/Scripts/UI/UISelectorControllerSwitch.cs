@@ -4,22 +4,22 @@ using UnityEngine.EventSystems;
 namespace UI
 {
     /// <summary>
-    /// Classe permettant de récupérer le focus malgré le changement entre manette et clavier/souris pour la navigation dans les menus.
+    /// Classe permettant de rÃ©cupÃ©rer le focus malgrÃ© le changement entre manette et clavier/souris pour la navigation dans les menus.
     /// </summary>
     public class UISelectorControllerSwitch : MonoBehaviour, IPointerClickHandler
     {
         /// <value>
-        /// Système qui gère les entrées clavier/souris/manette du joueur.
-        /// Permet de spécifier des paramètres pour la navigation dans les menus.
+        /// SystÃ¨me qui gÃ¨re les entrÃ©es clavier/souris/manette du joueur.
+        /// Permet de spÃ©cifier des paramÃ¨tres pour la navigation dans les menus.
         /// </value>
         private EventSystem eventSystem;
         /// <value>
-        /// Dernier GameObject sélectionné par l'<c>eventSystem</c>.
+        /// Dernier GameObject sÃ©lectionnÃ© par l'<c>eventSystem</c>.
         /// </value>
         private GameObject lastSelectedGO;
 
         /// <summary>
-        /// Fonction appelé lorsque la fenêtre du jeu récupère le focus du joueur.
+        /// Fonction appelÃ© lorsque la fenÃªtre du jeu rÃ©cupÃ¨re le focus du joueur.
         /// </summary>
         /// <param name="focus">Vrai s'il y a le focus. Sinon Faux.</param>
         private void OnApplicationFocus(bool focus)
@@ -29,7 +29,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         public void Start()
         {
@@ -39,14 +39,14 @@ namespace UI
         /// <summary>
         /// Change la selection du curseur du joueur sur le GameObject "selected" si possible.
         /// </summary>
-        /// <param name="selected">GameObject à sélectionner.</param>
+        /// <param name="selected">GameObject Ã  sÃ©lectionner.</param>
         public void ChangeSelected(GameObject selected)
         {
             eventSystem.SetSelectedGameObject(selected);
         }
 
         /// <summary>
-        /// Fonction exécuté à chaque frame.
+        /// Fonction exÃ©cutÃ© Ã  chaque frame.
         /// </summary>
         public void Update()
         {
@@ -55,7 +55,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Si le cursuer ne sélectionne pas de GameObject valide, alors il sélectionne le dernier GameObject valide qui a été selectionné.
+        /// Si le cursuer ne sÃ©lectionne pas de GameObject valide, alors il sÃ©lectionne le dernier GameObject valide qui a Ã©tÃ© selectionnÃ©.
         /// </summary>
         /// <param name="pointerEventData">Event</param>
         public void OnPointerClick(PointerEventData pointerEventData)

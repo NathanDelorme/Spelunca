@@ -11,7 +11,7 @@ namespace Data
     {
         [Header("Movement variables")]
         /// <value>
-        /// Accélération maximum du joueur sur le sol.
+        /// AccÃ©lÃ©ration maximum du joueur sur le sol.
         /// </value>
         public float maxAcceleration = 50f;
         /// <value>
@@ -25,43 +25,43 @@ namespace Data
 
         [Header("Jump variables")]
         /// <value>
-        /// Force appliqué sur le joueur lors du saut.
+        /// Force appliquÃ© sur le joueur lors du saut.
         /// </value>
         public float jumpForce = 12f;
         /// <value>
-        /// Force appliqué sur le joueur lors du wall jump.
+        /// Force appliquÃ© sur le joueur lors du wall jump.
         /// </value>
         public float wallJumpForce = 8f;
         /// <value>
-        /// Durée maximum durant laquelle le joueur peut rester appuyer sur sa touche de saut pour effectuer un saut plus haut.
+        /// DurÃ©e maximum durant laquelle le joueur peut rester appuyer sur sa touche de saut pour effectuer un saut plus haut.
         /// </value>
         public float maxJumpTime = 0.125f;
         /// <value>
-        /// Le coyote time défini le temps durant lequel le joueur peut encore sauté après avoir quitté une plateforme.
+        /// Le coyote time dÃ©fini le temps durant lequel le joueur peut encore sautÃ© aprÃ¨s avoir quittÃ© une plateforme.
         /// </value>
         public float maxCoyoteTime = 0.1f;
 
         [Header("Drag variables")]
         /// <value>
-        /// Friction du sol appliquée sur le joueur lorsqu'il est sur le sol.
+        /// Friction du sol appliquÃ©e sur le joueur lorsqu'il est sur le sol.
         /// </value>
         public float groundLinearDrag = 20f;
         /// <value>
-        /// Friction de l'ai appliquée sur le joueur lorsqu'il est en l'air.
+        /// Friction de l'ai appliquÃ©e sur le joueur lorsqu'il est en l'air.
         /// </value>
         public float airLinearDrag = 2f;
         /// <value>
-        /// Friction murale appliquée sur le joueur lorsqu'il est en train de wall slide.
+        /// Friction murale appliquÃ©e sur le joueur lorsqu'il est en train de wall slide.
         /// </value>
         public float wallLinearDrag = 20f;
 
         [Header("Dash variables")]
         /// <value>
-        /// Force appliqué au joueur lors du dash ?
+        /// Force appliquÃ© au joueur lors du dash ?
         /// </value>
         public float dashForce = 25f;
         /// <value>
-        /// Durée du dash en seconde.
+        /// DurÃ©e du dash en seconde.
         /// </value>
         public float dashTime = 0.07f;
 

@@ -6,21 +6,21 @@ using UnityEngine.UI;
 namespace UI
 {
     /// <summary>
-    /// Classe permettant la gestion des paramètre du son.
+    /// Classe permettant la gestion des paramÃ¨tre du son.
     /// </summary>
     public class SoundUI : MonoBehaviour
     {
         /// <value>
-        /// Objet qui stocke les paramètre du joueur en temps réel.
+        /// Objet qui stocke les paramÃ¨tre du joueur en temps rÃ©el.
         /// </value>
         public SettingsData settingsData;
         /// <value>
-        /// Liste des sliders (sliders pour gérer la musique ou les effets sonores).
+        /// Liste des sliders (sliders pour gÃ©rer la musique ou les effets sonores).
         /// </value>
         public List<Slider> sliders;
 
         /// <summary>
-        /// Fonction appelée lorsque l'object passe de "désactivé" à "activé".
+        /// Fonction appelÃ©e lorsque l'object passe de "dÃ©sactivÃ©" Ã  "activÃ©".
         /// </summary>
         public void OnEnable()
         {
@@ -28,7 +28,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Mets à jour l'interface en fonction des dernière valeurs sauvegardées.
+        /// Met Ã  jour l'interface en fonction des derniÃ¨re valeurs sauvegardÃ©es.
         /// </summary>
         public void UpdateUI()
         {
@@ -37,7 +37,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Change le volume en fonction des valeurs sélectionnées psur les sliders.
+        /// Change le volume en fonction des valeurs sÃ©lectionnÃ©es psur les sliders.
         /// </summary>
         public void ChangeVolume()
         {

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace UI
 {
     /// <summary>
-    /// Permet la transition entre les différents menus du jeu.
+    /// Permet la transition entre les diffÃ©rents menus du jeu.
     /// </summary>
     public class UIScript : MonoBehaviour
     {
@@ -17,7 +17,7 @@ namespace UI
         private GameObject obj;
 
         /// <summary>
-        /// Fonction appelé à chaque fois que le script est chargé.
+        /// Fonction appelÃ© Ã  chaque fois que le script est chargÃ©.
         /// </summary>
         private void Awake()
         {
@@ -34,7 +34,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Désactive le menu qu'on ne souhaite pas afficher.
+        /// DÃ©sactive le menu qu'on ne souhaite pas afficher.
         /// </summary>
         public void Close()
         {

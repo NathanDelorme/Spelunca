@@ -4,18 +4,18 @@ using UnityEngine.EventSystems;
 namespace UI
 {
     /// <summary>
-    /// Classe permettant de sélectionner l'élément de l'UI (User Interface) lors du changement entre deux menus.
+    /// Classe permettant de sÃ©lectionner l'Ã©lÃ©ment de l'UI (User Interface) lors du changement entre deux menus.
     /// </summary>
     public class UIChangeSelected : MonoBehaviour
     {
         /// <value>
-        /// Système qui gère les entrées clavier/souris/manette du joueur.
-        /// Permet de spécifier des paramètres pour la navigation dans les menus.
+        /// SystÃ¨me qui gÃ¨re les entrÃ©es clavier/souris/manette du joueur.
+        /// Permet de spÃ©cifier des paramÃ¨tres pour la navigation dans les menus.
         /// </value>
         private EventSystem eventSystem;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         void Start()
         {
@@ -25,7 +25,7 @@ namespace UI
         /// <summary>
         /// Change la selection du curseur du joueur sur le GameObject "selected" si possible.
         /// </summary>
-        /// <param name="selected">GameObject à sélectionner.</param>
+        /// <param name="selected">GameObject Ã  sÃ©lectionner.</param>
         public void ChangeSelected(GameObject selected)
         {
             eventSystem.SetSelectedGameObject(selected);

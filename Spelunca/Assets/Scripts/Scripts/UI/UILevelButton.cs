@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace UI
 {
     /// <summary>
-    /// Classe permettant le fonctionnement du menu de sélection des niveaux.
+    /// Classe permettant le fonctionnement du menu de sÃ©lection des niveaux.
     /// </summary>
     public class UILevelButton : MonoBehaviour
     {
@@ -17,11 +17,11 @@ namespace UI
         /// </value>
         private string text => GetComponentInChildren<TextMeshProUGUI>().text;
         /// <value>
-        /// Bouton de sélection du niveau.
+        /// Bouton de sÃ©lection du niveau.
         /// </value>
         private Button button => GetComponentInChildren<Button>();
         /// <value>
-        /// Zone de texte dédiée aux statistiques globales du joueur.
+        /// Zone de texte dÃ©diÃ©e aux statistiques globales du joueur.
         /// </value>
         public StatsLevelTranslator stats;
         /// <value>
@@ -30,7 +30,7 @@ namespace UI
         private SelectionButtonText buttonPlay => FindObjectOfType<SelectionButtonText>();
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         public void Start()
         {
@@ -44,7 +44,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Fonction appelée lorsque l'object passe de "désactivé" à "activé".
+        /// Fonction appelÃ©e lorsque l'object passe de "dÃ©sactivÃ©" Ã  "activÃ©".
         /// </summary>
         public void OnEnable()
         {
@@ -55,7 +55,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Ouvre le menu du niveau selectionné.
+        /// Ouvre le menu du niveau selectionnÃ©.
         /// </summary>
         public void LoadLevelSelection()
         {

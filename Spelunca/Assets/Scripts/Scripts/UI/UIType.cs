@@ -1,7 +1,7 @@
 namespace UI
 {
     /// <summary>
-    /// Enumération qui contient les différents types de menus avec lesquels le joueur pourra intéragir.
+    /// EnumÃ©ration qui contient les diffÃ©rents types de menus avec lesquels le joueur pourra intÃ©ragir.
     /// </summary>
     public enum UIType
     {

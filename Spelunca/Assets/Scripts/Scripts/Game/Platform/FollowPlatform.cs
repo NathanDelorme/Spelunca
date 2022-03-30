@@ -8,7 +8,7 @@ namespace Platform
     public class FollowPlatform : MonoBehaviour
     {
         /// <summary>
-        /// Fonction qui se déclenche lorsque la plateforme a une collision avec un autre objet.
+        /// Fonction qui se dÃ©clenche lorsque la plateforme a une collision avec un autre objet.
         /// </summary>
         /// <param name="collision"></param>
         private void OnCollisionEnter2D(Collision2D collision)
@@ -18,7 +18,7 @@ namespace Platform
         }
 
         /// <summary>
-        /// Fonction qui se déclenche lorsque la plateforme sort d'une collision avec un autre objet.
+        /// Fonction qui se dÃ©clenche lorsque la plateforme sort d'une collision avec un autre objet.
         /// </summary>
         /// <param name="collision"></param>
         private void OnCollisionExit2D(Collision2D collision)

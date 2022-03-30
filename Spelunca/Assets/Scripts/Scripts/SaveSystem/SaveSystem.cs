@@ -5,17 +5,17 @@ using UnityEngine;
 namespace SaveSystem
 {
     /// <summary>
-    /// System de sauvegarde des données du joueur (des paramètres plus particulièrement).
+    /// System de sauvegarde des donnÃ©es du joueur (des paramÃ¨tres plus particuliÃ¨rement).
     /// </summary>
     public class SaveSystem : MonoBehaviour
     {
         /// <value>
-        /// Objet qui stocke les paramètre du joueur en temps réel.
+        /// Objet qui stocke les paramÃªtre du joueur en temps rÃ©el.
         /// </value>
         private SettingsData data;
 
         /// <summary>
-        /// Fonction appelé quand le script est chargée.
+        /// Fonction appelÃ© quand le script est chargÃ©e.
         /// </summary>
         public void Awake()
         {
@@ -24,7 +24,7 @@ namespace SaveSystem
         }
 
         /// <summary>
-        /// Fonction appelé juste avant la fermeture totale du jeu.
+        /// Fonction appelÃ© juste avant la fermeture totale du jeu.
         /// </summary>
         public void OnApplicationQuit()
         {
@@ -32,7 +32,7 @@ namespace SaveSystem
         }
 
         /// <summary>
-        /// Fonction permettant de réinitialiser les données du joueur liées aux niveaux.
+        /// Fonction permettant de rÃ©initialiser les donnÃ©es du joueur liÃ©es aux niveaux.
         /// </summary>
         public void resetGameData()
         {
@@ -66,7 +66,7 @@ namespace SaveSystem
         }
 
         /// <summary>
-        /// Fonction qui permet de sauvegarder les données.
+        /// Fonction qui permet de sauvegarder les donnÃ©es.
         /// </summary>
         public void SaveSettings()
         {
@@ -82,7 +82,7 @@ namespace SaveSystem
         }
 
         /// <summary>
-        /// Fonction qui permet de charger les données.
+        /// Fonction qui permet de charger les donnÃ©es.
         /// </summary>
         public void LoadSettings()
         {

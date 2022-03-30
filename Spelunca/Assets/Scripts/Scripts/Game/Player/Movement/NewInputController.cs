@@ -6,19 +6,19 @@ using UnityEngine.InputSystem;
 namespace Player
 {
     /// <summary>
-    /// Cette classe récupère et interprète les inputs du joueur (touches appuyées).
+    /// Cette classe rÃ©cupÃ¨re et interprÃªte les inputs du joueur (touches appuyÃ©es).
     /// Cela permet de savoir ce que le joueur souhaite faire comme actions.
     /// </summary>
     public class NewInputController : MonoBehaviour
     {
         /// <value>
-        /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+        /// Cette propriÃ©tÃ© (<see cref="PlayerState"/>) est un ScriptableObject.
         /// Cet attribut stocke toutes les variables utiles pour savoir ce que le joueur veut faire,
         /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
         /// </value>
         public PlayerState playerState;
         /// <value>
-        /// Cette propriété (<see cref="MovementSettings"/>) est un ScriptableObject.
+        /// Cette propriÃ©tÃ© (<see cref="MovementSettings"/>) est un ScriptableObject.
         /// Cet attribut stocke toutes les variables utiles pour les mouvements (exemple : force du saut ou duration du dash).
         /// </value>
         public MovementSettings movementSettings;
@@ -28,7 +28,7 @@ namespace Player
         private PauseUI pauseUI;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         public void Start()
         {
@@ -37,9 +37,9 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction exécuté lorsque le joueur appuis sur une touche de déplacement.
+        /// Fonction exÃ©cutÃ© lorsque le joueur appuis sur une touche de dÃ©placement.
         /// </summary>
-        /// <param name="context">Informations sur la touches appuyée</param>
+        /// <param name="context">Informations sur la touches appuyÃ©e</param>
         public void OnMovement(InputAction.CallbackContext context)
         {
             if (context.started || context.performed)
@@ -54,9 +54,9 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction exécuté lorsque le joueur appuis sur une touche de saut.
+        /// Fonction exÃ©cutÃ© lorsque le joueur appuis sur une touche de saut.
         /// </summary>
-        /// <param name="context">Informations sur la touches appuyée</param>
+        /// <param name="context">Informations sur la touches appuyÃ©e</param>
         public void OnJump(InputAction.CallbackContext context)
         {
             if (context.started)
@@ -70,9 +70,9 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction exécuté lorsque le joueur appuis sur une touche de dash.
+        /// Fonction exÃ©cutÃ© lorsque le joueur appuis sur une touche de dash.
         /// </summary>
-        /// <param name="context">Informations sur la touches appuyée</param>
+        /// <param name="context">Informations sur la touches appuyÃ©e</param>
         public void OnDash(InputAction.CallbackContext context)
         {
             if (context.started)
@@ -86,9 +86,9 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction exécuté lorsque le joueur appuis sur une touche de mise en pause du jeu.
+        /// Fonction exÃ©cutÃ© lorsque le joueur appuis sur une touche de mise en pause du jeu.
         /// </summary>
-        /// <param name="context">Informations sur la touches appuyée</param>
+        /// <param name="context">Informations sur la touches appuyÃ©e</param>
         public void OnPause(InputAction.CallbackContext context)
         {
             if (context.started)

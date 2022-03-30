@@ -7,37 +7,37 @@ using Data;
 namespace UI
 {
     /// <summary>
-    /// Classe permettant la gestion des paramètre liés à l'écran. (Résolution, plein écran).
+    /// Classe permettant la gestion des paramÃ¨tre liÃ©s Ã  l'Ã©cran. (RÃ©solution, plein Ã©cran).
     /// </summary>
     public class ScreenUI : MonoBehaviour
     {
         /// <value>
-        /// Objet qui stocke les paramètre du joueur en temps réel.
+        /// Objet qui stocke les paramÃ¨tre du joueur en temps rÃ©el.
         /// </value>
         public SettingsData settingsData;
         /// <value>
-        /// Toggle permettant d'activer/désactiver le mode plein écran.
+        /// Toggle permettant d'activer/dÃ©sactiver le mode plein Ã©cran.
         /// </value>
         public Toggle fullscreenToggle;
         /// <value>
-        /// Dropdown menu permettant le changement de la résolution.
+        /// Dropdown menu permettant le changement de la rÃ©solution.
         /// </value>
         public TMP_Dropdown screenResolutionDropdown;
         /// <value>
-        /// Liste des largeurs des résolutions disponibles à la sélection.
+        /// Liste des largeurs des rÃ©solutions disponibles Ã  la sÃ©lection.
         /// </value>
         public List<int> widths = new List<int>() { 1280, 1366, 1600, 1920, 2560, 3840 };
         /// <value>
-        /// Liste des hauteurs des résolutions disponibles à la sélection.
+        /// Liste des hauteurs des rÃ©solutions disponibles Ã  la sÃ©lection.
         /// </value>
         public List<int> heights = new List<int>() { 720, 768, 900, 1080, 1440, 2160 };
         /// <summary>
-        /// Index de l'item sélectionné.
+        /// Index de l'item sÃ©lectionnÃ©.
         /// </summary>
         public int dropdownSelectedValue = 0;
 
         /// <summary>
-        /// Fonction appelée lorsque l'object passe de "désactivé" à "activé".
+        /// Fonction appelÃ©e lorsque l'object passe de "dÃ©sactivÃ©" Ã  "activÃ©".
         /// </summary>
         public void OnEnable()
         {
@@ -45,7 +45,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Applique les paramètre pour mette le jeu en plein écran ou non.
+        /// Applique les paramÃ¨tre pour mette le jeu en plein Ã©cran ou non.
         /// </summary>
         public void ChangeFullscreen()
         {
@@ -53,7 +53,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Mets à jour l'interface en fonction des dernière valeurs sauvegardées.
+        /// Met Ã  jour l'interface en fonction des derniÃ¨re valeurs sauvegardÃ©es.
         /// </summary>
         public void UpdateUI()
         {
@@ -63,7 +63,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Change la résolution de l'écran en fonction de ce qui est sélectionné dans le Dropdown menu <c>screenResolutionDropdown</c>.
+        /// Change la rÃ©solution de l'Ã©cran en fonction de ce qui est sÃ©lectionnÃ© dans le Dropdown menu <c>screenResolutionDropdown</c>.
         /// </summary>
         public void ChangeScreenSize()
         {
@@ -73,7 +73,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Récupère la résolution souhaité en fonction de l'index de l'item sélectionné dans le Dropdown menu <c>screenResolutionDropdown</c>.
+        /// RÃ©cupÃ¨re la rÃ©solution souhaitÃ© en fonction de l'index de l'item sÃ©lectionnÃ© dans le Dropdown menu <c>screenResolutionDropdown</c>.
         /// </summary>
         public void getSelectedValueFromSettings()
         {

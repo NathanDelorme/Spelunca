@@ -5,28 +5,28 @@ using UnityEngine;
 namespace Player
 {
     /// <summary>
-    /// Cette classe est utilisé comme un controlleur pour le joueur.
+    /// Cette classe est utilisÃ© comme un controlleur pour le joueur.
     /// Elle permet d'appliquer les mouvements du joueur en fonction de ce qu'il veut/peut faire.
     /// </summary>
     public class PlayerController : MonoBehaviour
     {
         /// <value>
-        /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+        /// Cette propriÃ©tÃ© (<see cref="PlayerState"/>) est un ScriptableObject.
         /// Cet attribut stocke toutes les variables utiles pour savoir ce que le joueur veut faire,
         /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
         /// </value>
         public PlayerState playerState;
         /// <value>
-        /// Cette propriété (<see cref="MovementSettings"/>) est un ScriptableObject.
+        /// Cette propriÃ©tÃ© (<see cref="MovementSettings"/>) est un ScriptableObject.
         /// Cet attribut stocke toutes les variables utiles pour les mouvements (exemple : force du saut ou duration du dash).
         /// </value>
         public MovementSettings movementSettings;
         /// <value>
-        /// Animator qui permet de définir des variables dans l'animator pour savoir l'animation que le personnage doit executer.
+        /// Animator qui permet de dÃ©finir des variables dans l'animator pour savoir l'animation que le personnage doit executer.
         /// </value>
         private Animator animator;
         ///  <value>
-        ///  RigidBody2D qui permet d'ajouter de la physique à un GameObject.
+        ///  RigidBody2D qui permet d'ajouter de la physique Ã© un GameObject.
         ///  </value>
         private Rigidbody2D _rigidBody;
         ///  <value>
@@ -34,29 +34,29 @@ namespace Player
         ///  </value>
         private SpriteRenderer _sprite;
         ///  <value>
-        ///  Float utilisé comme compteur pour le saut du joueur.
+        ///  Float utilisÃ© comme compteur pour le saut du joueur.
         ///  </value>
         private float _jumpTimeCounter;
         ///  <value>
-        ///  Float utilisé comme compteur pour le wzll jump du joueur.
+        ///  Float utilisÃ© comme compteur pour le wzll jump du joueur.
         ///  </value>
         private float _wallJumpTimeCounter;
         ///  <value>
-        ///  Float utilisé comme compteur pour le dash du joueur.
+        ///  Float utilisÃ© comme compteur pour le dash du joueur.
         ///  </value>
         private float _dashCurrentTimer;
         ///  <value>
-        ///  Vector en 2D qui représente la direction du dash du joueur.
+        ///  Vector en 2D qui reprÃ©sente la direction du dash du joueur.
         ///  </value>
         private Vector2 _dashDirection;
         ///  <value>
-        ///  Variable qui empêche de faire de multiples jumps lors du spam de la touche de saut.
-        ///  Si le joueur arrête d'appuyer sur la touche de saut, automatiquement cette variable sera mise sur Vrai et empechera le joueur de re sauter. 
+        ///  Variable qui empÃªche de faire de multiples jumps lors du spam de la touche de saut.
+        ///  Si le joueur arrÃªte d'appuyer sur la touche de saut, automatiquement cette variable sera mise sur Vrai et empechera le joueur de re sauter. 
         ///  </value>
         private bool jumpStoped = false;
         private bool wallJumpStoped = false;
         /// <value>
-        /// Référence au manager des effets sonores du jeu.
+        /// RÃ©fÃ©rence au manager des effets sonores du jeu.
         /// </value>
         private SFXManager sfxManager;
 
@@ -67,7 +67,7 @@ namespace Player
         public GameObject playerGhost;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// Cette fonction agit comme un constructeur permettant d'initialiser les attributs et effectuer des actions au chargement du script.
         /// </summary>
         private void Start()
@@ -80,7 +80,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction exécuté à chaque frame.
+        /// Fonction exÃ©cutÃ© Ã  chaque frame.
         /// </summary>
         private void Update()
         {
@@ -92,8 +92,8 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction exécuté un nombre déterminer de fois par seconde.
-        /// Execute les fonction nécessaire au déplacement du joueur.
+        /// Fonction exÃ©cutÃ© un nombre dÃ©terminer de fois par seconde.
+        /// Execute les fonction nÃ©cessaire au dÃ©placement du joueur.
         /// </summary>
         private void FixedUpdate()
         {
@@ -140,7 +140,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Change l'animation du joueur qui est joué par l'attribut <c>animator</c>.
+        /// Change l'animation du joueur qui est jouÃ© par l'attribut <c>animator</c>.
         /// </summary>
         private void UpdateAnimations()
         {
@@ -160,7 +160,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Change de sens le sprite du joueur pour le faire regarder à droite ou à gauche.
+        /// Change de sens le sprite du joueur pour le faire regarder Ã  droite ou Ã  gauche.
         /// </summary>
         private void FlipSprite()
         {
@@ -206,7 +206,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction qui applique une force dans la direction opposé au mur pour le wall jump.
+        /// Fonction qui applique une force dans la direction opposÃ© au mur pour le wall jump.
         /// </summary>
         private void WallJump()
         {
@@ -248,8 +248,8 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction qui déplace le joueur dans la direction souhaité <c>playerState.horDir</c>.
-        /// Si le joueur n'est pas sur le sol, alors la friction appliqué au joueur sera différente de celle appliqué s'il était sur le sol.
+        /// Fonction qui dÃ©place le joueur dans la direction souhaitÃ© <c>playerState.horDir</c>.
+        /// Si le joueur n'est pas sur le sol, alors la friction appliquÃ© au joueur sera diffÃ©rente de celle appliquÃ© s'il Ã©tait sur le sol.
         /// </summary>
         private void Move()
         {
@@ -263,7 +263,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction qui applique les différents effets de friction sur le joueur.
+        /// Fonction qui applique les diffÃ©rents effets de friction sur le joueur.
         /// <c>PlayerState.DragType.GROUND</c>, <c>PlayerState.DragType.AIR</c> ou <c>PlayerState.DragType.Wall</c>.
         /// </summary>
         private void ApplyLayerEffect()

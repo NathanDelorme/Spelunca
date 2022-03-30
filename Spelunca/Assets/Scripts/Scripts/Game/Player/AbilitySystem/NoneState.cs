@@ -4,28 +4,28 @@ namespace Ability
 {
     /// <summary>
     /// Etat sans pouvoir.
-    /// Hérite de la classe <see cref="State"/>.
+    /// HÃ©rite de la classe <see cref="State"/>.
     /// </summary>
     public class NoneState : State
     {
         /// <summary>
         /// Constructeur de la classe <see cref="NoneState"/>.
         /// </summary>
-        /// <param name="newSystem">Référence à l'<see cref="AbilitySystem"/> du joueur.</param>
+        /// <param name="newSystem">RÃ©fÃ©rence Ã  l'<see cref="AbilitySystem"/> du joueur.</param>
         public NoneState(AbilitySystem newSystem) : base(newSystem) { }
 
         /// <summary>
-        /// Fonction exécuté à chaque frame.
+        /// Fonction exÃ©cutÃ© Ã  chaque frame.
         /// </summary>
         public override void Update() { }
 
         /// <summary>
-        /// Fonction exécuté un nombre déterminer de fois par secondes.
+        /// Fonction exÃ©cutÃ© un nombre dÃ©terminer de fois par secondes.
         /// </summary>
         public override void FixedUpdate() { }
 
         /// <summary>
-        /// Fonction executé lorsque l'on change d'un état à celui-ci.
+        /// Fonction executÃ© lorsque l'on change d'un Ã©tat Ã  celui-ci.
         /// </summary>
         public override void EnterState()
         {
@@ -33,7 +33,7 @@ namespace Ability
         }
 
         /// <summary>
-        /// Fonction executé lorsque l'on remplace cet état par un autre.
+        /// Fonction executÃ© lorsque l'on remplace cet Ã©tat par un autre.
         /// </summary>
         public override void ExitState() { }
     }

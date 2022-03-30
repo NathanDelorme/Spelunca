@@ -6,7 +6,6 @@
 		<text id="inGame_previousLevel">Precedent</text>
 		<text id="inGame_restartLevel">Rejouer</text>
 		<text id="inGame_nextLevel">Suivant</text>
-		
         <text id="ui_versionText">Version 1.1</text>
         <text id="ui_playButton">Jouer</text>
         <text id="ui_resumeButton">Reprendre</text>
@@ -15,10 +14,8 @@
         <text id="ui_mainMenuButton">Menu principal</text>
         <text id="ui_quitButton">Quitter</text>
         <text id="ui_backButton">Retour</text>
-
         <text id="ui_selectionLevelText">Choix du niveau</text>
 		<text id="ui_resetButton">Effacer progression</text>
-
 		<text id="ui_languageText">Langues</text>
         <text id="ui_soundText">Sons</text>
         <text id="ui_musicText">Musique</text>
@@ -26,11 +23,9 @@
         <text id="ui_screenText">Ecran</text>
         <text id="ui_fullscreenText">Plein ecran</text>
         <text id="ui_resolutionText">Resolution</text>
-
 		<text id="ui_BindingText">Touches</text>
 		<text id="ui_BindingKeyboardText">Clavier</text>
 		<text id="ui_BindingControllerText">Manette</text>
-
         <text id="ui_creditsText">
 Equipe Spelunca
 
@@ -63,7 +58,6 @@ Erell Menguy
 
 Sylvain Chevallier
         </text>
-
         <text id="dialog_Begin">
 Ho Ho Ho mon cher petit-fils, comment vas-tu ?
 
@@ -75,7 +69,6 @@ Des gros poutous partout ton papy d’amour
 
 Papito
         </text>
-
         <text id="dialog_End">
 Vous : Papy tu es ici depuis tout ce temps ?
 
@@ -87,7 +80,6 @@ Mais on fait comment pour remonter ?
 
 Papy : Ca fait des annees que je me le demande...
         </text>
-
         <text id="LEVEL_DEATHS">Nombre de morts : </text>
         <text id="LEVEL_JUMP">Nombre de sauts : </text>
         <text id="LEVEL_FULLTIME">Temps total : </text>
@@ -98,17 +90,11 @@ Papy : Ca fait des annees que je me le demande...
         <text id="ALL_BESTTIME">Meilleur temps : </text>
 		<text id="ALL_BESTRUN">Meilleure run : </text>
     </lang>
-	
-	
-	
-	
-	
     <lang name="EN">
 		<text id="inGame_LevelName">Level</text>
 		<text id="inGame_previousLevel">Previous</text>
 		<text id="inGame_restartLevel">Restart</text>
 		<text id="inGame_nextLevel">Next</text>
-		
         <text id="ui_versionText">Version 1.1</text>
         <text id="ui_playButton">Play</text>
         <text id="ui_mainMenuButton">Main menu</text>
@@ -117,10 +103,8 @@ Papy : Ca fait des annees que je me le demande...
         <text id="ui_creditsButton">Credits</text>
         <text id="ui_quitButton">Quit</text>
         <text id="ui_backButton">Back</text>
-
         <text id="ui_selectionLevelText">Level Selection</text>
 		<text id="ui_resetButton">Clear progression</text>
-
         <text id="ui_languageText">Languages</text>
         <text id="ui_soundText">Sounds</text>
         <text id="ui_musicText">Music</text>
@@ -128,11 +112,9 @@ Papy : Ca fait des annees que je me le demande...
         <text id="ui_screenText">Screen</text>
         <text id="ui_fullscreenText">Fullscreen</text>
         <text id="ui_resolutionText">Resolution</text>
-
 		<text id="ui_BindingText">Keys</text>
 		<text id="ui_BindingKeyboardText">Keyboard</text>
 		<text id="ui_BindingControllerText">Controller</text>
-
         <text id="ui_creditsText">
 Spelunca Team
 
@@ -165,7 +147,6 @@ Erell Menguy
 
 Sylvain Chevallier
         </text>
-
         <text id="dialog_Begin">
 Ho Ho Ho my dear grandson, how are you?
 
@@ -188,7 +169,6 @@ But how do we get back up?
 
 Grandpa: I've been wondering about that for years...
         </text>
-
         <text id="LEVEL_DEATHS">Total deaths : </text>
         <text id="LEVEL_JUMP">Total jumps : </text>
         <text id="LEVEL_FULLTIME">Total time : </text>
@@ -199,20 +179,11 @@ Grandpa: I've been wondering about that for years...
         <text id="ALL_BESTTIME">Best time : </text>
 		<text id="ALL_BESTRUN">Best run : </text>
     </lang>
-	
-	
-	
-	
-	
-	
-	
-	
     <lang name="ES">
 		<text id="inGame_LevelName">Nivel</text>
 		<text id="inGame_previousLevel">Anterior</text>
 		<text id="inGame_restartLevel">Reinicia</text>
 		<text id="inGame_nextLevel">Siguiente</text>
-		
         <text id="ui_versionText">Version 1.1</text>
         <text id="ui_playButton">Jugar</text>
         <text id="ui_mainMenuButton">Menu principal</text>
@@ -220,11 +191,9 @@ Grandpa: I've been wondering about that for years...
         <text id="ui_settingsButton">Opciones</text>
         <text id="ui_creditsButton">Creditos</text>
         <text id="ui_quitButton">Salir</text>
-        <text id="ui_backButton">Atras</text>
-
+		<text id="ui_backButton">Atras</text>
         <text id="ui_selectionLevelText">Seleccion del nivel</text>
 		<text id="ui_resetButton">Suprimir progresion</text>
-
         <text id="ui_languageText">Idiomas</text>
         <text id="ui_soundText">Audio</text>
         <text id="ui_musicText">Musica</text>
@@ -232,11 +201,9 @@ Grandpa: I've been wondering about that for years...
         <text id="ui_screenText">Monitor</text>
         <text id="ui_fullscreenText">Pantalla completa</text>
         <text id="ui_resolutionText">Resolucion</text>
-
 		<text id="ui_BindingText">Teclas</text>
 		<text id="ui_BindingKeyboardText">Teclado</text>
 		<text id="ui_BindingControllerText">Controlador</text>
-
         <text id="ui_creditsText">
 Equipo Spelunca
 
@@ -269,7 +236,6 @@ Erell Menguy
 
 Sylvain Chevallier
         </text>
-
         <text id="dialog_Begin">
 Ho Ho Ho mi querido nieto, ¿como estas?
 
@@ -292,7 +258,6 @@ Pero, ¿como nos levantamos?
 
 Abuelo: Hace anos que me lo pregunto...
         </text>
-
         <text id="LEVEL_DEATHS">Muertes totales : </text>
         <text id="LEVEL_JUMP">Saltos totales : </text>
         <text id="LEVEL_FULLTIME">Tiempo Total : </text>
@@ -303,14 +268,11 @@ Abuelo: Hace anos que me lo pregunto...
         <text id="ALL_BESTTIME">Mejor tiempo : </text>
 		<text id="ALL_BESTRUN">Mejor run : </text>
     </lang>
-
-
 	<lang name="BZ">
 		<text id="inGame_LevelName">Live</text>
 		<text id="inGame_previousLevel">war-gil</text>
 		<text id="inGame_restartLevel">adc’hoari</text>
 		<text id="inGame_nextLevel">da-heul</text>
-
 		<text id="ui_versionText">Doare 1.1</text>
 		<text id="ui_playButton">C'hoari</text>
 		<text id="ui_resumeButton">Adstagañ ganti</text>
@@ -319,10 +281,8 @@ Abuelo: Hace anos que me lo pregunto...
 		<text id="ui_mainMenuButton">Pennlañser</text>
 		<text id="ui_quitButton">Kuitaat</text>
 		<text id="ui_backButton">Distro</text>
-
 		<text id="ui_selectionLevelText">Dibab al liveoù</text>
 		<text id="ui_resetButton">Dilemel araokadur</text>
-
 		<text id="ui_languageText">Yezhoù</text>
 		<text id="ui_soundText">Sonioù</text>
 		<text id="ui_musicText">Sonerezh</text>
@@ -330,11 +290,9 @@ Abuelo: Hace anos que me lo pregunto...
 		<text id="ui_screenText">Skramm</text>
 		<text id="ui_fullscreenText">Skramm leun</text>
 		<text id="ui_resolutionText">Spisterioù</text>
-
 		<text id="ui_BindingText">bouton</text>
 		<text id="ui_BindingKeyboardText">Klavier</text>
 		<text id="ui_BindingControllerText">Lanker</text>
-
 		<text id="ui_creditsText">
 Skilpailh Spelunca
 
@@ -367,7 +325,6 @@ Erell Menguy
 
 Sylvain Chevallier
 		</text>
-
 		<text id="dialog_Begin">
 Arc'hanta mab bihan kaer penaos mañ kont ?
 
@@ -379,7 +336,6 @@ Bouchoù trouz a-berzh da zad kozh,
 
 Papito
 		</text>
-
 		<text id="dialog_End">
 C’hwi: Amañ 'maout abaoe kement a amber ?
 
@@ -391,7 +347,6 @@ Koulskoude, penaos 'vez graet da adpignat ?
 
 Tad-kozh : bloavezhioù zo a n'em c'houlennan ...
 		</text>
-
 		<text id="LEVEL_DEATHS">Niver a dud marv : </text>
 		<text id="LEVEL_JUMP">Niver a lammoù : </text>
 		<text id="LEVEL_FULLTIME">Amzer hollek : </text>

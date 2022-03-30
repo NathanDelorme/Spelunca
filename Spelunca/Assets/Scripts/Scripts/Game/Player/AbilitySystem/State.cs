@@ -1,41 +1,41 @@
 namespace Ability
 {
     /// <summary>
-    /// Classe permettant de définir les méthodes et attribut d'un état du joueur pour l'<see cref="AbilitySystem"/>.
+    /// Classe permettant de dÃ©finir les mÃ©thodes et attribut d'un Ã©tat du joueur pour l'<see cref="AbilitySystem"/>.
     /// </summary>
     public abstract class State
     {
         /// <value>
-        /// Référence vers l'<see cref="AbilitySystem"/> du joueur.
+        /// RÃ©fÃ©rence vers l'<see cref="AbilitySystem"/> du joueur.
         /// </value>
         protected AbilitySystem system;
 
         /// <summary>
         /// Constructeur de la classe <see cref="State"/>.
         /// </summary>
-        /// <param name="newSystem">Référence à l'<see cref="AbilitySystem"/> du joueur.</param>
+        /// <param name="newSystem">RÃ©fÃ©rence Ã  l'<see cref="AbilitySystem"/> du joueur.</param>
         public State(AbilitySystem newSystem)
         {
             system = newSystem;
         }
 
         /// <summary>
-        /// Fonction exécuté à chaque frame.
+        /// Fonction exÃ©cutÃ© Ã  chaque frame.
         /// </summary>
         public virtual void Update() { }
 
         /// <summary>
-        /// Fonction exécuté un nombre déterminer de fois par secondes.
+        /// Fonction exÃ©cutÃ© un nombre dÃ©terminer de fois par secondes.
         /// </summary>
         public virtual void FixedUpdate() { }
 
         /// <summary>
-        /// Fonction executé lorsque l'on change d'un état à celui-ci.
+        /// Fonction executÃ© lorsque l'on change d'un Ã©tat Ã  celui-ci.
         /// </summary>
         public virtual void EnterState() { }
 
         /// <summary>
-        /// Fonction executé lorsque l'on remplace cet état par un autre.
+        /// Fonction executÃ© lorsque l'on remplace cet Ã©tat par un autre.
         /// </summary>
         public virtual void ExitState() { }
     }

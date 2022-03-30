@@ -11,7 +11,7 @@ namespace Language
     public class LevelTranslator : MonoBehaviour
     {
         /// <value>
-        /// Identifiant du texte que l'on recupère dans le fichier XML.
+        /// Identifiant du texte que l'on recupÃ¨re dans le fichier XML.
         /// </value>
         public string textId;
 
@@ -21,7 +21,7 @@ namespace Language
         private TextMeshProUGUI textComponent => GetComponent<TextMeshProUGUI>();
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         void Start()
         {
@@ -30,9 +30,9 @@ namespace Language
         }
 
         /// <summary>
-        /// Permet de changer le texte du composant par la traduction souhaitée.
+        /// Permet de changer le texte du composant par la traduction souhaitÃ©e.
         /// </summary>
-        /// <param name="translatedText">Texte à afficher.</param>
+        /// <param name="translatedText">Texte Ã  afficher.</param>
         public void changeText(string translatedText)
         {
             int levelNb = int.Parse(SceneManager.GetActiveScene().name.Remove(0, 5));

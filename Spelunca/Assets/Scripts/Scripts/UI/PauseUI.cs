@@ -25,7 +25,7 @@ namespace UI
         /// </value>
         public UIScript settingsMenu;
         /// <value>
-        /// Script menu des crédits
+        /// Script menu des crÃ©dits
         /// </value>
         public UIScript creditsMenu;
         /// <value>
@@ -33,8 +33,8 @@ namespace UI
         /// </value>
         public GameObject menu;
         /// <value>
-        /// Système qui gère les entrées clavier/souris/manette du joueur.
-        /// Permet de spécifier des paramètres pour la navigation dans les menus.
+        /// SystÃ¨me qui gÃ¨re les entrÃ©es clavier/souris/manette du joueur.
+        /// Permet de spÃ©cifier des paramÃ¨tres pour la navigation dans les menus.
         /// </value>
         public EventSystem eventSystem;
         /// <value>
@@ -42,12 +42,12 @@ namespace UI
         /// </value>
         private SFXManager sfxManager;
         /// <value>
-        /// Récupération des inputs du joueur.
+        /// RÃ©cupÃ©ration des inputs du joueur.
         /// </value>
         private PlayerInput playerInput;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         public void Start()
         {
@@ -84,7 +84,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Remet le jeu en "Play Mode". Le joueur peut à nouveau se déplacer et jouer.
+        /// Remet le jeu en "Play Mode". Le joueur peut Ã  nouveau se dÃ©placer et jouer.
         /// </summary>
         public void Resume()
         {
@@ -118,7 +118,7 @@ namespace UI
         }
 
         /// <summary>
-        /// Ouvrir le menu crédits et ferme les autres menus.
+        /// Ouvrir le menu crÃ©dits et ferme les autres menus.
         /// </summary>
         public void OpenCredits()
         {

@@ -5,27 +5,27 @@ using UnityEngine;
 namespace Player
 {
     /// <summary>
-    /// Cette classe vérifie ce que le joueur peut faire.
+    /// Cette classe vÃ©rifie ce que le joueur peut faire.
     /// </summary>
     public class NavigationController : MonoBehaviour
     {
         /// <value>
-        /// Cette propriété (<see cref="PlayerState"/>) est un ScriptableObject.
+        /// Cette propriÃ©tÃ© (<see cref="PlayerState"/>) est un ScriptableObject.
         /// Cet attribut stocke toutes les variables utiles pour savoir ce que le joueur veut faire,
         /// ce qu'il peut faire, ainsi que ce qu'il est en train de faire.
         /// </value>
         public PlayerState playerState;
         /// <value>
-        /// Cette propriété (<see cref="MovementSettings"/>) est un ScriptableObject.
+        /// Cette propriÃ©tÃ© (<see cref="MovementSettings"/>) est un ScriptableObject.
         /// Cet attribut stocke toutes les variables utiles pour les mouvements (exemple : force du saut ou duration du dash).
         /// </value>
         public MovementSettings movementSettings;
         ///  <value>
-        ///  RigidBody2D qui permet d'ajouter de la physique à un GameObject.
+        ///  RigidBody2D qui permet d'ajouter de la physique Ã  un GameObject.
         ///  </value>
         private Rigidbody2D _rigidBody;
         /// <value>
-        /// Liste des layers qui doivent être considérés comme le sol.
+        /// Liste des layers qui doivent Ãªtre considÃ©rÃ©s comme le sol.
         /// </value>
         public LayerMask groundLayers;
         /// <value>
@@ -41,20 +41,20 @@ namespace Player
         /// </value>
         public Collider2D wallRightCheckCollider;
         /// <value>
-        /// Float utilisé comme compteur pour le coyote time.
+        /// Float utilisÃ© comme compteur pour le coyote time.
         /// </value>
         private float _coyoteTimeCounter;
         /// <value>
-        /// Float utilisé comme temps maximum avant de pouvoir de nouveau dash après un dash.
+        /// Float utilisÃ© comme temps maximum avant de pouvoir de nouveau dash aprÃ¨s un dash.
         /// </value>
         private float _dashTimeBuffer = 0.05f;
         /// <value>
-        /// Float utilisé comme cooldown avant de pouvoir de nouveau dash après un dash.
+        /// Float utilisÃ© comme cooldown avant de pouvoir de nouveau dash aprÃ¨s un dash.
         /// </value>
         private float _dashTimeBufferCounter;
 
         /// <summary>
-        /// Fonction exécuté avant la première frame du programme, donc avant le premier appel à Update.
+        /// Fonction exÃ©cutÃ© avant la premiÃ¨re frame du programme, donc avant le premier appel Ã  Update.
         /// </summary>
         private void Start()
         {
@@ -62,8 +62,8 @@ namespace Player
         }
 
         /// <summary>
-        /// Fonction exécuté un nombre déterminé de fois par secondes.
-        /// Permet de récupérer si le joueur peut sauter, dash, wall slide ou wall jump.
+        /// Fonction exÃ©cutÃ© un nombre dÃ©terminÃ© de fois par secondes.
+        /// Permet de rÃ©cupÃ©rer si le joueur peut sauter, dash, wall slide ou wall jump.
         /// </summary>
         private void FixedUpdate()
         {
@@ -148,7 +148,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Function qui détecte si le joueur est sur le sol.
+        /// Function qui dÃ©tecte si le joueur est sur le sol.
         /// </summary>
         /// <returns>Vrai si sur le sol, sinon Faux.</returns>
         private bool CheckTouchingGround()
@@ -159,7 +159,7 @@ namespace Player
         }
 
         /// <summary>
-        /// Function qui détecte si le joueur touche un mur.
+        /// Function qui dÃ©tecte si le joueur touche un mur.
         /// </summary>
         /// <returns>Vrai si touche un mur, sinon Faux.</returns>
         private bool CheckTouchingWall()
